@@ -181,13 +181,65 @@ ul.task-list li input[type="checkbox"] {
 <section id="overview-of-attributes" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="overview-of-attributes"><span class="header-section-number">2.1.1</span> Overview of attributes</h3>
 <p>We are using one data source for this project, presented in the research paper <a href="https://doi.org/10.1016/j.dib.2019.104344">Palechor et al.&nbsp;2019</a>, that monitors the physical health of individuals of ages 14 to 61 from the countries of Mexico, Peru and Colombia, based on their eating habits, physical condition and obesity levels. The dataset contains 17 attributes and 2111 records, and it is the biggest (in terms of both the number of rows and columns) dataset that we could find on obesity and physical health. The 17 attributes are as follows:</p>
-<p>Gender Age Height Weight Family history with overweight (family_history_with_overweight) Frequent consumption of high caloric food (FAVC) Frequency of consumption of vegetables (FCVC) Number of main meals (NCP) Consumption of food between meals (CAEC) SMOKE Consumption of water daily (CH2O) Calories consumption monitoring (SCC) Physical activity frequency (FAF) Time using technology devices (TUE) Consumption of alcohol (CALC) Transportation used (MTRANS) Obesity category level (NObeyesdad)</p>
+<ol type="1">
+<li>Gender</li>
+<li>Age</li>
+<li>Height</li>
+<li>Weight</li>
+<li>Family history with overweight (family_history_with_overweight)</li>
+<li>Frequent consumption of high caloric food (FAVC)</li>
+<li>Frequency of consumption of vegetables (FCVC)</li>
+<li>Number of main meals (NCP)</li>
+<li>Consumption of food between meals (CAEC)</li>
+<li>SMOKE</li>
+<li>Consumption of water daily (CH2O)</li>
+<li>Calories consumption monitoring (SCC)</li>
+<li>Physical activity frequency (FAF)</li>
+<li>Time using technology devices (TUE)</li>
+<li>Consumption of alcohol (CALC)</li>
+<li>Transportation used (MTRANS)</li>
+<li>Obesity category level (NObeyesdad)</li>
+</ol>
 </section>
 <section id="dealing-with-class-imbalance" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="dealing-with-class-imbalance"><span class="header-section-number">2.1.2</span> Dealing with class imbalance</h3>
-<p>485 rows (or 23%) of this data was collected using an online survey that was made available online for a period of 30 days (exact dates not specified), and the researchers generated the remaining 77% synthetically in order to balance out the categories of obesity levels. It is understandable that the researchers had to generate synthetic data as the categories naturally will suffer from a huge imbalance favoring people of normal weight. Obesity levels are calculated based on the person’s Body Mass Index (BMI), given by the following formula <span class="math inline">\(\frac{weight}{height*height}\)</span>. The categories of the obesity level are fixed by the World Health Organization, as follows: Underweight Less than 18.5 Normal 18.5 to 24.9 Overweight 25.0 to 29.9 Obesity I 30.0 to 34.9 Obesity II 35.0 to 39.9 Obesity III Higher than 40</p>
+<p>485 rows (or 23%) of this data was collected using an online survey that was made available online for a period of 30 days (exact dates not specified), and the researchers generated the remaining 77% synthetically in order to balance out the categories of obesity levels. It is understandable that the researchers had to generate synthetic data as the categories naturally will suffer from a huge imbalance favoring people of normal weight. Obesity levels are calculated based on the person’s Body Mass Index (BMI), given by the following formula <span class="math inline">\(\frac{weight}{height*height}\)</span>. The categories of the obesity level are fixed by the World Health Organization, as follows:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Obesity level category</th>
+<th style="text-align: center;">BMI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Underweight</td>
+<td style="text-align: center;">Less than 18.5</td>
+</tr>
+<tr class="even">
+<td>Normal</td>
+<td style="text-align: center;">18.5 to 24.9</td>
+</tr>
+<tr class="odd">
+<td>Overweight</td>
+<td style="text-align: center;">25.0 to 29.9</td>
+</tr>
+<tr class="even">
+<td>Obesity I</td>
+<td style="text-align: center;">30.0 to 34.9</td>
+</tr>
+<tr class="odd">
+<td>Obesity II</td>
+<td style="text-align: center;">35.0 to 39.9</td>
+</tr>
+<tr class="even">
+<td>Obesity III</td>
+<td style="text-align: center;">Higher than 40</td>
+</tr>
+</tbody>
+</table>
 <p>A person’s BMI is normally distributed, which explains why there are many more instances of people in a healthy health range as compared to other obesity level categories. By synthesizing more data for minority categories, the researchers pre-empt the fact that class imbalances will cause learning problems in the data mining methods and also difficulties when doing exploratory data analysis on this dataset. The researchers used an advanced technique to generate this data, the Synthetic Minority Oversampling TEchnique (SMOTE) technique developed by <a href="https://doi.org/10.1613/jair.953">Chawla et. al 2002</a> has shown to achieve superior results on classification tasks as compared to the typical method of simply oversampling minorities as it generates new synthetic minority data using the k-nearest neighbors machine learning algorithm. The SMOTE algorithm that was described in the paper can also be found in the Annex, Chapter 6 of this report.</p>
-<p>[!obesity-balanced.png] [!obesity-imbalance.png]</p>
+<p><img src="obesity-balanced.png" class="img-fluid" alt="Balanced"> <img src="obesity-imbalance.png" class="img-fluid" alt="Unbalanced"></p>
 <p>These are the reasons why our team chose this obesity dataset in particular: it not only provides a large range of metrics associated with a person’s health that are generally correlated with obesity for us to analyze, but also addresses class imbalances in a reliable way.</p>
 <p>We plan to import the data directly into RStudio using the readfile function.</p>
 </section>
@@ -206,6 +258,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="missing-value-analysis" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
 <p>The data has been preprocessed by Palechor et al.&nbsp;prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in <a href="https://doi.org/10.1016/j.dib.2019.104344">their paper</a>, but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g.&nbsp;using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.</p>
+<style>
+    body {
+        text-align: justify
+    }
+</style>
 
 
 </section>
