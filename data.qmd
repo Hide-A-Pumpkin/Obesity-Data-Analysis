@@ -4,23 +4,23 @@
 ### Overview of attributes
 We are using one data source for this project, presented in the research paper [Palechor et al. 2019](https://doi.org/10.1016/j.dib.2019.104344), that monitors the physical health of individuals of ages 14 to 61 from the countries of Mexico, Peru and Colombia, based on their eating habits, physical condition and obesity levels. The dataset contains 17 attributes and 2111 records, and it is the biggest (in terms of both the number of rows and columns) dataset that we could find on obesity and physical health. The 17 attributes are as follows:
 
-Gender
-Age
-Height
-Weight
-Family history with overweight (family_history_with_overweight)
-Frequent consumption of high caloric food (FAVC)
-Frequency of consumption of vegetables (FCVC)
-Number of main meals (NCP)
-Consumption of food between meals (CAEC)
-SMOKE
-Consumption of water daily (CH2O)
-Calories consumption monitoring (SCC)
-Physical activity frequency (FAF)
-Time using technology devices (TUE)
-Consumption of alcohol (CALC)
-Transportation used (MTRANS)
-Obesity category level (NObeyesdad)
+1. Gender
+2. Age
+3. Height
+4. Weight
+5. Family history with overweight (family_history_with_overweight)
+6. Frequent consumption of high caloric food (FAVC)
+7. Frequency of consumption of vegetables (FCVC)
+8. Number of main meals (NCP)
+9. Consumption of food between meals (CAEC)
+10. SMOKE
+11. Consumption of water daily (CH2O)
+12. Calories consumption monitoring (SCC)
+13. Physical activity frequency (FAF)
+14. Time using technology devices (TUE)
+15. Consumption of alcohol (CALC)
+16. Transportation used (MTRANS)
+17. Obesity category level (NObeyesdad)
 
 
 ### Dealing with class imbalance
