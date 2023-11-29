@@ -52,6 +52,11 @@ We included a new 18th attribute, BMI, so as to be able to do a regression analy
 
 ## Research plan
 
+We intend to explore the health factors that are the most correlated with a person's BMI or obesity level and visualize them. In the 17 attributes of our dataset, there are 5 categorical binary variables, 4 multicategorical variables and 8 continuous variables. We intend on using the techniques seen in class, such as scatter plots and boxplots, to explore this dataset.
+
+From these correlations, we will be able to draw some conclusions about the people who are the most at risk of becoming obese.
+
+
 ## Missing value analysis
 The data has been preprocessed by Palechor et al. prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in [their paper](https://doi.org/10.1016/j.dib.2019.104344), but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g. using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.  
 

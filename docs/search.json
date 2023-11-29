@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Obesity Data Analysis",
+    "section": "",
+    "text": "1 Introduction\nObesity is an escalating global pandemic that has taken over many countries in the world. Overweight and obesity are the fifth leading risk for global deaths, and a leading preventable cause of death (only second to smoking in the US).\nWith more than 40% of Americans being obese, our team was outraged by the scale of this problem. Being obese not only has detrimental effects on a person’s health, it also drastically impacts their self-confidence and self-image. While great efforts have been made by body positivity activists to encourage people to embrace their appearances regardless of their size, it is undeniable that people who are overweight still face a great deal of prejudice and inconveniences in their daily lives that can be easily resolved, if only they were able to lose weight by leading a healthier lifestyle.\nIn order to tackle this problem, we seek to understand what health and physical factors are typically associated with obesity. This will be useful to the community in two ways: 1. Empower overweight individuals by allowing them to understand what factors might have contributed to or have been caused by their weight. 2. Increase general understanding of the problem of obesity such that the non-obese population is more empathetic towards obese individuals."
+  },
+  {
     "objectID": "data.html#description",
     "href": "data.html#description",
     "title": "2  Data",
@@ -11,7 +18,7 @@
     "href": "data.html#research-plan",
     "title": "2  Data",
     "section": "2.2 Research plan",
-    "text": "2.2 Research plan"
+    "text": "2.2 Research plan\nWe intend to explore the health factors that are the most correlated with a person’s BMI or obesity level and visualize them. In the 17 attributes of our dataset, there are 5 categorical binary variables, 4 multicategorical variables and 8 continuous variables. We intend on using the techniques seen in class, such as scatter plots and boxplots, to explore this dataset.\nFrom these correlations, we will be able to draw some conclusions about the people who are the most at risk of becoming obese."
   },
   {
     "objectID": "data.html#missing-value-analysis",
