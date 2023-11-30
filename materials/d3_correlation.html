@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
+<body>
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
-
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
 
 <div id="my_dataviz2"></div>
+</body>
 
 <script>
 
@@ -78,7 +78,6 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
         .append("g")
         .attr("class", "cor")
         .attr("transform", function(d) {
-            console.log(d);
             return "translate(" + x(d.x) + "," + y(d.y) + ")";
         });
 
@@ -189,18 +188,6 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/he
 
   // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function(d) {
-    let xPos = d3.select(this).attr("x")
-    let width = d3.select(this).attr("width")/2
-    let tipPos = +xPos+width
-    let html = d.day
-    console.log('tipPos '+tipPos)
-    d3.select('.chart-tooltip').style("display", null)
-
-    d3.select('.chart-tooltip')
-    .style("left", tipPos + "px")
-    .style("top",  30 + "px")
-      .html(html)
-
     tooltip
       .style("opacity", 1)
     d3.select(this)
@@ -210,8 +197,8 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/he
   var mousemove = function(d) {
     tooltip
       .html("The exact value of<br>this cell is: " + d.value)
-      .style("left", (d3.mouse(this)[0]-370) + "px")
-      .style("top", (d3.mouse(this)[1]-400) + "px")
+      .style("left", (d3.mouse(this)[0]) + "px")
+      .style("top", (d3.mouse(this)[1]+ height+ margin.top + margin.bottom) + "px")
   }
   var mouseleave = function(d) {
     tooltip
@@ -265,10 +252,26 @@ svg_heatmap.append("text")
 
 <style>
   .tooltip {
-    display: inline-block;
-    position: relative;
-    border-bottom: 1px dotted black;
-    cursor: pointer;
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: .875rem;
+    word-wrap: break-word;
+    opacity: 0;
   }
 
 </style>

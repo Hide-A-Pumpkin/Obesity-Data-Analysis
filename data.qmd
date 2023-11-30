@@ -37,8 +37,8 @@ We are using one data source for this project, presented in the research paper [
 
 A person's BMI is normally distributed, which explains why there are many more instances of people in a healthy health range as compared to other obesity level categories. By synthesizing more data for minority categories, the researchers pre-empt the fact that class imbalances will cause learning problems in the data mining methods and also difficulties when doing exploratory data analysis on this dataset. The researchers used an advanced technique to generate this data, the Synthetic Minority Oversampling TEchnique (SMOTE) technique developed by [Chawla et. al 2002](https://doi.org/10.1613/jair.953) has shown to achieve superior results on classification tasks as compared to the typical method of simply oversampling minorities as it generates new synthetic minority data using the k-nearest neighbors machine learning algorithm. The SMOTE algorithm that was described in the paper can also be found in the Annex, Chapter 6 of this report.
 
-![Balanced](obesity-balanced.png)
-![Unbalanced](obesity-imbalance.png)
+![Balanced](materials/obesity-balanced.png)
+![Unbalanced](materials/obesity-imbalance.png)
 
 These are the reasons why our team chose this obesity dataset in particular: it not only provides a large range of metrics associated with a person's health that are generally correlated with obesity for us to analyze, but also addresses class imbalances in a reliable way.
 
@@ -65,7 +65,7 @@ The data has been preprocessed by Palechor et al. prior to applying the SMOTE fi
 library(readr)
 library(ggplot2)
 library(reshape2)
-data<-read_csv("./ObesityDataSet_raw_and_data_sinthetic.csv",show_col_types = FALSE)
+data<-read_csv("materials/ObesityDataSet_raw_and_data_sinthetic.csv",show_col_types = FALSE)
 
 missing_values <- is.na(data)
 

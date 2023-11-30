@@ -273,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>A person’s BMI is normally distributed, which explains why there are many more instances of people in a healthy health range as compared to other obesity level categories. By synthesizing more data for minority categories, the researchers pre-empt the fact that class imbalances will cause learning problems in the data mining methods and also difficulties when doing exploratory data analysis on this dataset. The researchers used an advanced technique to generate this data, the Synthetic Minority Oversampling TEchnique (SMOTE) technique developed by <a href="https://doi.org/10.1613/jair.953">Chawla et. al 2002</a> has shown to achieve superior results on classification tasks as compared to the typical method of simply oversampling minorities as it generates new synthetic minority data using the k-nearest neighbors machine learning algorithm. The SMOTE algorithm that was described in the paper can also be found in the Annex, Chapter 6 of this report.</p>
-<p><img src="obesity-balanced.png" class="img-fluid" alt="Balanced"> <img src="obesity-imbalance.png" class="img-fluid" alt="Unbalanced"></p>
+<p><img src="materials/obesity-balanced.png" class="img-fluid" alt="Balanced"> <img src="materials/obesity-imbalance.png" class="img-fluid" alt="Unbalanced"></p>
 <p>These are the reasons why our team chose this obesity dataset in particular: it not only provides a large range of metrics associated with a person’s health that are generally correlated with obesity for us to analyze, but also addresses class imbalances in a reliable way.</p>
 <p>We plan to import the data directly into RStudio using the readfile function.</p>
 </section>
@@ -300,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"./ObesityDataSet_raw_and_data_sinthetic.csv"</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"materials/ObesityDataSet_raw_and_data_sinthetic.csv"</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>missing_values <span class="ot">&lt;-</span> <span class="fu">is.na</span>(data)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
