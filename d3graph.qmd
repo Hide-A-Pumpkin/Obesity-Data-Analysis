@@ -1,9 +1,9 @@
 # Interactive graph
 
 <style>
-  * {
+  /* * {
     font-family: sans-serif;
-  }
+  } */
 </style> 
 
 <div id="plot">

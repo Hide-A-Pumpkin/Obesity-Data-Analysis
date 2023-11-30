@@ -17,5 +17,3 @@ ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         axis.title = element_blank())
 
-
-md <- missing_data.frame(data)
