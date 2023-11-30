@@ -60,6 +60,27 @@ From these correlations, we will be able to draw some conclusions about the peop
 ## Missing value analysis
 The data has been preprocessed by Palechor et al. prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in [their paper](https://doi.org/10.1016/j.dib.2019.104344), but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g. using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.  
 
+```{r}
+
+library(readr)
+library(ggplot2)
+library(reshape2)
+data<-read_csv("./ObesityDataSet_raw_and_data_sinthetic.csv",show_col_types = FALSE)
+
+missing_values <- is.na(data)
+
+# Reshape data for heatmap
+long_data <- melt(missing_values, varnames = c("Variable", "Observation"))
+
+# Create the heatmap
+ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
+  geom_tile() +
+  scale_fill_manual(values = c("TRUE" = "red", "FALSE" = "lightgreen"), name = "Missing", labels = c("No", "Yes")) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.title = element_blank())
+```
+
 
 <style>
     body {
