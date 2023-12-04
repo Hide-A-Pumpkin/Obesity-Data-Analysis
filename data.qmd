@@ -35,6 +35,8 @@ We are using one data source for this project, presented in the research paper [
 | Obesity II |  35.0 to 39.9      |  
 | Obesity III | Higher than 40      |
 
+
+
 A person's BMI is normally distributed, which explains why there are many more instances of people in a healthy health range as compared to other obesity level categories. By synthesizing more data for minority categories, the researchers pre-empt the fact that class imbalances will cause learning problems in the data mining methods and also difficulties when doing exploratory data analysis on this dataset. The researchers used an advanced technique to generate this data, the Synthetic Minority Oversampling TEchnique (SMOTE) technique developed by [Chawla et. al 2002](https://doi.org/10.1613/jair.953) has shown to achieve superior results on classification tasks as compared to the typical method of simply oversampling minorities as it generates new synthetic minority data using the k-nearest neighbors machine learning algorithm. The SMOTE algorithm that was described in the paper can also be found in the Annex, Chapter 6 of this report.
 
 ![Balanced](materials/obesity-balanced.png)

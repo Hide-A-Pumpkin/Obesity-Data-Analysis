@@ -5,8 +5,3 @@ With [more than 40% of Americans being obese](https://www.cdc.gov/obesity/data/a
 
 In order to tackle this problem, we seek to understand what health and physical factors are typically associated with obesity. This will be useful to the community in two ways: 1. Empower overweight individuals by allowing them to understand what factors might have contributed to or have been caused by their weight. 2. Increase general understanding of the problem of obesity such that the non-obese population is more empathetic towards obese individuals.
 
-<style>
-    body {
-        text-align: justify
-    }
-</style>
