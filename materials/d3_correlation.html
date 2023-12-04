@@ -7,6 +7,8 @@
 <div id="my_dataviz"></div>
 
 <div id="my_dataviz2"></div>
+
+<div id="my_dataviz3" style="display: none;"></div>
 </body>
 
 <script>
@@ -28,9 +30,7 @@ var svg = d3.select("#my_dataviz")
 
 
     // Load the CSV file
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_correlogram.csv",function(error, rows) {
-
-    console.log(rows);
+d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_correlogram.csv",function(rows) {
     var data = [];
     rows.forEach(function(d) {
         var x = d[""];
@@ -245,6 +245,37 @@ svg_heatmap.append("text")
         .style("fill", "grey")
         .style("max-width", 400)
         .text("A short description of the take-away message of this chart.");
+
+
+
+
+// var svg_hex = d3.select("#my_dataviz3")
+// .append("svg")
+//   .attr("width", width + margin.left + margin.right)
+//   .attr("height", height + margin.top + margin.bottom)
+// .append("g")
+//   .attr("transform",
+//         "translate(" +margin.left + "," +margin.top + ")");
+
+
+// // Hexbin setup
+// var hexbin = d3.hexbin()
+//     .radius(20)
+//     .extent([[0, 0], [width, height]]);
+
+// // Color scale
+// var colorScale = d3.scaleSequential(d3.interpolateViridis)
+//     .domain([0, d3.max(data, function(d) { return d.value; })]);
+
+// // Draw hexagons
+// svg_hex.append("g")
+//   .selectAll(".hexagon")
+//   .data(hexbin(data))
+//   .enter().append("path")
+//     .attr("class", "hexagon")
+//     .attr("d", hexbin.hexagon())
+//     .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+//     .attr("fill", function(d) { return colorScale(d.length); });
 
 
 
