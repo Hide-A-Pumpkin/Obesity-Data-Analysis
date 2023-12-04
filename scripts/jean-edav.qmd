@@ -1,0 +1,138 @@
+```{r,fig.height=6, fig.width=10}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(stats)
+
+data <- read_csv('CleanObesityDataSet.csv',show_col_types = FALSE)
+
+data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "CALC", "TUE")]
+
+
+
+data_pca
+```
+
+```{r}
+data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
+
+library(forcats)
+
+data_mosaic$family_history_with_overweight <- fct_rev(data_mosaic$family_history_with_overweight)
+
+
+# Create a contingency table
+contingency_table <- table(data_mosaic$Gender, data_mosaic$IsOverweight)
+
+# Create a mosaic plot
+png("mosaic_FamHistory_IsOverweight.png")
+
+mosaicplot(contingency_table, main = "Mosaic Plot", xlab = "Family History with Overweight", ylab = "Is Overweight", col = c("pink", "brown"))
+
+dev.off()
+
+```
+
+```{r}
+# Create a mosaic plot for each variable in the table plotted against 'IsOverweight'
+data_mosaic$family_history_with_overweight <- fct_rev(data_mosaic$family_history_with_overweight)
+
+data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
+
+data_mosaic$IsOverweight <- fct_rev(data_mosaic$IsOverweight)
+
+for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
+ png(paste0("mosaic_", var, "_IsOverweight.png"))
+ contingency_table <- table(data_mosaic$IsOverweight, data_mosaic[[var]])
+ mosaicplot(contingency_table, main = paste("Mosaic Plot for", var), xlab = "Is Overweight", ylab = var, col = c("pink", "brown"))
+ dev.off()
+}
+
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("Weight", "BMI")]
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("Weight", "BMI")]
+
+png("biplot_BMI_Weight.png")
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+
+dev.off()
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("Height", "BMI")]
+
+png("biplot_BMI_Height.png")
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+
+dev.off()
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("NCP", "BMI")]
+
+png("biplot_BMI_NCP.png")
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+
+dev.off()
+```
+
+```{r, fig.height = 10, fig.width = 10}
+# Load the required package
+library(ggplot2)
+library(dplyr)
+library(GGally)
+
+
+data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
+
+# Convert all columns to numeric
+data_pca <- sapply(data_pca, as.numeric)
+
+data <- data %>%
+ mutate_if(is.numeric, scale)
+
+
+# Create a scatterplot matrix
+# pairs(data_pca, pch = 19, cex = 0.6, main = "Scatterplot Matrix")
+
+# Open a PNG device
+png("scatterplot_numeric.png")
+
+# Create a scatterplot matrix
+pairs(data_pca, pch = 19, cex = 0.6, main = "Scatterplot Matrix")
+
+# Close the device and save the plot
+dev.off()
+
+```
+
