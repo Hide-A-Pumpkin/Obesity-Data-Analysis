@@ -57,16 +57,12 @@ We are using one data source for this project, presented in the research paper [
 | Obesity II |  35.0 to 39.9      |  
 | Obesity III | Higher than 40      |
 
- 
- 
- 
 
- 
 
 A person's BMI is normally distributed, which explains why there are many more instances of people in a healthy health range as compared to other obesity level categories. By synthesizing more data for minority categories, the researchers pre-empt the fact that class imbalances will cause learning problems in the data mining methods and also difficulties when doing exploratory data analysis on this dataset. The researchers used an advanced technique to generate this data, the Synthetic Minority Oversampling TEchnique (SMOTE) technique developed by [Chawla et. al 2002](https://doi.org/10.1613/jair.953) has shown to achieve superior results on classification tasks as compared to the typical method of simply oversampling minorities as it generates new synthetic minority data using the k-nearest neighbors machine learning algorithm. The SMOTE algorithm that was described in the paper can also be found in the Annex, Chapter 6 of this report.
 
-[!obesity-balanced.png]
-[!obesity-imbalance.png]
+![Balanced](materials/obesity-balanced.png)
+![Unbalanced](materials/obesity-imbalance.png)
 
 These are the reasons why our team chose this obesity dataset in particular: it not only provides a large range of metrics associated with a person's health that are generally correlated with obesity for us to analyze, but also addresses class imbalances in a reliable way.
 
@@ -80,5 +76,38 @@ We included a new 18th attribute, BMI, so as to be able to do a regression analy
 
 ## Research plan
 
+We intend to explore the health factors that are the most correlated with a person's BMI or obesity level and visualize them. In the 17 attributes of our dataset, there are 5 categorical binary variables, 4 multicategorical variables and 8 continuous variables. We intend on using the techniques seen in class, such as scatter plots and boxplots, to explore this dataset.
+
+From these correlations, we will be able to draw some conclusions about the people who are the most at risk of becoming obese.
+
+
 ## Missing value analysis
 The data has been preprocessed by Palechor et al. prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in [their paper](https://doi.org/10.1016/j.dib.2019.104344), but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g. using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.  
+
+```{r}
+
+library(readr)
+library(ggplot2)
+library(reshape2)
+data<-read_csv("materials/ObesityDataSet_raw_and_data_sinthetic.csv",show_col_types = FALSE)
+
+missing_values <- is.na(data)
+
+# Reshape data for heatmap
+long_data <- melt(missing_values, varnames = c("Variable", "Observation"))
+
+# Create the heatmap
+ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
+  geom_tile() +
+  scale_fill_manual(values = c("TRUE" = "red", "FALSE" = "lightgreen"), name = "Missing", labels = c("No", "Yes")) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.title = element_blank())
+```
+
+
+<style>
+    body {
+        text-align: justify
+    }
+</style>
