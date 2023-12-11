@@ -1,0 +1,54 @@
+---
+title: "visualization-mosaic"
+output: html_document
+date: "2023-12-11"
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(vcd)
+
+data <- read_csv('CleanObesityDataSet.csv',show_col_types = FALSE)
+
+data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "CALC", "TUE")]
+```
+
+```{r cars}
+# plot 1 mosaic 3 var
+library(colorspace)
+library(plyr)
+library("dplyr")
+#data_mosaic <- table(data[c("Gender", "family_history_with_overweight", "FAVC", "SCC", "IsOverweight")])
+
+data_mosaic <- data[c("FAVC", "SCC", "IsOverweight")] 
+
+data_mosaic <- dplyr::count_(data_mosaic,vars = c("FAVC", "SCC", "IsOverweight"))
+
+colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Freq"
+
+# colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Frequent consumption of high calories (FAVC)"
+
+data_mosaic
+
+subs_pal <- colorspace::qualitative_hcl(2)
+
+data_mosaic$IsOverweight <- fct_rev(as.character(data_mosaic$IsOverweight))
+
+png("1_mosaic_favc-scc-overweight.png")
+
+mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"), xlab ="Test")
+
+
+# mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"), ylab = "Frequent consumption of high caloric food (FAVC)", main = "Frequent consumption of high calories (FAVC) \n vs Calories consumption monitoring (SCC) vs IsOverweight") 
+
+dev.off()
+
+
+```
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```

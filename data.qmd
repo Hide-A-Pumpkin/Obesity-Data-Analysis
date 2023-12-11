@@ -4,6 +4,27 @@
 ### Overview of attributes
 We are using one data source for this project, presented in the research paper [Palechor et al. 2019](https://doi.org/10.1016/j.dib.2019.104344), that monitors the physical health of individuals of ages 14 to 61 from the countries of Mexico, Peru and Colombia, based on their eating habits, physical condition and obesity levels. The dataset contains 17 attributes and 2111 records, and it is the biggest (in terms of both the number of rows and columns) dataset that we could find on obesity and physical health. The 17 attributes are as follows:
 
+| Index | Variable                                                        | Type        | Subtype    |
+|-------|-----------------------------------------------------------------|-------------|------------|
+| 1     | Gender                                                          | Categorical | Nominal    |
+| 2     | Age                                                             | Numerical   | Discrete   |
+| 3     | Height                                                          | Numerical   | Continuous |
+| 4     | Weight                                                          | Numerical   | Continuous |
+| 5     | Family history with overweight (family_history_with_overweight) | Categorical | Binary     |
+| 6     | Frequent consumption of high caloric food (FAVC)                | Categorical | Binary     |
+| 7     | Frequency of consumption of vegetables (FCVC)                   | Numerical   | Discrete   |
+| 8     | Number of main meals (NCP)                                      | Numerical   | Discrete   |
+| 9     | Consumption of food between meals (CAEC)                        | Categorical | Ordinal    |
+| 10    | SMOKE                                                           | Categorical | Binary     |
+| 11    | Consumption of water daily (CH2O)                               | Numerical   | Discrete   |
+| 12    | Calories consumption monitoring (SCC)                           | Categorical | Binary     |
+| 13    | Physical activity frequency (FAF)                               | Numerical   | Discrete   |
+| 14    | Time using technology devices (TUE)                             | Numerical   | Discrete   |
+| 15    | Consumption of alcohol (CALC)                                   | Categorical | Ordinal    |
+| 16    | Transportation used (MTRANS)                                    | Categorial  | Nominal    |
+| 17    | Obesity category level (NObeyesdad)                             | Categorical | Ordinal    |
+
+<!--
 1. Gender
 2. Age
 3. Height
@@ -21,6 +42,7 @@ We are using one data source for this project, presented in the research paper [
 15. Consumption of alcohol (CALC)
 16. Transportation used (MTRANS)
 17. Obesity category level (NObeyesdad)
+-->
 
 
 ### Dealing with class imbalance
