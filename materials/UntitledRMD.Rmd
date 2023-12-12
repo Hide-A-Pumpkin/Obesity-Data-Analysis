@@ -1,0 +1,145 @@
+---
+title: "visualization-mosaic"
+output: html_document
+date: "2023-12-11"
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(vcd)
+
+data <- read_csv('../scripts/CleanObesityDataSet.csv',show_col_types = FALSE)
+
+data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "CALC", "TUE")]
+```
+
+```{r boxplot}
+library(ggplot2)
+p <- ggplot(data, aes(x=BMI)) + 
+  geom_boxplot(fill = "lightblue", color = "black") + 
+    coord_cartesian(ylim = c(-2, 2)) +  
+  labs(title = "Boxplot of BMI across all individuals")
+
+#, x = "Variable", y = "Data Value")
+png("2_boxplot_bmi.png")
+p
+dev.off()
+
+# Rotate the box plot
+
+AvgVisits <- data$BMI
+#b1 <- boxplot(AvgVisits)
+stats = fivenum(AvgVisits)
+
+stats
+
+```
+```{r histogram}
+library(ggplot2)
+# ggplot(data = data, aes(x = Height)) + geom_histogram(binwidth = 0.02)
+
+library(ggplot2)
+library(gridExtra)
+png("3_histograms.png")
+plot1 <- ggplot(data = data, aes(x = Height)) + geom_histogram(binwidth = 0.02)
+plot2 <- ggplot(data = data, aes(x = Weight)) + geom_histogram(binwidth = 2)
+plot3 <- ggplot(data = data, aes(x = BMI)) + geom_histogram(binwidth = 1)
+grid.arrange(plot1, plot2, plot3, ncol = 3)
+dev.off()
+```
+```{r shapiro tests}
+data$BMI <- as.numeric(data$BMI)
+shapiro.test(data$BMI)
+```
+```{r qqplot}
+png("4_QQ_BMI.png")
+data$BMI <- as.numeric(data$BMI)
+qqnorm(data$BMI, cex = 0.1, main = "Q-Q Plot of BMI")
+qqline(data$BMI, col ="navy",lty=2)
+dev.off()
+```
+
+```{r alluvial diagrams}
+library(ggalluvial) 
+library(dplyr)
+
+
+data_alluvial <- data[c("Age", "NObeyesdad", "NCP", "CH2O", "FAF", "CALC", "TUE")]
+
+data_alluvial$CH2O <- as.numeric(data_alluvial$CH2O)
+data_alluvial$CH2O <- round(data_alluvial$CH2O)
+data_alluvial$NCP <- as.numeric(data_alluvial$NCP)
+data_alluvial$NCP <- round(data_alluvial$NCP)
+
+
+data_alluvial <- data_alluvial %>%
+ mutate(Obesity_Category = case_when(
+   NObeyesdad %in% c("Overweight_Level_I", "Overweight_Level_II") ~ "Overweight",
+   NObeyesdad %in% c("Obesity_Type_I", "Obesity_Type_II") ~ "Obese",
+   NObeyesdad == "Normal_Weight" ~ "Normal",
+   NObeyesdad == "Insufficient_Weight" ~ "Underweight"
+ ))
+
+
+data_alluvial <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "NCP", "CH2O"))
+
+colnames(data_alluvial)[colnames(data_alluvial) == "n"] <- "Freq"
+
+data_alluvial$Obesity_Category <- factor(data_alluvial$Obesity_Category, levels = c("Underweight", "Normal", "Overweight", "Obese"))
+
+data_alluvial
+
+# png("5_alluvial.png")
+ggplot(as.data.frame(data_alluvial), aes(y = Freq, axis1 = Obesity_Category, axis2 = NCP, axis3 = CH2O)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
+#  layout(margin = list(b = 90) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Dietary and exercise habits of the population") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+# dev.off()
+```
+
+```{r mosaic}
+# plot 1 mosaic 3 var
+library(colorspace)
+library(plyr)
+library("dplyr")
+#data_mosaic <- table(data[c("Gender", "family_history_with_overweight", "FAVC", "SCC", "IsOverweight")])
+
+data_mosaic <- data[c("FAVC", "SCC", "IsOverweight")] 
+
+data_mosaic <- dplyr::count_(data_mosaic,vars = c("FAVC", "SCC", "IsOverweight"))
+
+colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Freq"
+
+# colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Frequent consumption of high calories (FAVC)"
+
+data_mosaic
+
+subs_pal <- colorspace::qualitative_hcl(2)
+
+data_mosaic$IsOverweight <- fct_rev(as.character(data_mosaic$IsOverweight))
+
+png("1_mosaic_favc-scc-overweight.png")
+
+mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"), xlab ="Test")
+
+
+# mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"), ylab = "Frequent consumption of high caloric food (FAVC)", main = "Frequent consumption of high calories (FAVC) \n vs Calories consumption monitoring (SCC) vs IsOverweight") 
+
+dev.off()
+
+
+```
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
