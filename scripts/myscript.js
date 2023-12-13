@@ -23,7 +23,7 @@ const svg = d3.select('main').select('#plot')
 
   // Parse the Data
 // var data = FileAttachment("transformed_data.csv").csv({typed: true})
-d3.csv("../scripts/transformed_data.csv").then( function(data) {
+d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/main/transformed_data.csv").then( function(data) {
     const color = d3.scaleOrdinal()
       .domain(["insufficient weight","normal weight", "overweight", 'obesity' ])
       .range([ "#440154", "#21908d", "#fde725",'orange'])
