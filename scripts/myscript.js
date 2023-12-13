@@ -3,7 +3,7 @@ const margin = {top: 30, right: 250, bottom: 10, left: 50},
   height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-const svg = d3.select("#my_dataviz")
+const svg = d3.select('main').select('#plot')
 .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
