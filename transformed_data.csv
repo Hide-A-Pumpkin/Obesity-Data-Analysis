@@ -1,259 +1,259 @@
 Age,CAEC,Height,Gender,Weight,NObeyesdad
-21.0,0.0,1.62,1,64.0,normal weight
-21.0,0.0,1.52,1,56.0,normal weight
-23.0,0.0,1.8,0,77.0,normal weight
+21.0,0.0,1.62,1,64.0,normal_weight
+21.0,0.0,1.52,1,56.0,normal_weight
+23.0,0.0,1.8,0,77.0,normal_weight
 27.0,0.0,1.8,0,87.0,overweight
 22.0,0.0,1.78,0,89.8,overweight
-29.0,0.0,1.62,0,53.0,normal weight
-23.0,0.0,1.5,1,55.0,normal weight
-22.0,0.0,1.64,0,53.0,normal weight
-24.0,0.0,1.78,0,64.0,normal weight
-22.0,0.0,1.72,0,68.0,normal weight
+29.0,0.0,1.62,0,53.0,normal_weight
+23.0,0.0,1.5,1,55.0,normal_weight
+22.0,0.0,1.64,0,53.0,normal_weight
+24.0,0.0,1.78,0,64.0,normal_weight
+22.0,0.0,1.72,0,68.0,normal_weight
 26.0,1.0,1.85,0,105.0,obesity
 21.0,1.0,1.72,1,80.0,overweight
-22.0,0.0,1.65,0,56.0,normal weight
+22.0,0.0,1.65,0,56.0,normal_weight
 41.0,0.0,1.8,0,99.0,obesity
-23.0,0.0,1.77,0,60.0,normal weight
-22.0,2.0,1.7,1,66.0,normal weight
+23.0,0.0,1.77,0,60.0,normal_weight
+22.0,2.0,1.7,1,66.0,normal_weight
 27.0,0.0,1.93,0,102.0,overweight
 29.0,0.0,1.53,1,78.0,obesity
 30.0,1.0,1.71,1,82.0,overweight
 23.0,0.0,1.65,1,70.0,overweight
 22.0,0.0,1.65,0,80.0,overweight
 52.0,0.0,1.69,1,87.0,obesity
-22.0,0.0,1.65,1,60.0,normal weight
+22.0,0.0,1.65,1,60.0,normal_weight
 22.0,0.0,1.6,1,82.0,obesity
-21.0,0.0,1.85,0,68.0,normal weight
-20.0,1.0,1.6,0,50.0,normal weight
-21.0,1.0,1.7,0,65.0,normal weight
-23.0,1.0,1.6,1,52.0,normal weight
-19.0,0.0,1.75,0,76.0,normal weight
-23.0,0.0,1.68,0,70.0,normal weight
+21.0,0.0,1.85,0,68.0,normal_weight
+20.0,1.0,1.6,0,50.0,normal_weight
+21.0,1.0,1.7,0,65.0,normal_weight
+23.0,1.0,1.6,1,52.0,normal_weight
+19.0,0.0,1.75,0,76.0,normal_weight
+23.0,0.0,1.68,0,70.0,normal_weight
 29.0,1.0,1.77,0,83.0,overweight
 31.0,0.0,1.58,1,68.0,overweight
-24.0,0.0,1.77,1,76.0,normal weight
+24.0,0.0,1.77,1,76.0,normal_weight
 39.0,0.0,1.79,0,90.0,overweight
-22.0,1.0,1.65,0,62.0,normal weight
+22.0,1.0,1.65,0,62.0,normal_weight
 21.0,0.0,1.5,1,65.0,overweight
-22.0,0.0,1.56,1,49.0,normal weight
-21.0,0.0,1.6,1,48.0,normal weight
-23.0,0.0,1.65,0,67.0,normal weight
+22.0,0.0,1.56,1,49.0,normal_weight
+21.0,0.0,1.6,1,48.0,normal_weight
+23.0,0.0,1.65,0,67.0,normal_weight
 21.0,0.0,1.75,1,88.0,overweight
 21.0,0.0,1.67,1,75.0,overweight
-23.0,1.0,1.68,0,60.0,normal weight
-21.0,0.0,1.66,1,64.0,normal weight
-21.0,0.0,1.66,0,62.0,normal weight
-21.0,,1.81,0,80.0,normal weight
+23.0,1.0,1.68,0,60.0,normal_weight
+21.0,0.0,1.66,1,64.0,normal_weight
+21.0,0.0,1.66,0,62.0,normal_weight
+21.0,,1.81,0,80.0,normal_weight
 21.0,0.0,1.53,1,65.0,overweight
-21.0,1.0,1.82,0,72.0,normal weight
-21.0,1.0,1.75,0,72.0,normal weight
-20.0,0.0,1.66,1,60.0,normal weight
-21.0,0.0,1.55,1,50.0,normal weight
-21.0,0.0,1.61,1,54.5,normal weight
-20.0,0.0,1.5,1,44.0,normal weight
-23.0,0.0,1.64,1,52.0,normal weight
-23.0,,1.63,1,55.0,normal weight
-22.0,2.0,1.6,1,55.0,normal weight
-23.0,1.0,1.68,0,62.0,normal weight
-22.0,0.0,1.7,0,70.0,normal weight
-21.0,0.0,1.64,0,65.0,normal weight
-17.0,0.0,1.65,1,67.0,normal weight
-20.0,0.0,1.76,0,55.0,insufficient weight
-21.0,0.0,1.55,1,49.0,normal weight
-20.0,0.0,1.65,0,58.0,normal weight
-22.0,,1.67,0,62.0,normal weight
-22.0,0.0,1.68,0,55.0,normal weight
-21.0,1.0,1.66,1,57.0,normal weight
+21.0,1.0,1.82,0,72.0,normal_weight
+21.0,1.0,1.75,0,72.0,normal_weight
+20.0,0.0,1.66,1,60.0,normal_weight
+21.0,0.0,1.55,1,50.0,normal_weight
+21.0,0.0,1.61,1,54.5,normal_weight
+20.0,0.0,1.5,1,44.0,normal_weight
+23.0,0.0,1.64,1,52.0,normal_weight
+23.0,,1.63,1,55.0,normal_weight
+22.0,2.0,1.6,1,55.0,normal_weight
+23.0,1.0,1.68,0,62.0,normal_weight
+22.0,0.0,1.7,0,70.0,normal_weight
+21.0,0.0,1.64,0,65.0,normal_weight
+17.0,0.0,1.65,1,67.0,normal_weight
+20.0,0.0,1.76,0,55.0,insufficient_weight
+21.0,0.0,1.55,1,49.0,normal_weight
+20.0,0.0,1.65,0,58.0,normal_weight
+22.0,,1.67,0,62.0,normal_weight
+22.0,0.0,1.68,0,55.0,normal_weight
+21.0,1.0,1.66,1,57.0,normal_weight
 21.0,1.0,1.62,1,69.0,overweight
 23.0,2.0,1.8,0,90.0,overweight
 23.0,2.0,1.65,0,95.0,obesity
 30.0,,1.76,0,112.0,obesity
-23.0,,1.8,0,60.0,normal weight
+23.0,,1.8,0,60.0,normal_weight
 23.0,2.0,1.65,1,80.0,overweight
-22.0,,1.67,1,50.0,insufficient weight
-24.0,0.0,1.65,1,60.0,normal weight
-19.0,0.0,1.85,0,65.0,normal weight
+22.0,,1.67,1,50.0,insufficient_weight
+24.0,0.0,1.65,1,60.0,normal_weight
+19.0,0.0,1.85,0,65.0,normal_weight
 24.0,1.0,1.7,0,85.0,overweight
-23.0,0.0,1.63,1,45.0,insufficient weight
-24.0,,1.6,1,45.0,insufficient weight
+23.0,0.0,1.63,1,45.0,insufficient_weight
+24.0,,1.6,1,45.0,insufficient_weight
 24.0,0.0,1.7,1,80.0,overweight
 23.0,0.0,1.65,1,90.0,obesity
-23.0,0.0,1.65,0,60.0,normal weight
-19.0,0.0,1.63,1,58.0,normal weight
+23.0,0.0,1.65,0,60.0,normal_weight
+19.0,0.0,1.63,1,58.0,normal_weight
 30.0,1.0,1.8,0,91.0,overweight
 23.0,2.0,1.67,0,85.5,obesity
-19.0,,1.6,1,45.0,insufficient weight
+19.0,,1.6,1,45.0,insufficient_weight
 25.0,1.0,1.7,0,83.0,overweight
-23.0,0.0,1.65,0,58.5,normal weight
-21.0,1.0,1.85,0,83.0,normal weight
+23.0,0.0,1.65,0,58.5,normal_weight
+21.0,1.0,1.85,0,83.0,normal_weight
 19.0,0.0,1.82,0,87.0,overweight
-22.0,1.0,1.65,1,65.0,normal weight
+22.0,1.0,1.65,1,65.0,normal_weight
 29.0,0.0,1.7,1,78.0,overweight
 25.0,2.0,1.63,1,93.0,obesity
-20.0,2.0,1.61,1,64.0,normal weight
+20.0,2.0,1.61,1,64.0,normal_weight
 55.0,1.0,1.78,0,84.0,overweight
-20.0,2.0,1.6,1,57.0,normal weight
-24.0,0.0,1.6,1,48.0,normal weight
-26.0,1.0,1.7,0,70.0,normal weight
-23.0,0.0,1.66,1,60.0,normal weight
-21.0,1.0,1.52,1,42.0,insufficient weight
-21.0,1.0,1.52,1,42.0,insufficient weight
-23.0,0.0,1.72,0,70.0,normal weight
-21.0,0.0,1.69,1,63.0,normal weight
-22.0,1.0,1.7,0,66.4,normal weight
-21.0,1.0,1.55,1,57.0,normal weight
-22.0,1.0,1.65,1,58.0,normal weight
+20.0,2.0,1.6,1,57.0,normal_weight
+24.0,0.0,1.6,1,48.0,normal_weight
+26.0,1.0,1.7,0,70.0,normal_weight
+23.0,0.0,1.66,1,60.0,normal_weight
+21.0,1.0,1.52,1,42.0,insufficient_weight
+21.0,1.0,1.52,1,42.0,insufficient_weight
+23.0,0.0,1.72,0,70.0,normal_weight
+21.0,0.0,1.69,1,63.0,normal_weight
+22.0,1.0,1.7,0,66.4,normal_weight
+21.0,1.0,1.55,1,57.0,normal_weight
+22.0,1.0,1.65,1,58.0,normal_weight
 38.0,0.0,1.56,1,80.0,obesity
-25.0,0.0,1.57,1,55.0,normal weight
-25.0,0.0,1.57,1,55.0,normal weight
+25.0,0.0,1.57,1,55.0,normal_weight
+25.0,0.0,1.57,1,55.0,normal_weight
 22.0,2.0,1.88,0,90.0,overweight
 22.0,0.0,1.75,0,95.0,obesity
 21.0,0.0,1.65,1,88.0,obesity
-21.0,0.0,1.75,0,75.0,normal weight
-22.0,0.0,1.58,1,58.0,normal weight
-18.0,1.0,1.56,1,51.0,normal weight
-22.0,0.0,1.5,1,49.0,normal weight
-19.0,1.0,1.61,1,62.0,normal weight
-17.0,1.0,1.75,1,57.0,normal weight
+21.0,0.0,1.75,0,75.0,normal_weight
+22.0,0.0,1.58,1,58.0,normal_weight
+18.0,1.0,1.56,1,51.0,normal_weight
+22.0,0.0,1.5,1,49.0,normal_weight
+19.0,1.0,1.61,1,62.0,normal_weight
+17.0,1.0,1.75,1,57.0,normal_weight
 15.0,0.0,1.65,1,86.0,obesity
 17.0,1.0,1.7,1,85.0,overweight
-23.0,0.0,1.62,0,53.0,normal weight
+23.0,0.0,1.62,0,53.0,normal_weight
 19.0,1.0,1.63,1,76.0,overweight
 23.0,1.0,1.67,1,75.0,overweight
 23.0,1.0,1.87,0,95.0,overweight
-21.0,1.0,1.75,0,50.0,insufficient weight
-24.0,0.0,1.66,0,67.0,normal weight
+21.0,1.0,1.75,0,50.0,insufficient_weight
+24.0,0.0,1.66,0,67.0,normal_weight
 23.0,0.0,1.76,0,90.0,overweight
 18.0,2.0,1.75,0,80.0,overweight
-19.0,0.0,1.67,0,68.0,normal weight
-19.0,0.0,1.65,1,61.0,normal weight
-20.0,1.0,1.72,0,70.0,normal weight
+19.0,0.0,1.67,0,68.0,normal_weight
+19.0,0.0,1.65,1,61.0,normal_weight
+20.0,1.0,1.72,0,70.0,normal_weight
 27.0,0.0,1.7,0,78.0,overweight
-20.0,1.0,1.58,1,53.0,normal weight
-23.0,0.0,1.62,0,58.0,normal weight
-19.0,1.0,1.65,1,56.0,normal weight
-61.0,2.0,1.65,1,66.0,normal weight
+20.0,1.0,1.58,1,53.0,normal_weight
+23.0,0.0,1.62,0,58.0,normal_weight
+19.0,1.0,1.65,1,56.0,normal_weight
+61.0,2.0,1.65,1,66.0,normal_weight
 30.0,0.0,1.77,0,109.0,obesity
 24.0,0.0,1.7,0,75.0,overweight
-25.0,0.0,1.79,0,72.0,normal weight
+25.0,0.0,1.79,0,72.0,normal_weight
 44.0,0.0,1.6,0,80.0,obesity
-31.0,2.0,1.76,0,75.0,normal weight
-25.0,1.0,1.7,0,68.0,normal weight
-23.0,1.0,1.89,0,65.0,insufficient weight
-25.0,2.0,1.87,0,66.0,normal weight
+31.0,2.0,1.76,0,75.0,normal_weight
+25.0,1.0,1.7,0,68.0,normal_weight
+23.0,1.0,1.89,0,65.0,insufficient_weight
+25.0,2.0,1.87,0,66.0,normal_weight
 23.0,1.0,1.74,0,93.5,obesity
 34.0,0.0,1.68,1,75.0,overweight
 22.0,0.0,1.61,0,67.0,overweight
 21.0,,1.62,0,70.0,overweight
-24.0,1.0,1.56,1,51.0,normal weight
+24.0,1.0,1.56,1,51.0,normal_weight
 36.0,0.0,1.63,1,80.0,obesity
-27.0,2.0,1.6,1,61.0,normal weight
+27.0,2.0,1.6,1,61.0,normal_weight
 32.0,0.0,1.67,1,90.0,obesity
-25.0,0.0,1.78,0,78.0,normal weight
-30.0,0.0,1.62,1,59.0,normal weight
+25.0,0.0,1.78,0,78.0,normal_weight
+30.0,0.0,1.62,1,59.0,normal_weight
 38.0,2.0,1.5,1,60.0,overweight
 34.0,0.0,1.69,0,84.0,overweight
 22.0,0.0,1.74,0,94.0,obesity
-31.0,1.0,1.68,1,63.0,normal weight
-35.0,1.0,1.53,1,45.0,normal weight
-21.0,1.0,1.67,0,60.0,normal weight
+31.0,1.0,1.68,1,63.0,normal_weight
+35.0,1.0,1.53,1,45.0,normal_weight
+21.0,1.0,1.67,0,60.0,normal_weight
 40.0,0.0,1.55,1,62.0,overweight
 27.0,0.0,1.64,0,78.0,overweight
-20.0,0.0,1.83,0,72.0,normal weight
+20.0,0.0,1.83,0,72.0,normal_weight
 55.0,0.0,1.65,0,80.0,overweight
-21.0,2.0,1.63,1,60.0,normal weight
-25.0,1.0,1.89,0,75.0,normal weight
+21.0,2.0,1.63,1,60.0,normal_weight
+25.0,1.0,1.89,0,75.0,normal_weight
 35.0,1.0,1.77,0,85.0,overweight
 30.0,0.0,1.92,0,130.0,obesity
-29.0,2.0,1.74,1,72.0,normal weight
+29.0,2.0,1.74,1,72.0,normal_weight
 20.0,0.0,1.65,0,80.0,overweight
 22.0,0.0,1.73,1,79.0,overweight
 45.0,1.0,1.63,1,77.0,overweight
 22.0,0.0,1.72,0,82.0,overweight
-18.0,1.0,1.6,0,58.0,normal weight
-23.0,0.0,1.65,1,59.0,normal weight
-18.0,0.0,1.74,0,64.0,normal weight
+18.0,1.0,1.6,0,58.0,normal_weight
+23.0,0.0,1.65,1,59.0,normal_weight
+18.0,0.0,1.74,0,64.0,normal_weight
 21.0,,1.62,0,70.0,overweight
-38.0,0.0,1.64,1,59.8,normal weight
-18.0,2.0,1.57,1,48.0,normal weight
-22.0,1.0,1.84,0,84.0,normal weight
-26.0,1.0,1.91,0,84.0,normal weight
+38.0,0.0,1.64,1,59.8,normal_weight
+18.0,2.0,1.57,1,48.0,normal_weight
+22.0,1.0,1.84,0,84.0,normal_weight
+26.0,1.0,1.91,0,84.0,normal_weight
 21.0,,1.62,0,70.0,overweight
-18.0,0.0,1.58,1,48.0,normal weight
-23.0,1.0,1.68,1,67.0,normal weight
-22.0,1.0,1.68,1,52.0,insufficient weight
+18.0,0.0,1.58,1,48.0,normal_weight
+23.0,1.0,1.68,1,67.0,normal_weight
+22.0,1.0,1.68,1,52.0,insufficient_weight
 23.0,0.0,1.48,1,60.0,overweight
 21.0,,1.62,0,70.0,overweight
 31.0,0.0,1.62,1,68.0,overweight
 39.0,0.0,1.78,0,96.0,obesity
 25.0,0.0,1.78,0,98.0,obesity
 35.0,,1.78,0,105.0,obesity
-33.0,0.0,1.63,1,62.0,normal weight
-20.0,0.0,1.6,0,56.0,normal weight
+33.0,0.0,1.63,1,62.0,normal_weight
+20.0,0.0,1.6,0,56.0,normal_weight
 26.0,1.0,1.75,0,80.0,overweight
 20.0,0.0,1.83,0,85.0,overweight
-20.0,1.0,1.78,0,68.0,normal weight
+20.0,1.0,1.78,0,68.0,normal_weight
 23.0,1.0,1.6,1,83.0,obesity
 19.0,0.0,1.8,0,85.0,overweight
-22.0,0.0,1.75,0,74.0,normal weight
+22.0,0.0,1.75,0,74.0,normal_weight
 41.0,0.0,1.75,0,118.0,obesity
-18.0,1.0,1.59,1,40.0,insufficient weight
-23.0,0.0,1.66,1,60.0,normal weight
+18.0,1.0,1.59,1,40.0,insufficient_weight
+23.0,0.0,1.66,1,60.0,normal_weight
 23.0,0.0,1.63,1,83.0,obesity
 41.0,2.0,1.54,1,80.0,obesity
 26.0,0.0,1.56,1,102.0,obesity
 29.0,0.0,1.69,0,90.0,obesity
-27.0,0.0,1.83,0,71.0,normal weight
+27.0,0.0,1.83,0,71.0,normal_weight
 23.0,0.0,1.6,1,78.0,obesity
 19.0,1.0,1.75,0,100.0,obesity
-30.0,,1.75,0,73.0,normal weight
-22.0,0.0,1.69,1,65.0,normal weight
-22.0,0.0,1.69,1,65.0,normal weight
+30.0,,1.75,0,73.0,normal_weight
+22.0,0.0,1.69,1,65.0,normal_weight
+22.0,0.0,1.69,1,65.0,normal_weight
 20.0,1.0,1.8,0,114.0,obesity
-21.0,0.0,1.63,1,51.0,normal weight
+21.0,0.0,1.63,1,51.0,normal_weight
 24.0,0.0,1.5,1,63.0,overweight
-21.0,0.0,1.8,0,62.0,normal weight
-21.0,0.0,1.65,0,53.0,normal weight
-21.0,0.0,1.68,0,70.0,normal weight
-23.0,1.0,1.6,1,63.0,normal weight
+21.0,0.0,1.8,0,62.0,normal_weight
+21.0,0.0,1.65,0,53.0,normal_weight
+21.0,0.0,1.68,0,70.0,normal_weight
+23.0,1.0,1.6,1,63.0,normal_weight
 21.0,1.0,1.71,0,75.0,overweight
-21.0,0.0,1.5,1,42.3,normal weight
+21.0,0.0,1.5,1,42.3,normal_weight
 21.0,0.0,1.6,1,68.0,overweight
 21.0,1.0,1.75,1,78.0,overweight
 23.0,0.0,1.72,0,82.0,overweight
-21.0,2.0,1.72,1,66.5,normal weight
-22.0,1.0,1.61,1,63.0,normal weight
+21.0,2.0,1.72,1,66.5,normal_weight
+22.0,1.0,1.61,1,63.0,normal_weight
 23.0,0.0,1.63,1,82.0,obesity
 25.0,0.0,1.83,0,121.0,obesity
-20.0,0.0,1.6,1,50.0,normal weight
-24.0,0.0,1.62,1,58.0,normal weight
+20.0,0.0,1.6,1,50.0,normal_weight
+24.0,0.0,1.62,1,58.0,normal_weight
 40.0,0.0,1.68,1,80.0,overweight
 32.0,0.0,1.75,0,120.0,obesity
 20.0,0.0,1.9,0,91.0,overweight
-21.0,0.0,1.63,1,66.0,normal weight
-51.0,0.0,1.59,1,50.0,normal weight
+21.0,0.0,1.63,1,66.0,normal_weight
+51.0,0.0,1.59,1,50.0,normal_weight
 34.0,0.0,1.68,1,77.0,overweight
-19.0,,1.59,1,49.0,normal weight
-19.0,,1.69,1,70.0,normal weight
-21.0,2.0,1.66,1,59.0,normal weight
-19.0,0.0,1.64,1,53.0,normal weight
-20.0,0.0,1.62,1,53.0,normal weight
-19.0,,1.7,1,64.0,normal weight
-17.0,0.0,1.63,1,65.0,normal weight
+19.0,,1.59,1,49.0,normal_weight
+19.0,,1.69,1,70.0,normal_weight
+21.0,2.0,1.66,1,59.0,normal_weight
+19.0,0.0,1.64,1,53.0,normal_weight
+20.0,0.0,1.62,1,53.0,normal_weight
+19.0,,1.7,1,64.0,normal_weight
+17.0,0.0,1.63,1,65.0,normal_weight
 22.0,0.0,1.6,0,66.0,overweight
-20.0,2.0,1.63,1,64.0,normal weight
+20.0,2.0,1.63,1,64.0,normal_weight
 33.0,0.0,1.85,0,99.0,overweight
-21.0,0.0,1.54,1,49.0,normal weight
-20.0,0.0,1.64,1,49.0,insufficient weight
-20.0,0.0,1.57,1,60.0,normal weight
-20.0,1.0,1.62,1,52.0,normal weight
-21.0,2.0,1.72,0,72.0,normal weight
+21.0,0.0,1.54,1,49.0,normal_weight
+20.0,0.0,1.64,1,49.0,insufficient_weight
+20.0,0.0,1.57,1,60.0,normal_weight
+20.0,1.0,1.62,1,52.0,normal_weight
+21.0,2.0,1.72,0,72.0,normal_weight
 21.0,0.0,1.76,0,78.0,overweight
 20.0,0.0,1.65,1,75.0,overweight
 20.0,0.0,1.67,0,78.0,overweight
 56.0,0.0,1.79,0,90.0,overweight
-26.0,0.0,1.59,1,47.0,normal weight
-22.0,0.0,1.64,1,56.0,normal weight
+26.0,0.0,1.59,1,47.0,normal_weight
+22.0,0.0,1.64,1,56.0,normal_weight
 19.0,0.0,1.78,0,81.0,overweight
 18.0,0.0,1.75,0,85.0,overweight
 19.0,0.0,1.85,0,115.0,obesity
@@ -261,242 +261,242 @@ Age,CAEC,Height,Gender,Weight,NObeyesdad
 18.0,1.0,1.67,1,91.0,obesity
 21.0,0.0,1.72,0,75.0,overweight
 28.0,1.0,1.7,1,73.0,overweight
-18.0,0.0,1.74,0,70.0,normal weight
-23.0,1.0,1.74,0,53.0,insufficient weight
-18.0,1.0,1.87,0,67.0,normal weight
-18.0,1.0,1.7,0,50.0,insufficient weight
-39.0,1.0,1.65,1,50.0,insufficient weight
+18.0,0.0,1.74,0,70.0,normal_weight
+23.0,1.0,1.74,0,53.0,insufficient_weight
+18.0,1.0,1.87,0,67.0,normal_weight
+18.0,1.0,1.7,0,50.0,insufficient_weight
+39.0,1.0,1.65,1,50.0,insufficient_weight
 38.0,1.0,1.7,0,78.0,overweight
-17.0,2.0,1.67,0,60.0,normal weight
-23.0,0.0,1.72,0,66.0,normal weight
+17.0,2.0,1.67,0,60.0,normal_weight
+23.0,0.0,1.72,0,66.0,normal_weight
 23.0,0.0,1.82,0,107.0,obesity
-19.0,1.0,1.5,1,50.0,normal weight
-18.0,0.0,1.7,0,60.0,normal weight
-25.0,1.0,1.71,0,71.0,normal weight
-25.0,0.0,1.61,1,61.0,normal weight
-18.0,1.0,1.5,1,50.0,normal weight
-16.0,1.0,1.67,0,50.0,insufficient weight
-21.0,2.0,1.82,0,67.0,normal weight
-32.0,0.0,1.57,1,57.0,normal weight
-18.0,0.0,1.79,0,52.0,insufficient weight
-21.0,1.0,1.75,0,62.0,normal weight
-18.0,1.0,1.7,0,55.0,normal weight
-18.0,1.0,1.62,1,55.0,normal weight
-17.0,0.0,1.69,0,60.0,normal weight
-20.0,0.0,1.77,0,70.0,normal weight
+19.0,1.0,1.5,1,50.0,normal_weight
+18.0,0.0,1.7,0,60.0,normal_weight
+25.0,1.0,1.71,0,71.0,normal_weight
+25.0,0.0,1.61,1,61.0,normal_weight
+18.0,1.0,1.5,1,50.0,normal_weight
+16.0,1.0,1.67,0,50.0,insufficient_weight
+21.0,2.0,1.82,0,67.0,normal_weight
+32.0,0.0,1.57,1,57.0,normal_weight
+18.0,0.0,1.79,0,52.0,insufficient_weight
+21.0,1.0,1.75,0,62.0,normal_weight
+18.0,1.0,1.7,0,55.0,normal_weight
+18.0,1.0,1.62,1,55.0,normal_weight
+17.0,0.0,1.69,0,60.0,normal_weight
+20.0,0.0,1.77,0,70.0,normal_weight
 21.0,2.0,1.79,0,105.0,obesity
-21.0,0.0,1.6,1,61.0,normal weight
-18.0,0.0,1.6,1,58.0,normal weight
-17.0,0.0,1.56,1,51.0,normal weight
-19.0,0.0,1.88,0,79.0,normal weight
-16.0,1.0,1.82,0,71.0,normal weight
-17.0,1.0,1.8,0,58.0,insufficient weight
-21.0,1.0,1.7,0,65.0,normal weight
-19.0,1.0,1.82,0,75.0,normal weight
+21.0,0.0,1.6,1,61.0,normal_weight
+18.0,0.0,1.6,1,58.0,normal_weight
+17.0,0.0,1.56,1,51.0,normal_weight
+19.0,0.0,1.88,0,79.0,normal_weight
+16.0,1.0,1.82,0,71.0,normal_weight
+17.0,1.0,1.8,0,58.0,insufficient_weight
+21.0,1.0,1.7,0,65.0,normal_weight
+19.0,1.0,1.82,0,75.0,normal_weight
 18.0,0.0,1.86,0,110.0,obesity
-16.0,0.0,1.66,1,58.0,normal weight
-21.0,0.0,1.53,1,53.0,normal weight
+16.0,0.0,1.66,1,58.0,normal_weight
+21.0,0.0,1.53,1,53.0,normal_weight
 26.0,0.0,1.74,0,80.0,overweight
-18.0,1.0,1.8,0,80.0,normal weight
+18.0,1.0,1.8,0,80.0,normal_weight
 23.0,0.0,1.7,0,75.0,overweight
-26.0,0.0,1.7,0,70.0,normal weight
-18.0,0.0,1.72,0,55.0,normal weight
-16.0,2.0,1.84,0,45.0,insufficient weight
-16.0,2.0,1.57,1,49.0,normal weight
+26.0,0.0,1.7,0,70.0,normal_weight
+18.0,0.0,1.72,0,55.0,normal_weight
+16.0,2.0,1.84,0,45.0,insufficient_weight
+16.0,2.0,1.57,1,49.0,normal_weight
 20.0,0.0,1.8,0,85.0,overweight
 23.0,0.0,1.75,0,120.0,obesity
-24.0,2.0,1.56,1,60.0,normal weight
-23.0,1.0,1.59,1,48.0,normal weight
-20.0,2.0,1.8,0,75.0,normal weight
-16.0,0.0,1.66,1,58.0,normal weight
-17.0,1.0,1.79,0,57.0,insufficient weight
-17.0,2.0,1.72,0,62.0,normal weight
-16.0,0.0,1.6,1,57.0,normal weight
-17.0,2.0,1.66,0,56.0,normal weight
-26.0,0.0,1.65,1,63.0,normal weight
-26.0,2.0,1.7,0,72.0,normal weight
-38.0,1.0,1.75,0,75.0,normal weight
-18.0,0.0,1.75,0,70.0,normal weight
-25.0,0.0,1.56,1,45.0,normal weight
+24.0,2.0,1.56,1,60.0,normal_weight
+23.0,1.0,1.59,1,48.0,normal_weight
+20.0,2.0,1.8,0,75.0,normal_weight
+16.0,0.0,1.66,1,58.0,normal_weight
+17.0,1.0,1.79,0,57.0,insufficient_weight
+17.0,2.0,1.72,0,62.0,normal_weight
+16.0,0.0,1.6,1,57.0,normal_weight
+17.0,2.0,1.66,0,56.0,normal_weight
+26.0,0.0,1.65,1,63.0,normal_weight
+26.0,2.0,1.7,0,72.0,normal_weight
+38.0,1.0,1.75,0,75.0,normal_weight
+18.0,0.0,1.75,0,70.0,normal_weight
+25.0,0.0,1.56,1,45.0,normal_weight
 27.0,0.0,1.55,1,63.0,overweight
-21.0,2.0,1.67,0,67.0,normal weight
-38.0,1.0,1.75,0,75.0,normal weight
-23.0,1.0,1.75,1,56.0,insufficient weight
-18.0,0.0,1.8,0,72.0,normal weight
+21.0,2.0,1.67,0,67.0,normal_weight
+38.0,1.0,1.75,0,75.0,normal_weight
+23.0,1.0,1.75,1,56.0,insufficient_weight
+18.0,0.0,1.8,0,72.0,normal_weight
 30.0,0.0,1.65,1,71.0,overweight
-21.0,0.0,1.55,1,58.0,normal weight
-18.0,0.0,1.7,0,55.3,normal weight
+21.0,0.0,1.55,1,58.0,normal_weight
+18.0,0.0,1.7,0,55.3,normal_weight
 23.0,1.0,1.72,0,76.0,overweight
-19.0,0.0,1.74,0,74.0,normal weight
+19.0,0.0,1.74,0,74.0,normal_weight
 19.0,0.0,1.65,1,82.0,obesity
-17.0,1.0,1.8,1,50.0,insufficient weight
-17.0,0.0,1.74,0,56.0,normal weight
-27.0,0.0,1.85,0,75.0,normal weight
-23.0,2.0,1.7,1,56.0,normal weight
+17.0,1.0,1.8,1,50.0,insufficient_weight
+17.0,0.0,1.74,0,56.0,normal_weight
+27.0,0.0,1.85,0,75.0,normal_weight
+23.0,2.0,1.7,1,56.0,normal_weight
 18.0,1.0,1.45,1,53.0,overweight
-19.0,1.0,1.7,0,50.0,insufficient weight
-20.0,0.0,1.7,0,65.0,normal weight
-18.0,1.0,1.78,0,64.4,normal weight
+19.0,1.0,1.7,0,50.0,insufficient_weight
+20.0,0.0,1.7,0,65.0,normal_weight
+18.0,1.0,1.78,0,64.4,normal_weight
 17.0,0.0,1.6,1,65.0,overweight
-19.0,0.0,1.53,1,42.0,insufficient weight
-21.0,0.0,1.8,0,72.0,normal weight
-20.0,0.0,1.6,0,50.0,normal weight
+19.0,0.0,1.53,1,42.0,insufficient_weight
+21.0,0.0,1.8,0,72.0,normal_weight
+20.0,0.0,1.6,0,50.0,normal_weight
 23.0,0.0,1.74,0,105.0,obesity
-23.0,0.0,1.65,0,66.0,normal weight
+23.0,0.0,1.65,0,66.0,normal_weight
 18.0,1.0,1.87,0,173.0,obesity
-17.0,2.0,1.7,0,55.0,normal weight
-21.0,2.0,1.54,1,47.0,normal weight
+17.0,2.0,1.7,0,55.0,normal_weight
+21.0,2.0,1.54,1,47.0,normal_weight
 17.0,0.0,1.8,0,97.0,overweight
-18.0,0.0,1.82,0,80.0,normal weight
+18.0,0.0,1.82,0,80.0,normal_weight
 20.0,2.0,1.98,0,125.0,obesity
-17.0,0.0,1.75,0,70.0,normal weight
-26.0,2.0,1.65,1,60.0,normal weight
-17.0,0.0,1.6,1,53.0,normal weight
-24.0,0.0,1.6,1,51.0,normal weight
-17.0,0.0,1.6,1,59.0,normal weight
+17.0,0.0,1.75,0,70.0,normal_weight
+26.0,2.0,1.65,1,60.0,normal_weight
+17.0,0.0,1.6,1,53.0,normal_weight
+24.0,0.0,1.6,1,51.0,normal_weight
+17.0,0.0,1.6,1,59.0,normal_weight
 27.0,0.0,1.55,1,62.0,overweight
-17.0,0.0,1.9,0,60.0,insufficient weight
-17.0,0.0,1.7,1,56.0,normal weight
+17.0,0.0,1.9,0,60.0,insufficient_weight
+17.0,0.0,1.7,1,56.0,normal_weight
 41.0,0.0,1.75,0,110.0,obesity
-33.0,0.0,1.56,1,48.0,normal weight
-20.0,1.0,1.87,0,75.0,normal weight
+33.0,0.0,1.56,1,48.0,normal_weight
+20.0,1.0,1.87,0,75.0,normal_weight
 40.0,0.0,1.56,1,80.0,obesity
 37.0,0.0,1.65,1,73.0,overweight
-19.0,0.0,1.8,0,80.0,normal weight
+19.0,0.0,1.8,0,80.0,normal_weight
 24.0,2.0,1.84,0,86.0,overweight
-24.0,0.0,1.7,0,68.0,normal weight
+24.0,0.0,1.7,0,68.0,normal_weight
 33.0,0.0,1.72,0,83.0,overweight
 40.0,1.0,1.58,1,63.0,overweight
 37.0,0.0,1.68,1,83.0,overweight
 20.0,1.0,1.58,0,74.0,overweight
-19.0,0.0,1.8,0,60.0,normal weight
+19.0,0.0,1.8,0,60.0,normal_weight
 17.0,2.0,1.62,0,69.0,overweight
-18.0,0.0,1.62,1,58.0,normal weight
-21.0,0.0,1.54,1,56.0,normal weight
-18.0,1.0,1.76,0,70.0,normal weight
+18.0,0.0,1.62,1,58.0,normal_weight
+21.0,0.0,1.54,1,56.0,normal_weight
+18.0,1.0,1.76,0,70.0,normal_weight
 41.0,1.0,1.8,0,92.0,overweight
-36.0,0.0,1.58,1,60.0,normal weight
-18.0,1.0,1.76,0,68.0,normal weight
-18.0,1.0,1.73,0,70.0,normal weight
-17.0,0.0,1.7,0,70.0,normal weight
+36.0,0.0,1.58,1,60.0,normal_weight
+18.0,1.0,1.76,0,68.0,normal_weight
+18.0,1.0,1.73,0,70.0,normal_weight
+17.0,0.0,1.7,0,70.0,normal_weight
 25.0,0.0,1.7,0,83.0,overweight
-21.0,1.0,1.8,0,75.0,normal weight
-29.0,1.0,1.6,1,56.0,normal weight
+21.0,1.0,1.8,0,75.0,normal_weight
+29.0,1.0,1.6,1,56.0,normal_weight
 17.0,0.0,1.7,0,98.0,obesity
-18.0,0.0,1.6,1,60.0,normal weight
-16.0,1.0,1.55,1,45.0,normal weight
-18.0,0.0,1.59,1,53.0,normal weight
+18.0,0.0,1.6,1,60.0,normal_weight
+16.0,1.0,1.55,1,45.0,normal_weight
+18.0,0.0,1.59,1,53.0,normal_weight
 37.0,1.0,1.5,1,75.0,obesity
 18.0,0.0,1.78,0,108.0,obesity
 16.0,0.0,1.61,1,65.0,overweight
-23.0,2.0,1.71,0,50.0,insufficient weight
-18.0,0.0,1.7,1,50.0,insufficient weight
-18.0,1.0,1.76,0,69.5,normal weight
+23.0,2.0,1.71,0,50.0,insufficient_weight
+18.0,0.0,1.7,1,50.0,insufficient_weight
+18.0,1.0,1.76,0,69.5,normal_weight
 18.0,0.0,1.7,0,78.0,overweight
-17.0,0.0,1.53,1,55.0,normal weight
-20.0,0.0,1.54,1,39.0,insufficient weight
-38.0,0.0,1.55,1,59.0,normal weight
-20.0,1.0,1.66,0,60.0,normal weight
+17.0,0.0,1.53,1,55.0,normal_weight
+20.0,0.0,1.54,1,39.0,insufficient_weight
+38.0,0.0,1.55,1,59.0,normal_weight
+20.0,1.0,1.66,0,60.0,normal_weight
 21.0,2.0,1.85,0,125.0,obesity
-21.0,1.0,1.65,0,60.0,normal weight
+21.0,1.0,1.65,0,60.0,normal_weight
 18.0,0.0,1.65,0,70.0,overweight
-26.0,2.0,1.83,0,82.0,normal weight
+26.0,2.0,1.83,0,82.0,normal_weight
 27.0,1.0,1.83,0,99.0,overweight
 26.0,0.0,1.66,1,112.0,obesity
-34.0,0.0,1.78,0,73.0,normal weight
+34.0,0.0,1.78,0,73.0,normal_weight
 18.0,0.0,1.74,0,86.0,overweight
-33.0,0.0,1.76,0,66.5,normal weight
+33.0,0.0,1.76,0,66.5,normal_weight
 19.0,1.0,1.51,1,59.0,overweight
-20.0,0.0,1.81,0,79.0,normal weight
-33.0,0.0,1.55,1,55.0,normal weight
-20.0,0.0,1.83,0,66.0,normal weight
+20.0,0.0,1.81,0,79.0,normal_weight
+33.0,0.0,1.55,1,55.0,normal_weight
+20.0,0.0,1.83,0,66.0,normal_weight
 20.0,0.0,1.6,1,65.0,overweight
-33.0,1.0,1.85,0,85.0,normal weight
+33.0,1.0,1.85,0,85.0,normal_weight
 33.0,0.0,1.75,0,85.0,overweight
 33.0,2.0,1.83,0,113.0,obesity
-14.0,0.0,1.71,0,72.0,normal weight
+14.0,0.0,1.71,0,72.0,normal_weight
 34.0,0.0,1.84,0,88.0,overweight
 18.0,0.0,1.77,0,87.0,overweight
 18.0,0.0,1.7,0,90.0,obesity
 29.0,0.0,1.62,0,89.0,obesity
-18.0,0.0,1.85,0,60.0,insufficient weight
-18.0,0.0,1.84,0,60.0,insufficient weight
-19.0,0.0,1.75,0,58.0,normal weight
+18.0,0.0,1.85,0,60.0,insufficient_weight
+18.0,0.0,1.84,0,60.0,insufficient_weight
+19.0,0.0,1.75,0,58.0,normal_weight
 33.0,0.0,1.85,0,93.0,overweight
 33.0,0.0,1.74,0,76.0,overweight
-19.0,2.0,1.61,1,53.8,normal weight
-22.0,0.0,1.75,0,70.0,normal weight
-20.0,,1.67,1,60.0,normal weight
-23.0,1.0,1.7,0,69.0,normal weight
-26.0,1.0,1.9,0,80.0,normal weight
+19.0,2.0,1.61,1,53.8,normal_weight
+22.0,0.0,1.75,0,70.0,normal_weight
+20.0,,1.67,1,60.0,normal_weight
+23.0,1.0,1.7,0,69.0,normal_weight
+26.0,1.0,1.9,0,80.0,normal_weight
 18.0,0.0,1.65,0,85.0,obesity
-18.0,1.0,1.6,1,55.0,normal weight
-19.0,1.0,1.8,0,70.0,normal weight
-18.0,0.0,1.64,1,59.0,normal weight
-19.0,1.0,1.89,0,87.0,normal weight
+18.0,1.0,1.6,1,55.0,normal_weight
+19.0,1.0,1.8,0,70.0,normal_weight
+18.0,0.0,1.64,1,59.0,normal_weight
+19.0,1.0,1.89,0,87.0,normal_weight
 19.0,0.0,1.76,1,80.0,overweight
-18.0,0.0,1.56,1,55.0,normal weight
-18.0,2.0,1.6,1,56.0,normal weight
-19.0,0.0,1.67,1,64.0,normal weight
-19.0,1.0,1.6,1,60.0,normal weight
-18.0,0.0,1.55,1,56.0,normal weight
-18.0,1.0,1.55,1,50.0,normal weight
-26.0,0.0,1.72,0,65.0,normal weight
-18.0,0.0,1.72,0,53.0,insufficient weight
-19.0,0.0,1.7,0,60.0,normal weight
-19.0,0.0,1.51,1,45.0,normal weight
-19.0,1.0,1.83,0,82.0,normal weight
+18.0,0.0,1.56,1,55.0,normal_weight
+18.0,2.0,1.6,1,56.0,normal_weight
+19.0,0.0,1.67,1,64.0,normal_weight
+19.0,1.0,1.6,1,60.0,normal_weight
+18.0,0.0,1.55,1,56.0,normal_weight
+18.0,1.0,1.55,1,50.0,normal_weight
+26.0,0.0,1.72,0,65.0,normal_weight
+18.0,0.0,1.72,0,53.0,insufficient_weight
+19.0,0.0,1.7,0,60.0,normal_weight
+19.0,0.0,1.51,1,45.0,normal_weight
+19.0,1.0,1.83,0,82.0,normal_weight
 19.0,0.0,1.8,0,87.0,overweight
 24.0,0.0,1.6,1,100.5,obesity
-18.0,0.0,1.63,1,63.0,normal weight
-19.0,0.0,1.71,0,71.0,normal weight
-19.0,1.0,1.7,0,65.0,normal weight
-23.0,,1.75,0,69.0,normal weight
-18.0,0.0,1.62,1,50.0,normal weight
-20.0,0.0,1.68,1,68.0,normal weight
-18.0,1.0,1.85,0,66.0,normal weight
-33.0,1.0,1.59,1,60.0,normal weight
-19.0,0.0,1.5,1,45.0,normal weight
-19.0,2.0,1.69,0,60.0,normal weight
+18.0,0.0,1.63,1,63.0,normal_weight
+19.0,0.0,1.71,0,71.0,normal_weight
+19.0,1.0,1.7,0,65.0,normal_weight
+23.0,,1.75,0,69.0,normal_weight
+18.0,0.0,1.62,1,50.0,normal_weight
+20.0,0.0,1.68,1,68.0,normal_weight
+18.0,1.0,1.85,0,66.0,normal_weight
+33.0,1.0,1.59,1,60.0,normal_weight
+19.0,0.0,1.5,1,45.0,normal_weight
+19.0,2.0,1.69,0,60.0,normal_weight
 19.0,1.0,1.76,0,79.0,overweight
-18.0,1.0,1.62,1,55.0,normal weight
+18.0,1.0,1.62,1,55.0,normal_weight
 21.0,0.0,1.71,0,100.0,obesity
 27.0,2.0,1.72,0,88.0,overweight
-17.0,0.0,1.8,0,68.0,normal weight
-18.0,2.0,1.93,0,86.0,normal weight
-18.0,1.0,1.6,1,51.0,normal weight
-22.0,1.0,1.74,0,75.0,normal weight
-22.0,1.0,1.74,0,75.0,normal weight
-20.0,1.0,1.62,1,45.0,insufficient weight
-19.0,0.0,1.54,1,42.0,insufficient weight
-20.0,1.0,1.56,1,51.5,normal weight
+17.0,0.0,1.8,0,68.0,normal_weight
+18.0,2.0,1.93,0,86.0,normal_weight
+18.0,1.0,1.6,1,51.0,normal_weight
+22.0,1.0,1.74,0,75.0,normal_weight
+22.0,1.0,1.74,0,75.0,normal_weight
+20.0,1.0,1.62,1,45.0,insufficient_weight
+19.0,0.0,1.54,1,42.0,insufficient_weight
+20.0,1.0,1.56,1,51.5,normal_weight
 18.0,0.0,1.6,1,83.0,obesity
 18.0,1.0,1.54,1,71.0,overweight
-18.0,1.0,1.63,1,51.0,normal weight
-19.0,0.0,1.78,0,64.0,normal weight
+18.0,1.0,1.63,1,51.0,normal_weight
+19.0,0.0,1.78,0,64.0,normal_weight
 18.0,0.0,1.62,1,68.0,overweight
 18.0,0.0,1.71,1,75.0,overweight
-18.0,1.0,1.64,1,56.0,normal weight
-19.0,1.0,1.69,0,65.0,normal weight
-17.0,1.0,1.58,1,50.0,normal weight
-18.0,0.0,1.57,1,50.0,normal weight
-18.0,0.0,1.74,0,64.0,normal weight
-20.0,1.0,1.58,1,53.5,normal weight
+18.0,1.0,1.64,1,56.0,normal_weight
+19.0,1.0,1.69,0,65.0,normal_weight
+17.0,1.0,1.58,1,50.0,normal_weight
+18.0,0.0,1.57,1,50.0,normal_weight
+18.0,0.0,1.74,0,64.0,normal_weight
+20.0,1.0,1.58,1,53.5,normal_weight
 18.0,0.0,1.5,1,58.0,overweight
 36.0,0.0,1.65,1,80.0,overweight
-21.0,2.0,1.8,0,73.0,normal weight
-23.0,0.0,1.75,0,75.0,normal weight
+21.0,2.0,1.8,0,73.0,normal_weight
+23.0,0.0,1.75,0,75.0,normal_weight
 20.0,0.0,1.84,0,104.0,obesity
-21.0,0.0,1.88,0,84.0,normal weight
-19.0,0.0,1.56,1,50.0,normal weight
+21.0,0.0,1.88,0,84.0,normal_weight
+19.0,0.0,1.56,1,50.0,normal_weight
 24.0,,1.75,0,84.0,overweight
-25.0,0.0,1.66,0,68.0,normal weight
+25.0,0.0,1.66,0,68.0,normal_weight
 45.0,1.0,1.7,0,86.0,overweight
-20.0,1.0,1.8,0,65.0,normal weight
-18.0,0.0,1.67,1,66.0,normal weight
-19.0,2.0,1.8,0,60.0,normal weight
-18.0,0.0,1.72,0,53.0,insufficient weight
-20.0,0.0,1.56,0,45.0,normal weight
+20.0,1.0,1.8,0,65.0,normal_weight
+18.0,0.0,1.67,1,66.0,normal_weight
+19.0,2.0,1.8,0,60.0,normal_weight
+18.0,0.0,1.72,0,53.0,insufficient_weight
+20.0,0.0,1.56,0,45.0,normal_weight
 25.196214,0.0,1.686306,1,104.572712,obesity
 18.503343,0.0,1.683124,1,126.67378,obesity
 26.0,0.0,1.622397,1,110.79263,obesity
@@ -506,244 +506,244 @@ Age,CAEC,Height,Gender,Weight,NObeyesdad
 26.0,0.0,1.630927,1,111.485516,obesity
 26.0,0.0,1.629191,1,104.826776,obesity
 21.849705,0.0,1.770612,1,133.963349,obesity
-19.799054,0.0,1.743702,0,54.927529,insufficient weight
-17.188754,0.0,1.771915,0,55.695036,insufficient weight
-22.285024,0.0,1.75376,0,55.879263,insufficient weight
-22.0,1.0,1.675446,1,51.154201,insufficient weight
-21.02497,1.0,1.666203,1,49.869791,insufficient weight
-22.038327,1.0,1.711467,1,51.965521,insufficient weight
-21.243142,1.0,1.598019,1,44.845655,insufficient weight
-22.142432,1.0,1.59611,1,42.848033,insufficient weight
-21.962426,1.0,1.57206,1,43.919835,insufficient weight
-21.491055,1.0,1.586952,1,43.087508,insufficient weight
-22.717943,1.0,1.59559,1,44.581159,insufficient weight
-23.501249,1.0,1.6,1,45.0,insufficient weight
-18.535075,0.0,1.688025,1,45.0,insufficient weight
-19.0,0.0,1.556211,1,42.339767,insufficient weight
-19.0,0.0,1.564199,1,42.096062,insufficient weight
-20.254534,1.0,1.56948,1,41.324558,insufficient weight
-21.0,1.0,1.52,1,42.0,insufficient weight
-20.225396,1.0,1.550648,1,44.641796,insufficient weight
-19.86997,1.0,1.520997,1,42.0,insufficient weight
-20.147114,1.0,1.528011,1,42.0,insufficient weight
-21.0,1.0,1.52,1,42.0,insufficient weight
-21.996523,1.0,1.733263,1,50.890363,insufficient weight
-21.376426,1.0,1.722527,1,50.833029,insufficient weight
-19.724106,1.0,1.734832,1,50.0,insufficient weight
-23.0,0.0,1.882779,0,64.106108,insufficient weight
-22.851834,0.0,1.854592,0,63.611109,insufficient weight
-23.0,0.0,1.835643,0,58.854416,insufficient weight
-18.216032,1.0,1.755507,0,52.0,insufficient weight
-21.81119,1.0,1.71266,0,51.598593,insufficient weight
-18.164768,1.0,1.694265,0,52.0,insufficient weight
-18.871794,0.0,1.586895,1,41.452385,insufficient weight
-18.766033,0.0,1.579561,1,41.890204,insufficient weight
-18.540535,0.0,1.564568,1,41.397378,insufficient weight
-19.88036,1.0,1.670635,1,49.742931,insufficient weight
-19.717249,1.0,1.688426,1,49.660995,insufficient weight
-19.633898,1.0,1.66084,1,49.039794,insufficient weight
-23.0,1.0,1.710182,1,50.287967,insufficient weight
-20.406871,1.0,1.755978,1,53.699561,insufficient weight
-23.0,1.0,1.728834,1,51.442293,insufficient weight
-19.058511,0.0,1.662017,1,49.838965,insufficient weight
-18.827008,0.0,1.7,1,50.0,insufficient weight
-19.314964,0.0,1.661403,1,49.932199,insufficient weight
-29.970445,1.0,1.610863,1,49.516027,insufficient weight
-32.383858,1.0,1.640688,1,46.655622,insufficient weight
-24.163526,1.0,1.64603,1,49.839685,insufficient weight
-17.038222,0.0,1.710564,0,51.588874,insufficient weight
-16.30687,0.0,1.752755,0,50.0,insufficient weight
-16.198153,0.0,1.691007,0,52.629374,insufficient weight
-18.0,0.0,1.753349,0,51.457226,insufficient weight
-18.0,0.0,1.781543,0,50.869704,insufficient weight
-18.0,0.0,1.755823,0,52.331172,insufficient weight
-17.486869,0.0,1.836669,0,58.943347,insufficient weight
-19.920629,0.0,1.768493,0,57.790381,insufficient weight
-18.426619,0.0,1.777108,0,57.145917,insufficient weight
-17.082867,0.0,1.640824,1,43.365005,insufficient weight
-17.000433,0.0,1.584951,1,44.411801,insufficient weight
-16.270434,0.0,1.818268,1,47.124717,insufficient weight
-17.908114,0.0,1.793926,0,59.682591,insufficient weight
-17.120699,0.0,1.809251,0,58.968994,insufficient weight
-19.329542,0.0,1.767335,0,55.700497,insufficient weight
-22.377998,1.0,1.699568,1,54.98774,insufficient weight
-20.954955,1.0,1.759358,1,55.01045,insufficient weight
-22.991668,1.0,1.740295,1,54.166453,insufficient weight
-19.300435,0.0,1.739354,1,49.649613,insufficient weight
-17.065445,0.0,1.647811,1,49.603807,insufficient weight
-19.084967,0.0,1.768435,1,49.597765,insufficient weight
-18.024853,1.0,1.7,1,50.0,insufficient weight
-19.833682,1.0,1.699464,1,49.676046,insufficient weight
-17.767432,1.0,1.74379,1,50.0,insufficient weight
-19.504696,1.0,1.590317,1,42.367615,insufficient weight
-19.950605,1.0,1.527133,1,42.0,insufficient weight
-19.0,1.0,1.530875,1,42.0,insufficient weight
-17.0,0.0,1.848294,0,59.409018,insufficient weight
-17.0,0.0,1.824414,0,59.295172,insufficient weight
-18.525525,0.0,1.856633,0,59.258372,insufficient weight
-22.926352,1.0,1.715597,1,50.0,insufficient weight
-21.785351,1.0,1.675054,1,49.945233,insufficient weight
-23.0,1.0,1.717601,1,51.073918,insufficient weight
-17.402028,0.0,1.710756,1,50.0,insufficient weight
-18.0,0.0,1.7,1,50.0,insufficient weight
-18.48207,0.0,1.7,1,50.0,insufficient weight
-18.53084,0.0,1.573816,1,39.850137,insufficient weight
-19.94814,0.0,1.530884,1,39.371523,insufficient weight
-20.400053,0.0,1.529724,1,40.343463,insufficient weight
-19.556729,0.0,1.767563,0,56.307019,insufficient weight
-17.70368,0.0,1.883364,0,60.0,insufficient weight
-18.274358,0.0,1.824655,0,58.621349,insufficient weight
-18.0,0.0,1.840138,0,60.0,insufficient weight
-17.210933,0.0,1.819557,0,58.325122,insufficient weight
-17.469417,0.0,1.798645,0,59.612717,insufficient weight
-18.0,0.0,1.7108,0,50.92538,insufficient weight
-18.0,0.0,1.70653,0,51.121749,insufficient weight
-18.0,0.0,1.716691,0,51.149283,insufficient weight
-19.010211,1.0,1.555431,1,44.188767,insufficient weight
-19.091346,1.0,1.603923,1,45.0,insufficient weight
-19.773303,1.0,1.602082,1,45.0,insufficient weight
-19.483036,1.0,1.53777,1,42.0,insufficient weight
-19.0,1.0,1.538398,1,42.0,insufficient weight
-19.407204,1.0,1.520862,1,42.0,insufficient weight
-18.0,0.0,1.717826,0,51.7325,insufficient weight
-18.424941,0.0,1.753389,0,54.121925,insufficient weight
-18.0,0.0,1.70165,0,50.157707,insufficient weight
-19.97981,0.0,1.75336,0,54.997374,insufficient weight
-21.798856,1.0,1.672007,1,49.980968,insufficient weight
-22.209706,1.0,1.593847,1,44.050251,insufficient weight
-23.018443,1.0,1.584785,1,44.376637,insufficient weight
-19.376997,1.0,1.600264,1,45.0,insufficient weight
-20.971429,1.0,1.549311,1,41.557468,insufficient weight
-20.345161,1.0,1.534385,1,41.96525,insufficient weight
-20.519916,1.0,1.725548,1,49.815599,insufficient weight
-20.406066,0.0,1.868931,0,63.199726,insufficient weight
-21.478496,1.0,1.686936,1,51.256059,insufficient weight
-18.372563,0.0,1.589829,1,40.202773,insufficient weight
-19.931667,0.0,1.653209,1,49.026214,insufficient weight
-22.998709,1.0,1.740108,1,53.65727,insufficient weight
-18.006742,1.0,1.7,1,50.0,insufficient weight
-34.799519,1.0,1.689141,1,50.0,insufficient weight
-16.496978,0.0,1.691206,0,50.0,insufficient weight
-18.0,0.0,1.788459,0,51.552595,insufficient weight
-17.377131,0.0,1.811238,0,58.83071,insufficient weight
-16.611837,0.0,1.830068,1,43.534531,insufficient weight
-17.080493,0.0,1.782756,0,56.029418,insufficient weight
-22.970655,1.0,1.751691,1,55.967655,insufficient weight
-17.764764,0.0,1.78656,1,50.0,insufficient weight
-19.272573,1.0,1.71367,1,50.0,insufficient weight
-19.0,1.0,1.540375,1,42.006282,insufficient weight
-17.06713,0.0,1.896734,0,59.895052,insufficient weight
-23.0,1.0,1.710129,1,50.079991,insufficient weight
-18.0,0.0,1.704193,1,50.631889,insufficient weight
-19.054008,0.0,1.556611,1,39.695295,insufficient weight
-18.0,0.0,1.845399,0,60.0,insufficient weight
-17.491272,0.0,1.834637,0,59.990861,insufficient weight
-18.0,0.0,1.721854,0,52.514302,insufficient weight
-20.172661,1.0,1.605521,1,44.661461,insufficient weight
-19.220108,1.0,1.530266,1,42.0,insufficient weight
-18.0,0.0,1.71889,0,52.058335,insufficient weight
-19.96247,0.0,1.756338,0,54.98234,insufficient weight
-17.580627,0.0,1.770324,0,55.695253,insufficient weight
-21.125098,1.0,1.767479,1,56.265959,insufficient weight
-22.033129,1.0,1.704223,1,51.437985,insufficient weight
-20.744839,1.0,1.667852,1,49.803921,insufficient weight
-22.547298,1.0,1.722461,1,51.881263,insufficient weight
-21.837996,1.0,1.588046,1,44.236067,insufficient weight
-23.035829,1.0,1.598612,1,42.993937,insufficient weight
-21.529439,1.0,1.592379,1,44.00945,insufficient weight
-21.287999,1.0,1.555778,1,42.3601,insufficient weight
-23.444286,1.0,1.596466,1,44.594588,insufficient weight
-22.329041,1.0,1.598393,1,44.918255,insufficient weight
-18.91505,0.0,1.633316,1,45.0,insufficient weight
-19.0,0.0,1.559567,1,42.12617,insufficient weight
-19.052833,0.0,1.546551,1,42.069992,insufficient weight
-19.59904,1.0,1.566501,1,41.706283,insufficient weight
-21.0,1.0,1.52,1,42.0,insufficient weight
-19.673262,1.0,1.599486,1,44.810751,insufficient weight
-20.244359,1.0,1.559186,1,41.952805,insufficient weight
-20.552695,1.0,1.523426,1,42.0,insufficient weight
-21.0,1.0,1.52,1,42.0,insufficient weight
-21.997683,1.0,1.689441,1,51.107925,insufficient weight
-21.274628,1.0,1.737453,1,50.479039,insufficient weight
-18.909439,0.0,1.732096,1,50.0,insufficient weight
-22.396504,0.0,1.869098,0,61.411141,insufficient weight
-19.084317,0.0,1.851123,0,61.264785,insufficient weight
-21.084625,0.0,1.787264,0,58.585146,insufficient weight
-18.068767,0.0,1.787787,0,52.0,insufficient weight
-21.813083,1.0,1.712515,1,51.710723,insufficient weight
-18.038422,0.0,1.698914,0,51.692272,insufficient weight
-18.874591,0.0,1.533609,1,41.669346,insufficient weight
-19.21164,0.0,1.567981,1,41.934368,insufficient weight
-18.988581,0.0,1.544263,1,41.535047,insufficient weight
-19.408999,0.0,1.670552,1,49.804245,insufficient weight
-19.665881,0.0,1.676346,1,49.105025,insufficient weight
-19.758286,0.0,1.667404,1,49.125955,insufficient weight
-22.422674,1.0,1.70011,1,50.173425,insufficient weight
-20.242237,0.0,1.75633,0,54.567343,insufficient weight
-22.637018,1.0,1.703584,1,51.607091,insufficient weight
-19.007177,0.0,1.690727,1,49.895716,insufficient weight
-18.288205,0.0,1.713564,1,50.0,insufficient weight
-19.314429,0.0,1.67231,1,49.713944,insufficient weight
-27.14823,1.0,1.660446,1,49.558304,insufficient weight
-25.380557,1.0,1.630379,1,46.062954,insufficient weight
-22.867719,1.0,1.655413,1,50.424661,insufficient weight
-17.729923,0.0,1.732862,0,51.216463,insufficient weight
-16.834813,0.0,1.74402,1,50.0,insufficient weight
-17.521754,0.0,1.757958,0,52.09432,insufficient weight
-18.0,0.0,1.786758,0,51.524444,insufficient weight
-18.0,0.0,1.767058,0,51.132809,insufficient weight
-18.128249,0.0,1.699437,0,52.08657,insufficient weight
-17.405104,0.0,1.82525,0,58.913579,insufficient weight
-19.72925,0.0,1.793315,0,58.19515,insufficient weight
-18.525834,0.0,1.776989,0,57.275946,insufficient weight
-18.595614,0.0,1.609495,1,42.656563,insufficient weight
-16.613108,0.0,1.777929,1,44.762023,insufficient weight
-16.928791,0.0,1.710948,1,45.248627,insufficient weight
-17.758315,0.0,1.854162,0,59.881316,insufficient weight
-17.282945,0.0,1.821514,0,59.605028,insufficient weight
-19.993154,0.0,1.762073,0,55.511075,insufficient weight
-22.935612,1.0,1.732307,1,54.835576,insufficient weight
-20.738469,0.0,1.759933,0,55.003417,insufficient weight
-22.99368,1.0,1.741377,1,54.877111,insufficient weight
-19.317148,0.0,1.731195,1,49.650897,insufficient weight
-16.910997,0.0,1.74823,1,49.928447,insufficient weight
-19.071027,0.0,1.756865,1,49.699672,insufficient weight
-18.019572,0.0,1.701378,1,50.088468,insufficient weight
-19.735968,0.0,1.699956,1,49.98297,insufficient weight
-18.094079,1.0,1.723328,1,50.0,insufficient weight
-19.054938,1.0,1.585886,1,42.541794,insufficient weight
-20.850119,1.0,1.524926,1,42.0,insufficient weight
-19.349258,1.0,1.52337,1,42.0,insufficient weight
-17.0,0.0,1.844749,0,59.313525,insufficient weight
-17.203917,0.0,1.853325,0,59.619485,insufficient weight
-17.671064,0.0,1.854706,0,59.20945,insufficient weight
-21.310907,1.0,1.72064,1,50.0,insufficient weight
-21.708354,1.0,1.704167,1,50.165754,insufficient weight
-22.176922,1.0,1.71746,1,51.491957,insufficient weight
-17.823438,0.0,1.708406,1,50.0,insufficient weight
-18.0,0.0,1.763465,1,50.279053,insufficient weight
-18.281092,0.0,1.7,1,50.0,insufficient weight
-18.656912,0.0,1.574017,1,41.220175,insufficient weight
-19.994543,0.0,1.537739,1,39.101805,insufficient weight
-20.255616,1.0,1.534223,1,41.268597,insufficient weight
-19.865895,0.0,1.76033,0,55.3707,insufficient weight
-17.888073,0.0,1.841879,0,60.0,insufficient weight
-18.470562,0.0,1.856406,0,58.673963,insufficient weight
-17.925497,0.0,1.829142,0,59.933015,insufficient weight
-17.000752,0.0,1.822084,0,58.443049,insufficient weight
-17.362129,0.0,1.80671,0,59.243506,insufficient weight
-18.0,0.0,1.707259,0,50.664459,insufficient weight
-18.0,0.0,1.708107,0,51.314659,insufficient weight
-18.0,0.0,1.739344,0,50.951444,insufficient weight
-19.029494,1.0,1.573987,1,44.316254,insufficient weight
-19.269079,1.0,1.58092,1,44.753943,insufficient weight
-19.946244,1.0,1.603435,1,45.0,insufficient weight
-19.639431,1.0,1.53535,1,42.0,insufficient weight
-19.0,1.0,1.53161,1,42.0,insufficient weight
-19.434709,1.0,1.525691,1,42.0,insufficient weight
-18.0,0.0,1.719827,0,52.289828,insufficient weight
-18.381382,0.0,1.722547,0,53.783977,insufficient weight
-18.0,0.0,1.738702,0,50.248677,insufficient weight
+19.799054,0.0,1.743702,0,54.927529,insufficient_weight
+17.188754,0.0,1.771915,0,55.695036,insufficient_weight
+22.285024,0.0,1.75376,0,55.879263,insufficient_weight
+22.0,1.0,1.675446,1,51.154201,insufficient_weight
+21.02497,1.0,1.666203,1,49.869791,insufficient_weight
+22.038327,1.0,1.711467,1,51.965521,insufficient_weight
+21.243142,1.0,1.598019,1,44.845655,insufficient_weight
+22.142432,1.0,1.59611,1,42.848033,insufficient_weight
+21.962426,1.0,1.57206,1,43.919835,insufficient_weight
+21.491055,1.0,1.586952,1,43.087508,insufficient_weight
+22.717943,1.0,1.59559,1,44.581159,insufficient_weight
+23.501249,1.0,1.6,1,45.0,insufficient_weight
+18.535075,0.0,1.688025,1,45.0,insufficient_weight
+19.0,0.0,1.556211,1,42.339767,insufficient_weight
+19.0,0.0,1.564199,1,42.096062,insufficient_weight
+20.254534,1.0,1.56948,1,41.324558,insufficient_weight
+21.0,1.0,1.52,1,42.0,insufficient_weight
+20.225396,1.0,1.550648,1,44.641796,insufficient_weight
+19.86997,1.0,1.520997,1,42.0,insufficient_weight
+20.147114,1.0,1.528011,1,42.0,insufficient_weight
+21.0,1.0,1.52,1,42.0,insufficient_weight
+21.996523,1.0,1.733263,1,50.890363,insufficient_weight
+21.376426,1.0,1.722527,1,50.833029,insufficient_weight
+19.724106,1.0,1.734832,1,50.0,insufficient_weight
+23.0,0.0,1.882779,0,64.106108,insufficient_weight
+22.851834,0.0,1.854592,0,63.611109,insufficient_weight
+23.0,0.0,1.835643,0,58.854416,insufficient_weight
+18.216032,1.0,1.755507,0,52.0,insufficient_weight
+21.81119,1.0,1.71266,0,51.598593,insufficient_weight
+18.164768,1.0,1.694265,0,52.0,insufficient_weight
+18.871794,0.0,1.586895,1,41.452385,insufficient_weight
+18.766033,0.0,1.579561,1,41.890204,insufficient_weight
+18.540535,0.0,1.564568,1,41.397378,insufficient_weight
+19.88036,1.0,1.670635,1,49.742931,insufficient_weight
+19.717249,1.0,1.688426,1,49.660995,insufficient_weight
+19.633898,1.0,1.66084,1,49.039794,insufficient_weight
+23.0,1.0,1.710182,1,50.287967,insufficient_weight
+20.406871,1.0,1.755978,1,53.699561,insufficient_weight
+23.0,1.0,1.728834,1,51.442293,insufficient_weight
+19.058511,0.0,1.662017,1,49.838965,insufficient_weight
+18.827008,0.0,1.7,1,50.0,insufficient_weight
+19.314964,0.0,1.661403,1,49.932199,insufficient_weight
+29.970445,1.0,1.610863,1,49.516027,insufficient_weight
+32.383858,1.0,1.640688,1,46.655622,insufficient_weight
+24.163526,1.0,1.64603,1,49.839685,insufficient_weight
+17.038222,0.0,1.710564,0,51.588874,insufficient_weight
+16.30687,0.0,1.752755,0,50.0,insufficient_weight
+16.198153,0.0,1.691007,0,52.629374,insufficient_weight
+18.0,0.0,1.753349,0,51.457226,insufficient_weight
+18.0,0.0,1.781543,0,50.869704,insufficient_weight
+18.0,0.0,1.755823,0,52.331172,insufficient_weight
+17.486869,0.0,1.836669,0,58.943347,insufficient_weight
+19.920629,0.0,1.768493,0,57.790381,insufficient_weight
+18.426619,0.0,1.777108,0,57.145917,insufficient_weight
+17.082867,0.0,1.640824,1,43.365005,insufficient_weight
+17.000433,0.0,1.584951,1,44.411801,insufficient_weight
+16.270434,0.0,1.818268,1,47.124717,insufficient_weight
+17.908114,0.0,1.793926,0,59.682591,insufficient_weight
+17.120699,0.0,1.809251,0,58.968994,insufficient_weight
+19.329542,0.0,1.767335,0,55.700497,insufficient_weight
+22.377998,1.0,1.699568,1,54.98774,insufficient_weight
+20.954955,1.0,1.759358,1,55.01045,insufficient_weight
+22.991668,1.0,1.740295,1,54.166453,insufficient_weight
+19.300435,0.0,1.739354,1,49.649613,insufficient_weight
+17.065445,0.0,1.647811,1,49.603807,insufficient_weight
+19.084967,0.0,1.768435,1,49.597765,insufficient_weight
+18.024853,1.0,1.7,1,50.0,insufficient_weight
+19.833682,1.0,1.699464,1,49.676046,insufficient_weight
+17.767432,1.0,1.74379,1,50.0,insufficient_weight
+19.504696,1.0,1.590317,1,42.367615,insufficient_weight
+19.950605,1.0,1.527133,1,42.0,insufficient_weight
+19.0,1.0,1.530875,1,42.0,insufficient_weight
+17.0,0.0,1.848294,0,59.409018,insufficient_weight
+17.0,0.0,1.824414,0,59.295172,insufficient_weight
+18.525525,0.0,1.856633,0,59.258372,insufficient_weight
+22.926352,1.0,1.715597,1,50.0,insufficient_weight
+21.785351,1.0,1.675054,1,49.945233,insufficient_weight
+23.0,1.0,1.717601,1,51.073918,insufficient_weight
+17.402028,0.0,1.710756,1,50.0,insufficient_weight
+18.0,0.0,1.7,1,50.0,insufficient_weight
+18.48207,0.0,1.7,1,50.0,insufficient_weight
+18.53084,0.0,1.573816,1,39.850137,insufficient_weight
+19.94814,0.0,1.530884,1,39.371523,insufficient_weight
+20.400053,0.0,1.529724,1,40.343463,insufficient_weight
+19.556729,0.0,1.767563,0,56.307019,insufficient_weight
+17.70368,0.0,1.883364,0,60.0,insufficient_weight
+18.274358,0.0,1.824655,0,58.621349,insufficient_weight
+18.0,0.0,1.840138,0,60.0,insufficient_weight
+17.210933,0.0,1.819557,0,58.325122,insufficient_weight
+17.469417,0.0,1.798645,0,59.612717,insufficient_weight
+18.0,0.0,1.7108,0,50.92538,insufficient_weight
+18.0,0.0,1.70653,0,51.121749,insufficient_weight
+18.0,0.0,1.716691,0,51.149283,insufficient_weight
+19.010211,1.0,1.555431,1,44.188767,insufficient_weight
+19.091346,1.0,1.603923,1,45.0,insufficient_weight
+19.773303,1.0,1.602082,1,45.0,insufficient_weight
+19.483036,1.0,1.53777,1,42.0,insufficient_weight
+19.0,1.0,1.538398,1,42.0,insufficient_weight
+19.407204,1.0,1.520862,1,42.0,insufficient_weight
+18.0,0.0,1.717826,0,51.7325,insufficient_weight
+18.424941,0.0,1.753389,0,54.121925,insufficient_weight
+18.0,0.0,1.70165,0,50.157707,insufficient_weight
+19.97981,0.0,1.75336,0,54.997374,insufficient_weight
+21.798856,1.0,1.672007,1,49.980968,insufficient_weight
+22.209706,1.0,1.593847,1,44.050251,insufficient_weight
+23.018443,1.0,1.584785,1,44.376637,insufficient_weight
+19.376997,1.0,1.600264,1,45.0,insufficient_weight
+20.971429,1.0,1.549311,1,41.557468,insufficient_weight
+20.345161,1.0,1.534385,1,41.96525,insufficient_weight
+20.519916,1.0,1.725548,1,49.815599,insufficient_weight
+20.406066,0.0,1.868931,0,63.199726,insufficient_weight
+21.478496,1.0,1.686936,1,51.256059,insufficient_weight
+18.372563,0.0,1.589829,1,40.202773,insufficient_weight
+19.931667,0.0,1.653209,1,49.026214,insufficient_weight
+22.998709,1.0,1.740108,1,53.65727,insufficient_weight
+18.006742,1.0,1.7,1,50.0,insufficient_weight
+34.799519,1.0,1.689141,1,50.0,insufficient_weight
+16.496978,0.0,1.691206,0,50.0,insufficient_weight
+18.0,0.0,1.788459,0,51.552595,insufficient_weight
+17.377131,0.0,1.811238,0,58.83071,insufficient_weight
+16.611837,0.0,1.830068,1,43.534531,insufficient_weight
+17.080493,0.0,1.782756,0,56.029418,insufficient_weight
+22.970655,1.0,1.751691,1,55.967655,insufficient_weight
+17.764764,0.0,1.78656,1,50.0,insufficient_weight
+19.272573,1.0,1.71367,1,50.0,insufficient_weight
+19.0,1.0,1.540375,1,42.006282,insufficient_weight
+17.06713,0.0,1.896734,0,59.895052,insufficient_weight
+23.0,1.0,1.710129,1,50.079991,insufficient_weight
+18.0,0.0,1.704193,1,50.631889,insufficient_weight
+19.054008,0.0,1.556611,1,39.695295,insufficient_weight
+18.0,0.0,1.845399,0,60.0,insufficient_weight
+17.491272,0.0,1.834637,0,59.990861,insufficient_weight
+18.0,0.0,1.721854,0,52.514302,insufficient_weight
+20.172661,1.0,1.605521,1,44.661461,insufficient_weight
+19.220108,1.0,1.530266,1,42.0,insufficient_weight
+18.0,0.0,1.71889,0,52.058335,insufficient_weight
+19.96247,0.0,1.756338,0,54.98234,insufficient_weight
+17.580627,0.0,1.770324,0,55.695253,insufficient_weight
+21.125098,1.0,1.767479,1,56.265959,insufficient_weight
+22.033129,1.0,1.704223,1,51.437985,insufficient_weight
+20.744839,1.0,1.667852,1,49.803921,insufficient_weight
+22.547298,1.0,1.722461,1,51.881263,insufficient_weight
+21.837996,1.0,1.588046,1,44.236067,insufficient_weight
+23.035829,1.0,1.598612,1,42.993937,insufficient_weight
+21.529439,1.0,1.592379,1,44.00945,insufficient_weight
+21.287999,1.0,1.555778,1,42.3601,insufficient_weight
+23.444286,1.0,1.596466,1,44.594588,insufficient_weight
+22.329041,1.0,1.598393,1,44.918255,insufficient_weight
+18.91505,0.0,1.633316,1,45.0,insufficient_weight
+19.0,0.0,1.559567,1,42.12617,insufficient_weight
+19.052833,0.0,1.546551,1,42.069992,insufficient_weight
+19.59904,1.0,1.566501,1,41.706283,insufficient_weight
+21.0,1.0,1.52,1,42.0,insufficient_weight
+19.673262,1.0,1.599486,1,44.810751,insufficient_weight
+20.244359,1.0,1.559186,1,41.952805,insufficient_weight
+20.552695,1.0,1.523426,1,42.0,insufficient_weight
+21.0,1.0,1.52,1,42.0,insufficient_weight
+21.997683,1.0,1.689441,1,51.107925,insufficient_weight
+21.274628,1.0,1.737453,1,50.479039,insufficient_weight
+18.909439,0.0,1.732096,1,50.0,insufficient_weight
+22.396504,0.0,1.869098,0,61.411141,insufficient_weight
+19.084317,0.0,1.851123,0,61.264785,insufficient_weight
+21.084625,0.0,1.787264,0,58.585146,insufficient_weight
+18.068767,0.0,1.787787,0,52.0,insufficient_weight
+21.813083,1.0,1.712515,1,51.710723,insufficient_weight
+18.038422,0.0,1.698914,0,51.692272,insufficient_weight
+18.874591,0.0,1.533609,1,41.669346,insufficient_weight
+19.21164,0.0,1.567981,1,41.934368,insufficient_weight
+18.988581,0.0,1.544263,1,41.535047,insufficient_weight
+19.408999,0.0,1.670552,1,49.804245,insufficient_weight
+19.665881,0.0,1.676346,1,49.105025,insufficient_weight
+19.758286,0.0,1.667404,1,49.125955,insufficient_weight
+22.422674,1.0,1.70011,1,50.173425,insufficient_weight
+20.242237,0.0,1.75633,0,54.567343,insufficient_weight
+22.637018,1.0,1.703584,1,51.607091,insufficient_weight
+19.007177,0.0,1.690727,1,49.895716,insufficient_weight
+18.288205,0.0,1.713564,1,50.0,insufficient_weight
+19.314429,0.0,1.67231,1,49.713944,insufficient_weight
+27.14823,1.0,1.660446,1,49.558304,insufficient_weight
+25.380557,1.0,1.630379,1,46.062954,insufficient_weight
+22.867719,1.0,1.655413,1,50.424661,insufficient_weight
+17.729923,0.0,1.732862,0,51.216463,insufficient_weight
+16.834813,0.0,1.74402,1,50.0,insufficient_weight
+17.521754,0.0,1.757958,0,52.09432,insufficient_weight
+18.0,0.0,1.786758,0,51.524444,insufficient_weight
+18.0,0.0,1.767058,0,51.132809,insufficient_weight
+18.128249,0.0,1.699437,0,52.08657,insufficient_weight
+17.405104,0.0,1.82525,0,58.913579,insufficient_weight
+19.72925,0.0,1.793315,0,58.19515,insufficient_weight
+18.525834,0.0,1.776989,0,57.275946,insufficient_weight
+18.595614,0.0,1.609495,1,42.656563,insufficient_weight
+16.613108,0.0,1.777929,1,44.762023,insufficient_weight
+16.928791,0.0,1.710948,1,45.248627,insufficient_weight
+17.758315,0.0,1.854162,0,59.881316,insufficient_weight
+17.282945,0.0,1.821514,0,59.605028,insufficient_weight
+19.993154,0.0,1.762073,0,55.511075,insufficient_weight
+22.935612,1.0,1.732307,1,54.835576,insufficient_weight
+20.738469,0.0,1.759933,0,55.003417,insufficient_weight
+22.99368,1.0,1.741377,1,54.877111,insufficient_weight
+19.317148,0.0,1.731195,1,49.650897,insufficient_weight
+16.910997,0.0,1.74823,1,49.928447,insufficient_weight
+19.071027,0.0,1.756865,1,49.699672,insufficient_weight
+18.019572,0.0,1.701378,1,50.088468,insufficient_weight
+19.735968,0.0,1.699956,1,49.98297,insufficient_weight
+18.094079,1.0,1.723328,1,50.0,insufficient_weight
+19.054938,1.0,1.585886,1,42.541794,insufficient_weight
+20.850119,1.0,1.524926,1,42.0,insufficient_weight
+19.349258,1.0,1.52337,1,42.0,insufficient_weight
+17.0,0.0,1.844749,0,59.313525,insufficient_weight
+17.203917,0.0,1.853325,0,59.619485,insufficient_weight
+17.671064,0.0,1.854706,0,59.20945,insufficient_weight
+21.310907,1.0,1.72064,1,50.0,insufficient_weight
+21.708354,1.0,1.704167,1,50.165754,insufficient_weight
+22.176922,1.0,1.71746,1,51.491957,insufficient_weight
+17.823438,0.0,1.708406,1,50.0,insufficient_weight
+18.0,0.0,1.763465,1,50.279053,insufficient_weight
+18.281092,0.0,1.7,1,50.0,insufficient_weight
+18.656912,0.0,1.574017,1,41.220175,insufficient_weight
+19.994543,0.0,1.537739,1,39.101805,insufficient_weight
+20.255616,1.0,1.534223,1,41.268597,insufficient_weight
+19.865895,0.0,1.76033,0,55.3707,insufficient_weight
+17.888073,0.0,1.841879,0,60.0,insufficient_weight
+18.470562,0.0,1.856406,0,58.673963,insufficient_weight
+17.925497,0.0,1.829142,0,59.933015,insufficient_weight
+17.000752,0.0,1.822084,0,58.443049,insufficient_weight
+17.362129,0.0,1.80671,0,59.243506,insufficient_weight
+18.0,0.0,1.707259,0,50.664459,insufficient_weight
+18.0,0.0,1.708107,0,51.314659,insufficient_weight
+18.0,0.0,1.739344,0,50.951444,insufficient_weight
+19.029494,1.0,1.573987,1,44.316254,insufficient_weight
+19.269079,1.0,1.58092,1,44.753943,insufficient_weight
+19.946244,1.0,1.603435,1,45.0,insufficient_weight
+19.639431,1.0,1.53535,1,42.0,insufficient_weight
+19.0,1.0,1.53161,1,42.0,insufficient_weight
+19.434709,1.0,1.525691,1,42.0,insufficient_weight
+18.0,0.0,1.719827,0,52.289828,insufficient_weight
+18.381382,0.0,1.722547,0,53.783977,insufficient_weight
+18.0,0.0,1.738702,0,50.248677,insufficient_weight
 26.69858,0.0,1.816298,0,86.963765,overweight
 21.125836,,1.638085,0,70.0,overweight
 25.191627,0.0,1.813678,0,85.637789,overweight

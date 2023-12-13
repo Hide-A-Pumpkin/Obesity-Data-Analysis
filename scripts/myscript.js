@@ -23,9 +23,9 @@ const svg = d3.select('main').select('#plot')
 
   // Parse the Data
 // var data = FileAttachment("transformed_data.csv").csv({typed: true})
-d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/main/transformed_data.csv").then( function(data) {
+  d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/main/transformed_data.csv").then( function(data) {
     const color = d3.scaleOrdinal()
-      .domain(["insufficient weight","normal weight", "overweight", 'obesity' ])
+      .domain(["insufficient_weight","normal_weight", "overweight", 'obesity' ])
       .range([ "#440154", "#21908d", "#fde725",'orange'])
   
     // Here I set the list of dimension manually to control the order of axis:
@@ -50,6 +50,7 @@ d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/m
     // doHighlight the specie that is hovered
     const doHighlight = function(event, d){
       selected_specie = d.NObeyesdad
+      console.log('select!', selected_specie)
       // first every group turns grey
       d3.selectAll(".line")
         .transition().duration(200)
@@ -57,9 +58,11 @@ d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/m
         .style("opacity", "0.2")
       // Second the hovered specie takes its color
       d3.selectAll("." + selected_specie)
+        .raise()
         .transition().duration(200)
         .style("stroke", color(selected_specie))
         .style("opacity", "0.2")
+         // put it to the front
     }
   
     // Unhighlight
@@ -88,17 +91,46 @@ d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/m
         .on("mouseover", doHighlight)
         .on("mouseleave", doNotHighlight )
   
+    var dragging = {};
+
+    function position(d) {
+      var v = dragging[d];
+      return v == null ? x(d) : v;
+    }
+    function transition(g) {
+      return g.transition().duration(500);
+    }
+
     // Draw the axis:
-    svg.selectAll("myAxis")
+    var g_axis = svg.selectAll("myAxis")
       // For each dimension of the dataset I add a 'g' element:
       .data(dimensions).enter()
       .append("g")
       .attr("class", "axis")
       // I translate this element to its right position on the x axis
       .attr("transform", function(d) { return `translate(${x(d)})`})
-      // And I build the axis with the call function
-      .each(function(d) { d3.select(this).call(d3.axisLeft().ticks(5).scale(y[d])); })
+      // And I added the dragging function
+      .call(d3.drag()
+      .subject(function(event, d) {
+        return {x: x(d)}; })
+        .on("start", function(event, d) {
+          dragging[d] = x(d);
+        })
+        .on("drag", function(event, d) {
+          dragging[d] = event.x;
+          foreground.attr("d", path);
+          dimensions.sort(function(a, b) { return position(a) - position(b); });
+          x.domain(dimensions);
+          g_axis.attr("transform", function(d) { return "translate(" + position(d) + ")"; })
+        })
+        .on("end", function(event, d) {
+          delete dragging[d];
+          transition(d3.select(this)).attr("transform", "translate(" + x(d) + ")");
+          transition(foreground).attr("d", path);
+        }))
       // Add axis title
+      g_axis.each(function(d) { d3.select(this).call(d3.axisLeft().ticks(5).scale(y[d])); })
+          // And I build the axis with the call function
       .append("text")
         .style("text-anchor", "middle")
         .attr("y", -9)
