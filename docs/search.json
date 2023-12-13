@@ -26,5 +26,12 @@
     "title": "2  Data",
     "section": "2.3 Missing value analysis",
     "text": "2.3 Missing value analysis\nThe data has been preprocessed by Palechor et al. prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in their paper, but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g. using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.\n\n\nCode\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(reshape2)\ndata&lt;-read_csv(\"materials/ObesityDataSet_raw_and_data_sinthetic.csv\",show_col_types = FALSE)\n\nmissing_values &lt;- is.na(data)\n\n# Reshape data for heatmap\nlong_data &lt;- melt(missing_values, varnames = c(\"Variable\", \"Observation\"))\n\n# Create the heatmap\nggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +\n  geom_tile() +\n  scale_fill_manual(values = c(\"TRUE\" = \"red\", \"FALSE\" = \"lightgreen\"), name = \"Missing\", labels = c(\"No\", \"Yes\")) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        axis.title = element_blank())"
+  },
+  {
+    "objectID": "d3graph.html",
+    "href": "d3graph.html",
+    "title": "4  Interactive graph",
+    "section": "",
+    "text": "&lt;!DOCTYPE html&gt;"
   }
 ]
