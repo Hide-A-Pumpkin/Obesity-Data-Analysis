@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Results</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -401,18 +401,22 @@ Describe any patterns you discover in missing values. If no values are missing, 
 <td style="text-align: center;">18.5 to 24.9</td>
 </tr>
 <tr class="odd">
-<td>Overweight</td>
-<td style="text-align: center;">25.0 to 29.9</td>
+<td>Overweight I</td>
+<td style="text-align: center;">25.0 to 27.5</td>
 </tr>
 <tr class="even">
+<td>Overweight II</td>
+<td style="text-align: center;">27.5 to 29.9</td>
+</tr>
+<tr class="odd">
 <td>Obesity I</td>
 <td style="text-align: center;">30.0 to 34.9</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Obesity II</td>
 <td style="text-align: center;">35.0 to 39.9</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Obesity III</td>
 <td style="text-align: center;">Higher than 40</td>
 </tr>
@@ -471,6 +475,16 @@ Describe any patterns you discover in missing values. If no values are missing, 
 </details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(redav)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(data, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 <style>
@@ -734,7 +748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./results.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Test</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Results</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

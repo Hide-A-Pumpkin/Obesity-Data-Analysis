@@ -130,6 +130,11 @@ ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
         axis.title = element_blank())
 ```
 
+```{r, fig.width = 15, fig.height = 10}
+# Using Professor Robbins' redav package to visualize missing data
+library(redav)
+plot_missing(data, percent = FALSE)
+```
 
 <style>
     body {
