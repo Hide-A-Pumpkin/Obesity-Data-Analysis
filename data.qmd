@@ -74,7 +74,8 @@ We are using one data source for this project, presented in the research paper [
 | ------------- |:-------------:|
 | Underweight | Less than 18.5 |
 | Normal      | 18.5 to 24.9      |  
-| Overweight |  25.0 to 29.9      |  
+| Overweight I |  25.0 to 27.5      |  
+| Overweight II |  27.5 to 29.9      |  
 | Obesity I | 30.0 to 34.9      |    
 | Obesity II |  35.0 to 39.9      |  
 | Obesity III | Higher than 40      |
@@ -113,7 +114,7 @@ The data has been preprocessed by Palechor et al. prior to applying the SMOTE fi
 library(readr)
 library(ggplot2)
 library(reshape2)
-data<-read_csv("materials/ObesityDataSet_raw_and_data_sinthetic.csv",show_col_types = FALSE)
+data<-read_csv("scripts/xinyi-zhao_files/CleanObesityDataSet.csv",show_col_types = FALSE)
 
 missing_values <- is.na(data)
 
@@ -129,6 +130,11 @@ ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
         axis.title = element_blank())
 ```
 
+```{r, fig.width = 15, fig.height = 10}
+# Using Professor Robbins' redav package to visualize missing data
+library(redav)
+plot_missing(data, percent = FALSE)
+```
 
 <style>
     body {
@@ -138,6 +144,11 @@ ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
 
 ### Potential methods to handle missing values
 If our dataset were to have missing values, we would have dealt with it using one of the following methods:
+
 1. Use `plot_missing()` from `redav` to plot the number of missing values in each column and see the missing patterns along with their counts.
+
+
 2. If there are missing patterns with correlations between the missing columns, we can see if it is possible to use the value of any of the other columns as a good predictor of the value of the column(s) with missing values, for example by doing a linear regression. 
+
+
 3. If the proportion of NA values is low, we can also simply try removing NA values from only these columns and keep all the other data. 
