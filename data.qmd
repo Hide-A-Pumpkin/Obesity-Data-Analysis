@@ -74,7 +74,8 @@ We are using one data source for this project, presented in the research paper [
 | ------------- |:-------------:|
 | Underweight | Less than 18.5 |
 | Normal      | 18.5 to 24.9      |  
-| Overweight |  25.0 to 29.9      |  
+| Overweight I |  25.0 to 27.5      |  
+| Overweight II |  27.5 to 29.9      |  
 | Obesity I | 30.0 to 34.9      |    
 | Obesity II |  35.0 to 39.9      |  
 | Obesity III | Higher than 40      |
@@ -129,6 +130,11 @@ ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
         axis.title = element_blank())
 ```
 
+```{r, fig.width = 15, fig.height = 10}
+# Using Professor Robbins' redav package to visualize missing data
+library(redav)
+plot_missing(data, percent = FALSE)
+```
 
 <style>
     body {
