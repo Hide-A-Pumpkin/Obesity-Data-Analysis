@@ -231,7 +231,7 @@ The number of graphs will vary by project; we suggest a target of 10. (A plot wi
 <li><p><code>IsOverweight</code>: a binary categorical value whose value is 1 if the <code>BMI</code> of the person is more than 25, 0 otherwise.</p></li>
 </ol>
 <p>These columns serve as alternate metrics of the obesity of an individual, a <strong>continuous variable</strong> and a <strong>binary categorical variable</strong>, to complement <code>NObeyesdad</code>, the obesity category level which is a <strong>ordinal categorical variable</strong>.</p>
-<p>These new columns can be found and used directly in the dataset <code>materials/CleanObesityDataSet.csv</code>.</p>
+<p>These new columns can be found and used directly in the dataset <code>scripts/xinyi-zhao_files/CleanObesityDataSet.csv</code>.</p>
 <p>In order to improve the visualization of certain plots, we also made local modifications to the data types of some columns, as follows:</p>
 <ol type="1">
 <li>Rounded the variables: Frequency of consumption of vegetables (<code>FCVC</code>), Number of main meals (<code>NCP</code>), Physical activity frequency (<code>FAF</code>), Time using technology devices (<code>TUE</code>)</li>
@@ -254,7 +254,7 @@ The number of graphs will vary by project; we suggest a target of 10. (A plot wi
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'materials/CleanObesityDataSet.csv'</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'scripts/xinyi-zhao_files/CleanObesityDataSet.csv'</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Preliminary verifications of the number of rows, columns and missing values of our dataset show that there does not seem to be any problems with the structure of our dataset.</p>
@@ -371,8 +371,8 @@ W = 0.97475, p-value &lt; 2.2e-16</code></pre>
 <pre><code>[1] 12.99868 24.32580 28.71909 36.01650 50.81175</code></pre>
 </div>
 </div>
-<p><a href="materials/3_histograms.png"></a></p>
-<p><a href="materials/2_boxplot_bmi.png"></a></p>
+<p><a href="scripts/xinyi-zhao_files/3_histograms.png"></a></p>
+<p><a href="scripts/xinyi-zhao_files/2_boxplot_bmi.png"></a></p>
 </section>
 <section id="preliminary-visualizations" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="preliminary-visualizations"><span class="header-section-number">3.4</span> Preliminary visualizations</h2>

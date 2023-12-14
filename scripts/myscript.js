@@ -30,7 +30,7 @@ const svg = d3.select('main').select('#plot')
   
     // Here I set the list of dimension manually to control the order of axis:
     // dimensions = ["Petal_Length", "Petal_Width", "Sepal_Length", "Sepal_Width"]
-    dimensions = ['Age','CAEC','Height','Gender','Weight']
+    dimensions = ['FCVC','NCP','BMI','FAF','TUE','BMI']
     // For each dimension, I build a linear scale. I store all in a y object
     const y = {}
 

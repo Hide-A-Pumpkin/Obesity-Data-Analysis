@@ -27,7 +27,7 @@ To conduct deeper analysis on our data, we added the following columns to our da
 
 These columns serve as alternate metrics of the obesity of an individual, a **continuous variable** and a **binary categorical variable**, to complement `NObeyesdad`, the obesity category level which is a **ordinal categorical variable**.
 
-These new columns can be found and used directly in the dataset `materials/CleanObesityDataSet.csv`.
+These new columns can be found and used directly in the dataset `scripts/xinyi-zhao_files/CleanObesityDataSet.csv`.
 
 In order to improve the visualization of certain plots, we also made local modifications to the data types of some columns, as follows:
 
@@ -48,7 +48,7 @@ library(gridExtra)
 library(grid)
 library(GGally)
 
-data <- read_csv('materials/CleanObesityDataSet.csv',show_col_types = FALSE)
+data <- read_csv('scripts/xinyi-zhao_files/CleanObesityDataSet.csv',show_col_types = FALSE)
 ```
 
 Preliminary verifications of the number of rows, columns and missing values of our dataset show that there does not seem to be any problems with the structure of our dataset.
@@ -119,9 +119,9 @@ fivenum(data$BMI)
 
 ```
 
-[](materials/3_histograms.png)
+[](scripts/xinyi-zhao_files/3_histograms.png)
 
-[](materials/2_boxplot_bmi.png)
+[](scripts/xinyi-zhao_files/2_boxplot_bmi.png)
 
 
 
