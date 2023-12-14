@@ -179,17 +179,19 @@ ggplot(data, aes(x = Weight, y = NObeyesdad, fill = NObeyesdad)) +
 
 [](scripts/xinyi-zhao_files/2_boxplot_bmi.png)
 
-
+This ridgeline plot illustrates that the distributions of normal weight, insufficient weight, and overweight categories exhibit unimodal characteristics, closely resembling a normal distribution. In contrast, the obesity category displays a bimodal distribution with a notably wider range.
 
 ## Exploratory data analysis of variables potentially correlated with BMI
 ### Scatterplot of each pair of numeric variables in the dataset
 
 We wanted to first find out **whether there are any obvious correlations between any pair of numeric variables in the dataset**. This will help us to figure out if there are any variables to focus our subsequent analyses on. **Fig. 5** presents a **scatterplot** of each pair of numeric variables in the dataset.
+
 ```{r scatterplot, fig.width = 20, fig.height = 20, fig.cap = "Fig. 5: Scatterplot of each pair of numeric variables in the dataset"}
 # Scatterplot of each pair of numeric variables in the dataset
 
 set.seed(123456) # Seed so that the sampling is reproducible
 
+data_original <-data
 data <- data %>%
  mutate_if(is.numeric, scale) # Scale only numeric variables
 
@@ -247,31 +249,37 @@ ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
 
 ```
 
+Analyzing the heatmap of correlations among numerical variables reveals two notable insights:
+
+1. There is a surprisingly high positive correlation between the frequency of vegetable consumption and obesity. Contrary to the common assumption that increased vegetable intake correlates with healthier living, the data interestingly suggests that higher vegetable consumption frequencies may be associated with an increased tendency towards being overweight.
+
+2. A positive relationship exists between the frequency of physical activity and the number of main meals consumed. This aligns well with practical observations, as individuals engaging in more physical activities typically expend more energy, thereby necessitating increased food intake to compensate for the energy loss.
+
 ### Density plots for numerical variables
 
 ```{r discrete-histogram, fig.cap = "Fig. 7: Density plots for Frequency of consumption of vegetables (FCVC), Number of main meals (NCP), Physical activity frequency (FAF), Time using technology devices (TUE)"}
 
 
 # Creating individual density plots with smooth lines
-plot_fcvc <- ggplot(data, aes(x = FCVC)) + 
-  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+plot_fcvc <- ggplot(data_original, aes(x = FCVC)) + 
+  stat_density(fill="blue", alpha=0.5) +
   ggtitle("FCVC Density Plot") +
   xlab("FCVC") +
   ylab("Density")
 
-plot_ncp <- ggplot(data, aes(x = NCP)) + 
+plot_ncp <- ggplot(data_original, aes(x = NCP)) + 
   stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
   ggtitle("NCP Density Plot") +
   xlab("NCP") +
   ylab("Density")
 
-plot_faf <- ggplot(data, aes(x = FAF)) + 
+plot_faf <- ggplot(data_original, aes(x = FAF)) + 
   stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
   ggtitle("FAF Density Plot") +
   xlab("FAF") +
   ylab("Density")
 
-plot_tue <- ggplot(data, aes(x = TUE)) + 
+plot_tue <- ggplot(data_original, aes(x = TUE)) + 
   stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +ggtitle("TUE Density Plot") +
   xlab("TUE") +
   ylab("Density")
@@ -282,6 +290,16 @@ grid.arrange(plot_fcvc, plot_ncp, plot_faf, plot_tue, nrow = 2)
 
 ```
 
+
+The analysis of density plots for various numerical variables reveals some intriguing patterns, particularly in the distribution of integer versus float values:
+
+1. The frequency of vegetable consumption predominantly clusters around integer values, with 1 and 3 being notably prevalent. This suggests a strong tendency for surveyed individuals to consume vegetables either once or thrice within a given time frame.
+
+2. The number of main meals consumed typically centers around the integer value 3. This indicates that a majority of the surveyed individuals adhere to a traditional three-meals-a-day eating pattern.
+
+3. The frequency of physical activity demonstrates a clear inclination towards 1 or 2 sessions per week. This pattern highlights a general trend in physical activity habits.
+
+4. In terms of technology device usage frequency, there is a significant skew towards the lower end of the spectrum. The data suggests that most surveyed people either seldom use technology devices or do so only occasionally. 
 
 ## Correlation between biological factors/the existence of certain lifestyle habits and obesity
 
