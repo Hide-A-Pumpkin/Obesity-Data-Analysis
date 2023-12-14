@@ -13,31 +13,21 @@ The number of graphs will vary by project; we suggest a target of 10. (A plot wi
 
 # Results
 
+## Data pre-processing
+To conduct deeper analysis on our data, we added the following columns to our dataset:
+1. `BMI`: the Body Mass Index of each person, a continuous variable calculated using the [World Health Organization guideline](https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index): `$BMI = \frac{Weight}{Height^2}$`
+2. `IsOverweight`: a binary categorical value whose value is 1 if the `BMI` of the person is more than 25, 0 otherwise.
+
+These columns serve as alternate metrics of the obesity of an individual, a **continuous variable** and a **binary categorical variable**, to complement `NObeyesdad`, the obesity category level which is a **ordinal categorical variable**.
+
+We also made modifications to the data types of certain columns, as follows:
+
 ## Verifications of the validity of the dataset
 [](materials/3_histograms.png)
 
 [](materials/2_boxplot_bmi.png)
 
-```{r 3 histograms}
 
-library(readr)
-library(ggplot2)
-library(reshape2)
-data<-read_csv("materials/ObesityDataSet_raw_and_data_sinthetic.csv",show_col_types = FALSE)
-
-missing_values <- is.na(data)
-
-# Reshape data for heatmap
-long_data <- melt(missing_values, varnames = c("Variable", "Observation"))
-
-# Create the heatmap
-ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
-  geom_tile() +
-  scale_fill_manual(values = c("TRUE" = "red", "FALSE" = "lightgreen"), name = "Missing", labels = c("No", "Yes")) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        axis.title = element_blank())
-```
 
 
 

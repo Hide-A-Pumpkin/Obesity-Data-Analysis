@@ -10,29 +10,25 @@ library(dplyr)
 library(tidyverse)
 library(stats)
 library(vcd)
+library(ggplot2)
 
 data <- read_csv('CleanObesityDataSet.csv',show_col_types = FALSE)
-
-data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "CALC", "TUE")]
 ```
 
 ```{r boxplot}
-library(ggplot2)
-p <- ggplot(data, aes(x=BMI)) + 
+# Boxplot to visualize the BMI of individuals 
+ggplot(data, aes(x=BMI)) + 
   geom_boxplot(fill = "lightblue", color = "black") + 
-    coord_cartesian(ylim = c(-2, 2)) +  
+  coord_cartesian(ylim = c(-2, 2)) +  
   labs(title = "Boxplot of BMI across all individuals")
+```
 
-#, x = "Variable", y = "Data Value")
 png("2_boxplot_bmi.png")
 p
 dev.off()
 
-# Rotate the box plot
 
-#AvgVisits <- data$BMI
-#b1 <- boxplot(AvgVisits)
-stats = fivenum(AvgVisits)
+stats = fivenum(data$BMI)
 
 stats
 
