@@ -61,6 +61,7 @@ Additionally, the data seems to align with our expectations, visualizing the `He
 
 ```{r histogram}
 # Histograms of Height, Weight and BMI
+
 plot1 <- ggplot(data = data, aes(x = Height)) + geom_histogram(binwidth = 0.02)
 plot2 <- ggplot(data = data, aes(x = Weight)) + geom_histogram(binwidth = 2)
 plot3 <- ggplot(data = data, aes(x = BMI)) + geom_histogram(binwidth = 1)
@@ -126,19 +127,23 @@ fivenum(data$BMI)
 
 
 ## Preliminary visualizations
-```{r scatterplot}
+```{r scatterplot, fig.width = 20, fig.height = 20}
+set.seed(123456)
+
+data <- data %>%
+ mutate_if(is.numeric, scale)
+
 data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
 
 # Convert all columns to numeric
 data_num <- sapply(data_num, as.numeric)
 
-data <- data %>%
- mutate_if(is.numeric, scale)
+# Sample 1000 points for clearer visualization
+data_sampled <- sample_n(as.data.frame(data_num), 300)
 
-library(GGally)
-p <- ggpairs(as.data.frame(data_num), aes(alpha = 0.2, size = 1))
-
-p
+ggpairs(as.data.frame(data_sampled), aes(alpha = 0.4, size = 0.02), 
+           upper = list(continuous = wrap("cor", size = 12))) + 
+  theme(text = element_text(size = 35))
 ```
 
 ## Understanding the correlation between biological factor and obesity 

@@ -141,23 +141,20 @@ dev.off()
 ```
 
 ```{r, fig.height = 10, fig.width = 10}
-# Load the required package
-library(ggplot2)
-library(dplyr)
 library(GGally)
+set.seed(123456)
 
+data <- data %>%
+ mutate_if(is.numeric, scale)
 
 data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
 
 # Convert all columns to numeric
 data_num <- sapply(data_num, as.numeric)
 
-data <- data %>%
- mutate_if(is.numeric, scale)
+# Sample 1000 points for clearer visualization
+data_sampled <- sample_n(as.data.frame(data_num), 100)
 
-library(GGally)
-p <- ggpairs(as.data.frame(data_num), aes(alpha = 0.2))
-
-p
+ggpairs(as.data.frame(data_sampled), aes(alpha = 0.2, size = 0.01))
 
 ```
