@@ -177,7 +177,12 @@ Your D3/javascript code should be added to a .js file in the scripts/ folder of 
   } */
 </style>
 <div id="plot">
+<form id="selectionForm">
+<input type="checkbox" id="age" name="variables" value="Age"> <label for="age">Age</label> <input type="checkbox" id="height" name="variables" value="Height"> <label for="height">Height</label> <input type="checkbox" id="weight" name="variables" value="Weight"> <label for="weight">Weight</label> <input type="checkbox" id="fcvc" name="variables" value="FCVC"> <label for="weight">FCVC</label> <input type="checkbox" id="ncp" name="variables" value="NCP"> <label for="ncp">NCP</label> <input type="checkbox" id="faf" name="variables" value="FAF"> <label for="faf">FAF</label> <input type="checkbox" id="tue" name="variables" value="TUE"> <label for="tue">TUE</label> <input type="checkbox" id="bmi" name="variables" value="BMI"> <label for="bmi">BMI</label> <button type="button" onclick="updateVisualization()">Update</button>
+</form>
+<div id="my_dataviz">
 
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>
@@ -188,6 +193,9 @@ Your D3/javascript code should be added to a .js file in the scripts/ folder of 
 <style>
     body {
         text-align: justify
+    }
+    .selection-panel {
+    margin-bottom: 20px;
     }
 </style>
 

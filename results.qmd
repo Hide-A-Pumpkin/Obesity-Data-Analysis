@@ -27,7 +27,7 @@ To conduct deeper analysis on our data, we added the following columns to our da
 
 These columns serve as alternate metrics of the obesity of an individual, a **continuous variable** and a **binary categorical variable**, to complement `NObeyesdad`, the obesity category level which is a **ordinal categorical variable**.
 
-These new columns can be found and used directly in the dataset `materials/CleanObesityDataSet.csv`.
+These new columns can be found and used directly in the dataset `scripts/xinyi-zhao_files/CleanObesityDataSet.csv`.
 
 In order to improve the visualization of certain plots, we also made local modifications to the data types of some columns, as follows:
 
@@ -47,11 +47,15 @@ library(ggplot2)
 library(gridExtra)
 library(grid)
 library(GGally)
+library(reshape2)
+library(colorspace)
+library(plyr)
+library(ggalluvial) 
 
-data <- read_csv('materials/CleanObesityDataSet.csv',show_col_types = FALSE)
+data <- read_csv('scripts/xinyi-zhao_files/CleanObesityDataSet.csv',show_col_types = FALSE)
 ```
 
-Preliminary verifications of the number of rows, columns and missing values of our dataset show that there does not seem to be any problems with the structure of our dataset.
+Preliminary verifications of the number of rows, columns and missing values of our dataset show that **there does not seem to be any problems with the structure of our dataset**.
 
 ```{r summary}
 cat("Number of rows in dataset: ", nrow(data), "\nNumber of columns in dataset: ", ncol(data),"\nNumber of missing values in dataset: ", sum(is.na(data)))
@@ -120,9 +124,9 @@ fivenum(data$BMI)
 
 ```
 
-[](materials/3_histograms.png)
+[](scripts/xinyi-zhao_files/3_histograms.png)
 
-[](materials/2_boxplot_bmi.png)
+[](scripts/xinyi-zhao_files/2_boxplot_bmi.png)
 
 
 
@@ -146,10 +150,167 @@ ggpairs(as.data.frame(data_sampled), aes(alpha = 0.4, size = 0.02),
   theme(text = element_text(size = 35))
 ```
 
-## Understanding the correlation between biological factor and obesity 
+## Understanding the correlation between biological factors and obesity 
+
+```{r mosaic}
+# plot 1 mosaic 3 var
+library(colorspace)
+library(plyr)
+
+data_mosaic <- data[c("FAVC", "SCC", "IsOverweight")] 
+data_mosaic <- dplyr::count_(data_mosaic,vars = c("FAVC", "SCC", "IsOverweight"))
+
+colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Freq"
+
+data_mosaic$IsOverweight <- fct_rev(as.character(data_mosaic$IsOverweight))
+
+mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"))
+
+```
+
 
 ## Correlation between lifestyle habits and obesity
 
+```{r 5 alluvial diagrams}
+# Create a mosaic plot for each variable in the table plotted against 'IsOverweight'
+
+data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
+
+data_mosaic$family_history_with_overweight <- fct_relevel(data_mosaic$family_history_with_overweight, "yes", "no")
+
+data_mosaic$SMOKE <- fct_relevel(data_mosaic$SMOKE, "yes", "no")
+
+data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
+
+data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
+
+
+data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
+
+for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
+# png(paste0("mosaic_", var, "_IsOverweight.png"))
+ contingency_table <- table(data_mosaic[[var]],data_mosaic$IsOverweight)
+ mosaicplot(contingency_table, main = paste("Mosaic Plot for", var), ylab = "Is Overweight", xlab = var, col = c("pink", "brown"))
+# dev.off()
+}
+```
+
+```{r multivariate alluvial diagram}
+
+data_alluvial <- data[c("Age", "NObeyesdad", "NCP", "CH2O", "FAF", "CALC", "TUE")]
+
+data_alluvial$CH2O <- as.numeric(data_alluvial$CH2O)
+data_alluvial$CH2O <- round(data_alluvial$CH2O)
+data_alluvial$NCP <- as.numeric(data_alluvial$NCP)
+data_alluvial$NCP <- round(data_alluvial$NCP)
+data_alluvial$FAF <- as.numeric(data_alluvial$FAF)
+data_alluvial$FAF <- round(data_alluvial$FAF)
+data_alluvial$TUE <- as.numeric(data_alluvial$TUE)
+data_alluvial$TUE <- round(data_alluvial$TUE)
+
+data_alluvial <- data_alluvial %>%
+ mutate(Obesity_Category = case_when(
+   NObeyesdad %in% c("Overweight_Level_I", "Overweight_Level_II") ~ "Overweight",
+   NObeyesdad %in% c("Obesity_Type_I", "Obesity_Type_II") ~ "Obese",
+   NObeyesdad == "Normal_Weight" ~ "Normal",
+   NObeyesdad == "Insufficient_Weight" ~ "Underweight"
+ ))
+```
+
+```{r Lifestyle habits alluvial}
+data_alluvial_2 <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "FAF", "CALC", "NCP", "CH2O", "TUE"))
+
+colnames(data_alluvial_2)[colnames(data_alluvial_2) == "n"] <- "Freq"
+
+data_alluvial_2$Obesity_Category <- factor(data_alluvial_2$Obesity_Category, levels = c("Underweight", "Normal", "Overweight", "Obese"))
+
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = TUE, axis3 = FAF)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Obesity category vs Time on Electronics vs Alcohol consumption") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+```{r Dietary habits alluvial}
+# CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = NCP, axis3 = CH2O)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Obesity category vs Nb of meals vs Water consumption a day") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+
+<!-- these are the code for discrete variables -->
+```{r discrete-histogram}
+
+
+# Creating individual density plots with smooth lines
+plot_fcvc <- ggplot(data, aes(x = FCVC)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("FCVC Density Plot") +
+  xlab("FCVC") +
+  ylab("Density")
+
+plot_ncp <- ggplot(data, aes(x = NCP)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("NCP Density Plot") +
+  xlab("NCP") +
+  ylab("Density")
+
+plot_faf <- ggplot(data, aes(x = FAF)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("FAF Density Plot") +
+  xlab("FAF") +
+  ylab("Density")
+
+plot_tue <- ggplot(data, aes(x = TUE)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +ggtitle("TUE Density Plot") +
+  xlab("TUE") +
+  ylab("Density")
+
+# Arrange the plots in a 2x2 grid
+grid.arrange(plot_fcvc, plot_ncp, plot_faf, plot_tue, nrow = 2)
+
+
+```
+
+
+```{r heatmap}
+categories <- c('Insufficient_Weight','Normal_Weight', 'Overweight_Level_I', 'Overweight_Level_II', 'Obesity_Type_I', 'Obesity_Type_II','Obesity_Type_III')
+
+# Create a mapping from category to integer
+category_mapping <- setNames(1:length(categories), categories)
+
+data$NObesity_numeric <- as.integer(factor(data$NObeyesdad, levels = categories))
+
+data_pca <- data[c("FCVC","NCP","FAF","TUE","NObesity_numeric")]
+
+
+cor_matrix <- cor(data_pca)
+
+# Reshape the data for heatmap
+melted_cor <- melt(cor_matrix)
+
+# Creating heatmap
+ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
+  geom_tile() +
+  geom_text(aes(label = ifelse(value > 0.1&value<1, round(value, 2), '')), color= 'darkblue',vjust = 1) +
+  scale_fill_gradient2(midpoint = 0) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Heatmap of Correlations")
+
+
+```
 <style>
     body {
         text-align: justify
