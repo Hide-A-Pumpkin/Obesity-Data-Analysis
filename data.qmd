@@ -1,9 +1,52 @@
+<!-- 
+2 Data data.qmd
+
+  2.1 Technical description
+
+Identify one or more data sources (see II. D. above) that you propose to draw on for the project. For each, describe how the data are collected and by whom. Describe the format of the data, the frequency of updates, dimensions, and any other relevant information. Note any issues / problems with the data, either known or that you discover. Explain how you plan to import the data. Carefully document your sources with links to the precise data sources that you used. If that is not possible (for example if your data is not available online, then explain that clearly.)
+
+(suggested: 1 page)
+
+  2.2 Research plan
+
+Explain in detail how your data will enable you to answer your research questions from the introduction. 
+
+(suggested: 1 page)
+
+ 2.3 Missing value analysis
+
+Describe any patterns you discover in missing values. If no values are missing, graphs should still be included showing that.
+
+(suggested: 2 graphs plus commentary)
+ -->
+
 # Data
 
 ## Description
 ### Overview of attributes
 We are using one data source for this project, presented in the research paper [Palechor et al. 2019](https://doi.org/10.1016/j.dib.2019.104344), that monitors the physical health of individuals of ages 14 to 61 from the countries of Mexico, Peru and Colombia, based on their eating habits, physical condition and obesity levels. The dataset contains 17 attributes and 2111 records, and it is the biggest (in terms of both the number of rows and columns) dataset that we could find on obesity and physical health. The 17 attributes are as follows:
 
+| Index | Variable                                                        | Type        | Subtype    |
+|-------|-----------------------------------------------------------------|-------------|------------|
+| 1     | Gender                                                          | Categorical | Nominal    |
+| 2     | Age                                                             | Numerical   | Discrete   |
+| 3     | Height                                                          | Numerical   | Continuous |
+| 4     | Weight                                                          | Numerical   | Continuous |
+| 5     | Family history with overweight (family_history_with_overweight) | Categorical | Binary     |
+| 6     | Frequent consumption of high caloric food (FAVC)                | Categorical | Binary     |
+| 7     | Frequency of consumption of vegetables (FCVC)                   | Numerical   | Discrete   |
+| 8     | Number of main meals (NCP)                                      | Numerical   | Discrete   |
+| 9     | Consumption of food between meals (CAEC)                        | Categorical | Ordinal    |
+| 10    | SMOKE                                                           | Categorical | Binary     |
+| 11    | Consumption of water daily (CH2O)                               | Numerical   | Discrete   |
+| 12    | Calories consumption monitoring (SCC)                           | Categorical | Binary     |
+| 13    | Physical activity frequency (FAF)                               | Numerical   | Discrete   |
+| 14    | Time using technology devices (TUE)                             | Numerical   | Discrete   |
+| 15    | Consumption of alcohol (CALC)                                   | Categorical | Ordinal    |
+| 16    | Transportation used (MTRANS)                                    | Categorial  | Nominal    |
+| 17    | Obesity category level (NObeyesdad)                             | Categorical | Ordinal    |
+
+<!--
 1. Gender
 2. Age
 3. Height
@@ -21,6 +64,7 @@ We are using one data source for this project, presented in the research paper [
 15. Consumption of alcohol (CALC)
 16. Transportation used (MTRANS)
 17. Obesity category level (NObeyesdad)
+-->
 
 
 ### Dealing with class imbalance
@@ -60,6 +104,8 @@ From these correlations, we will be able to draw some conclusions about the peop
 
 
 ## Missing value analysis
+
+### No missing values in the dataset
 The data has been preprocessed by Palechor et al. prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in [their paper](https://doi.org/10.1016/j.dib.2019.104344), but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g. using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.  
 
 ```{r}
@@ -89,3 +135,9 @@ ggplot(long_data, aes(x = Variable, y = Observation, fill = value)) +
         text-align: justify
     }
 </style>
+
+### Potential methods to handle missing values
+If our dataset were to have missing values, we would have dealt with it using one of the following methods:
+1. Use `plot_missing()` from `redav` to plot the number of missing values in each column and see the missing patterns along with their counts.
+2. If there are missing patterns with correlations between the missing columns, we can see if it is possible to use the value of any of the other columns as a good predictor of the value of the column(s) with missing values, for example by doing a linear regression. 
+3. If the proportion of NA values is low, we can also simply try removing NA values from only these columns and keep all the other data. 

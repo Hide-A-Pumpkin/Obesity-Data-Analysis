@@ -1,3 +1,15 @@
+<!-- 
+4 Interactive (or animated) component in D3  d3graph.qmd
+
+Select one (or more) of your key findings to present in an interactive or animated format using D3. Be thoughtful about how you use interactivity and/or animation: using these features to add value in a way that would not be possible with a static graph. 
+
+Design with the goal of users walking away with a new understanding of the data and a clear understanding of the purpose of the visualization. If the tool is interactive, provide clear instructions on how the user should engage. Thoughtfulness and originality is more important than technical prowess; in all aspects of the project, think quality, not quantity. 
+
+Interactive graphs must follow all of the best practices as with static graphs in terms of perception, labeling, accuracy, etc.
+
+Your D3/javascript code should be added to a .js file in the scripts/ folder of your repo. This videoLinks to an external site. explains how to set this up properly. The same material is also available in this chapterLinks to an external site..
+-->
+
 # Interactive graph
 
 <style>

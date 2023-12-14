@@ -14,6 +14,25 @@ data_pca
 ```
 
 ```{r}
+# Install and load the 'vcd' package
+library(vcd)
+
+# Assuming 'data' is your dataset
+data_mosaic <- data[c("Gender", "family_history_with_overweight", "FAVC", "SCC", "IsOverweight")]
+
+# Create a multivariate mosaic plot
+mosaic(data_mosaic, shade = TRUE, legend = TRUE,
+       labeling_args = list(gp_labels = gpar(fontsize = 8)),
+       labeling = TRUE, gp = gpar(fontsize = 12),
+       gp_text = gpar(fontsize = 10), direction = c("v", "h", "v", "v", "v"))
+
+# If you want to save the plot to a file, you can use the following line
+# savePlot("multivariate_mosaic_plot.png", type = "png")
+
+
+```
+
+```{r}
 data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
 
 library(forcats)
@@ -48,6 +67,21 @@ for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
  dev.off()
 }
 
+```
+
+```{r}
+values <- c(-11,-8,3,5,6,8,9,12,13,15,28,32,35)
+boxplot(values, main = "Boxplot of Given Values", xlab = "Values", ylab = "Frequency")
+five_number_summary <- fivenum(values)
+print(five_number_summary)
+
+numbers <- c(99, 90, 86, 88, 95, 87, 85, 89)
+sorted_numbers <- sort(numbers)
+print(sorted_numbers)
+
+
+#calculate five number summary of points column
+fivenum(c(85, 85, 87, 88, 89, 90, 98, 99,100))
 ```
 
 ```{r}
@@ -113,26 +147,17 @@ library(dplyr)
 library(GGally)
 
 
-data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
+data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
 
 # Convert all columns to numeric
-data_pca <- sapply(data_pca, as.numeric)
+data_num <- sapply(data_num, as.numeric)
 
 data <- data %>%
  mutate_if(is.numeric, scale)
 
+library(GGally)
+p <- ggpairs(as.data.frame(data_num), aes(alpha = 0.2))
 
-# Create a scatterplot matrix
-# pairs(data_pca, pch = 19, cex = 0.6, main = "Scatterplot Matrix")
-
-# Open a PNG device
-png("scatterplot_numeric.png")
-
-# Create a scatterplot matrix
-pairs(data_pca, pch = 19, cex = 0.6, main = "Scatterplot Matrix")
-
-# Close the device and save the plot
-dev.off()
+p
 
 ```
-
