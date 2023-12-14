@@ -3,7 +3,7 @@ const margin = {top: 30, right: 250, bottom: 10, left: 50},
   height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-const svg = d3.select('main').select('#plot')
+const svg = d3.select('main').select('#plot').select('#my_dataviz')
 .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -11,6 +11,9 @@ const svg = d3.select('main').select('#plot')
   .attr("transform",
         `translate(${margin.left},${margin.top})`);
   
+
+function updateVisualization() {
+  svg.selectAll("*").remove();
   svg.append("circle").attr("cx",600).attr("cy",130).attr("r", 6).style("fill", "#440154")
   svg.append("circle").attr("cx",600).attr("cy",160).attr("r", 6).style("fill", "#21908d")
   svg.append("circle").attr("cx",600).attr("cy",190).attr("r", 6).style("fill", "#fde725")
@@ -21,6 +24,15 @@ const svg = d3.select('main').select('#plot')
   svg.append("text").attr("x", 620).attr("y", 190).text("overweight").style("font-size", "15px").attr("alignment-baseline","middle")
   svg.append("text").attr("x", 620).attr("y", 220).text("obesity").style("font-size", "15px").attr("alignment-baseline","middle")
 
+  var form = document.getElementById('selectionForm')
+  // console.log(choice)
+  var selectedVariables = Array.from(form.variables)
+                                  .filter(input => input.checked)
+                                  .map(input => input.value);
+
+    // Use selectedVariables array to update the visualization
+    // The selectedVariables array contains the values of the checked checkboxes
+  console.log(selectedVariables);
   // Parse the Data
 // var data = FileAttachment("transformed_data.csv").csv({typed: true})
   d3.csv("https://raw.githubusercontent.com/Hide-A-Pumpkin/Obesity-Data-Analysis/main/transformed_data.csv").then( function(data) {
@@ -29,8 +41,9 @@ const svg = d3.select('main').select('#plot')
       .range([ "#440154", "#21908d", "#fde725",'orange'])
   
     // Here I set the list of dimension manually to control the order of axis:
-    // dimensions = ["Petal_Length", "Petal_Width", "Sepal_Length", "Sepal_Width"]
-    dimensions = ['FCVC','NCP','BMI','FAF','TUE','BMI']
+    if (selectedVariables.length !==0)
+        dimensions = selectedVariables
+    else dimensions = ['FCVC','NCP','BMI','FAF','TUE','BMI']
     // For each dimension, I build a linear scale. I store all in a y object
     const y = {}
 
@@ -195,4 +208,6 @@ const svg = d3.select('main').select('#plot')
       // Render data as asimple grid
       (actives.length>0)?out.text(d3.tsvFormat(selected)):out.text(d3.tsvFormat(sample_data));
   }
-})
+  })
+  }
+updateVisualization()

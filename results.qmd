@@ -47,6 +47,7 @@ library(ggplot2)
 library(gridExtra)
 library(grid)
 library(GGally)
+library(reshape2)
 
 data <- read_csv('scripts/xinyi-zhao_files/CleanObesityDataSet.csv',show_col_types = FALSE)
 ```
@@ -145,6 +146,69 @@ p
 
 ## Correlation between lifestyle habits and obesity
 
+
+<!-- these are the code for discrete variables -->
+```{r discrete-histogram}
+
+
+# Creating individual density plots with smooth lines
+plot_fcvc <- ggplot(data, aes(x = FCVC)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("FCVC Density Plot") +
+  xlab("FCVC") +
+  ylab("Density")
+
+plot_ncp <- ggplot(data, aes(x = NCP)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("NCP Density Plot") +
+  xlab("NCP") +
+  ylab("Density")
+
+plot_faf <- ggplot(data, aes(x = FAF)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("FAF Density Plot") +
+  xlab("FAF") +
+  ylab("Density")
+
+plot_tue <- ggplot(data, aes(x = TUE)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +ggtitle("TUE Density Plot") +
+  xlab("TUE") +
+  ylab("Density")
+
+# Arrange the plots in a 2x2 grid
+grid.arrange(plot_fcvc, plot_ncp, plot_faf, plot_tue, nrow = 2)
+
+
+```
+
+
+```{r heatmap}
+categories <- c('Insufficient_Weight','Normal_Weight', 'Overweight_Level_I', 'Overweight_Level_II', 'Obesity_Type_I', 'Obesity_Type_II','Obesity_Type_III')
+
+# Create a mapping from category to integer
+category_mapping <- setNames(1:length(categories), categories)
+
+data$NObesity_numeric <- as.integer(factor(data$NObeyesdad, levels = categories))
+
+data_pca <- data[c("FCVC","NCP","FAF","TUE","NObesity_numeric")]
+
+
+cor_matrix <- cor(data_pca)
+
+# Reshape the data for heatmap
+melted_cor <- melt(cor_matrix)
+
+# Creating heatmap
+ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
+  geom_tile() +
+  geom_text(aes(label = ifelse(value > 0.1&value<1, round(value, 2), '')), color= 'darkblue',vjust = 1) +
+  scale_fill_gradient2(midpoint = 0) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Heatmap of Correlations")
+
+
+```
 <style>
     body {
         text-align: justify

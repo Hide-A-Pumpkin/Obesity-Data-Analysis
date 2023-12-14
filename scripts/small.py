@@ -3,7 +3,7 @@ import pandas as pd
 df = pd.read_csv('CleanObesityDataSet.csv')
 
 # Select the required columns
-selected_columns = ['FCVC','NCP','BMI','FAF','TUE','BMI','NObeyesdad']
+selected_columns = ['Age','Height','Weight','FCVC','NCP','BMI','FAF','TUE','BMI','NObeyesdad']
 df = df[selected_columns]
 
 def transform_category(category):
