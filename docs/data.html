@@ -186,7 +186,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#need-for-new-columns" id="toc-need-for-new-columns" class="nav-link" data-scroll-target="#need-for-new-columns"><span class="header-section-number">2.1.4</span> Need for new columns</a></li>
   </ul></li>
   <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research plan</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a>
+  <ul class="collapse">
+  <li><a href="#no-missing-values-in-the-dataset" id="toc-no-missing-values-in-the-dataset" class="nav-link" data-scroll-target="#no-missing-values-in-the-dataset"><span class="header-section-number">2.3.1</span> No missing values in the dataset</a></li>
+  <li><a href="#potential-methods-to-handle-missing-values" id="toc-potential-methods-to-handle-missing-values" class="nav-link" data-scroll-target="#potential-methods-to-handle-missing-values"><span class="header-section-number">2.3.2</span> Potential methods to handle missing values</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Hide-A-Pumpkin/Obesity-Data-Analysis/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Hide-A-Pumpkin/Obesity-Data-Analysis/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -210,30 +214,172 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<!-- 
+2 Data data.qmd
+
+  2.1 Technical description
+
+Identify one or more data sources (see II. D. above) that you propose to draw on for the project. For each, describe how the data are collected and by whom. Describe the format of the data, the frequency of updates, dimensions, and any other relevant information. Note any issues / problems with the data, either known or that you discover. Explain how you plan to import the data. Carefully document your sources with links to the precise data sources that you used. If that is not possible (for example if your data is not available online, then explain that clearly.)
+
+(suggested: 1 page)
+
+  2.2 Research plan
+
+Explain in detail how your data will enable you to answer your research questions from the introduction. 
+
+(suggested: 1 page)
+
+ 2.3 Missing value analysis
+
+Describe any patterns you discover in missing values. If no values are missing, graphs should still be included showing that.
+
+(suggested: 2 graphs plus commentary)
+ -->
 <section id="description" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
 <section id="overview-of-attributes" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="overview-of-attributes"><span class="header-section-number">2.1.1</span> Overview of attributes</h3>
 <p>We are using one data source for this project, presented in the research paper <a href="https://doi.org/10.1016/j.dib.2019.104344">Palechor et al.&nbsp;2019</a>, that monitors the physical health of individuals of ages 14 to 61 from the countries of Mexico, Peru and Colombia, based on their eating habits, physical condition and obesity levels. The dataset contains 17 attributes and 2111 records, and it is the biggest (in terms of both the number of rows and columns) dataset that we could find on obesity and physical health. The 17 attributes are as follows:</p>
-<ol type="1">
-<li>Gender</li>
-<li>Age</li>
-<li>Height</li>
-<li>Weight</li>
-<li>Family history with overweight (family_history_with_overweight)</li>
-<li>Frequent consumption of high caloric food (FAVC)</li>
-<li>Frequency of consumption of vegetables (FCVC)</li>
-<li>Number of main meals (NCP)</li>
-<li>Consumption of food between meals (CAEC)</li>
-<li>SMOKE</li>
-<li>Consumption of water daily (CH2O)</li>
-<li>Calories consumption monitoring (SCC)</li>
-<li>Physical activity frequency (FAF)</li>
-<li>Time using technology devices (TUE)</li>
-<li>Consumption of alcohol (CALC)</li>
-<li>Transportation used (MTRANS)</li>
-<li>Obesity category level (NObeyesdad)</li>
-</ol>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 67%">
+<col style="width: 13%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Variable</th>
+<th>Type</th>
+<th>Subtype</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Gender</td>
+<td>Categorical</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Age</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Height</td>
+<td>Numerical</td>
+<td>Continuous</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Weight</td>
+<td>Numerical</td>
+<td>Continuous</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Family history with overweight (family_history_with_overweight)</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Frequent consumption of high caloric food (FAVC)</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Frequency of consumption of vegetables (FCVC)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Number of main meals (NCP)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Consumption of food between meals (CAEC)</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>SMOKE</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Consumption of water daily (CH2O)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Calories consumption monitoring (SCC)</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Physical activity frequency (FAF)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Time using technology devices (TUE)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Consumption of alcohol (CALC)</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Transportation used (MTRANS)</td>
+<td>Categorial</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Obesity category level (NObeyesdad)</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+</tr>
+</tbody>
+</table>
+
+<!--
+1. Gender
+2. Age
+3. Height
+4. Weight
+5. Family history with overweight (family_history_with_overweight)
+6. Frequent consumption of high caloric food (FAVC)
+7. Frequency of consumption of vegetables (FCVC)
+8. Number of main meals (NCP)
+9. Consumption of food between meals (CAEC)
+10. SMOKE
+11. Consumption of water daily (CH2O)
+12. Calories consumption monitoring (SCC)
+13. Physical activity frequency (FAF)
+14. Time using technology devices (TUE)
+15. Consumption of alcohol (CALC)
+16. Transportation used (MTRANS)
+17. Obesity category level (NObeyesdad)
+-->
 </section>
 <section id="dealing-with-class-imbalance" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="dealing-with-class-imbalance"><span class="header-section-number">2.1.2</span> Dealing with class imbalance</h3>
@@ -293,6 +439,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="missing-value-analysis" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
+<section id="no-missing-values-in-the-dataset" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="no-missing-values-in-the-dataset"><span class="header-section-number">2.3.1</span> No missing values in the dataset</h3>
 <p>The data has been preprocessed by Palechor et al.&nbsp;prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in <a href="https://doi.org/10.1016/j.dib.2019.104344">their paper</a>, but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g.&nbsp;using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.</p>
 <div class="cell">
 <details>
@@ -324,8 +472,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         text-align: justify
     }
 </style>
+</section>
+<section id="potential-methods-to-handle-missing-values" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="potential-methods-to-handle-missing-values"><span class="header-section-number">2.3.2</span> Potential methods to handle missing values</h3>
+<p>If our dataset were to have missing values, we would have dealt with it using one of the following methods: 1. Use <code>plot_missing()</code> from <code>redav</code> to plot the number of missing values in each column and see the missing patterns along with their counts. 2. If there are missing patterns with correlations between the missing columns, we can see if it is possible to use the value of any of the other columns as a good predictor of the value of the column(s) with missing values, for example by doing a linear regression. 3. If the proportion of NA values is low, we can also simply try removing NA values from only these columns and keep all the other data.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
