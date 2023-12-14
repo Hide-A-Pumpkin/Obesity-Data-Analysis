@@ -45,6 +45,7 @@ These new columns can be found and used directly in the dataset `scripts/xinyi-z
 In order to improve the visualization of certain plots, we also made **local modifications to the data types of some columns for only that given plot**. For instance, to plot the **alluvial diagrams** (figure 10), we **rounded the values** of the following: Frequency of consumption of vegetables (`FCVC`), Number of main meals (`NCP`), Physical activity frequency (`FAF`), Time using technology devices (`TUE`) (some of the values of these variables were floats, presumably because the researchers took an average of multiple time periods). This made sure that the variables are discrete (whole numbers).
 
 ## Analysis of Height, Weight and BMI variables
+
 Since the dataset contains artificially generated data, we first needed to verify that the dataset matches our expectations, notably by visualizing the distribution of these three continuous variables.
 
 ```{r setup, echo = T, results = 'hide', error=FALSE, warning=FALSE, message=FALSE}
@@ -67,13 +68,15 @@ library(ggridges)
 data <- read_csv('scripts/xinyi-zhao_files/CleanObesityDataSet.csv',show_col_types = FALSE)
 ```
 
+### Verification of number of rows, columns, missing values
 A preliminary verifications of the number of rows, columns and missing values of our dataset show that **there does not seem to be any problems with the structure of our dataset**.
 
 ```{r summary}
 cat("Number of rows in dataset: ", nrow(data), "\nNumber of columns in dataset: ", ncol(data),"\nNumber of missing values in dataset: ", sum(is.na(data)))
 ```
 
-Additionally, the data seems to align with our expectations, visualizing the `Height`, `Weight` and `BMI` variables (Fig. 1) shows that **at first glance there is no anomalous data that stands out with respect to the people surveyed**.
+### Histogram
+Additionally, the data seems to align with our expectations, visualizing the `Height`, `Weight` and `BMI` variables with a **histogram (Fig. 1)** shows that **at first glance there is no anomalous data that stands out with respect to the people surveyed**.
 
 ```{r histogram, fig.cap = "Fig. 1: Histograms of Height, Weight and BMI"}
 # Histograms of Height, Weight and BMI
@@ -86,7 +89,8 @@ grid.arrange(plot1, plot2, plot3, ncol = 3,
 
 ```
 
-We investigated whether three variables plotted in Fig. 1 follow a normal distribution by running the Shapiro–Wilk test (below) and plotting the QQ-plots of all three variables (Fig. 2). 
+### Normality tests (Shapiro-Wilk test and QQ-plots)
+We investigated whether three variables plotted in Fig. 1 follow a normal distribution by running the **Shapiro–Wilk test (below)** and plotting the **QQ-plots** of all three variables **(Fig. 2)**. 
 
 ```{r shapiro tests, fig.width = 10}
 shapiro.test(data$Height)
@@ -115,18 +119,19 @@ grid.arrange(plot1, plot2, plot3, ncol = 3)
 ```
 
 
-Analysis: 
+**Analysis of normality:**
 
-On the histogram, it is not possible to tell for all three continuous variables whether they follow a normal 
+On the histogram, it seems like `Weight` does not follow a normal distribution as there are multiple local peaks at around 75kg, 90kg and 100kg), and neither does `BMI` since there is nobody whose BMI is less than 18 or higher than 50, hence the BMI distribution does not have a tail. 
 
-1. The height of the individuals appears to follow a normal distribution, which is aligned with our expectations as it is an [assumption that researchers typically make](https://www.researchgate.net/figure/An-example-of-a-normal-distribution-height-distributions_fig1_264533994). 
+1. The **height** of the individuals does not appear to follow a normal distribution, as it appears to be **multimodal** (1.75m and 1.8m) and the **Shapiro-Wilk normality test gives a p-value of 2e-8 << 0.05**. This is **not quite aligned with our expectations** as height has been found by researchers to in general [follow a normal distribution](https://www.researchgate.net/figure/An-example-of-a-normal-distribution-height-distributions_fig1_264533994). 
 
-2. The weight of the individuals does not appear to be normally distribution as it has a right skew. Body weight is found to have a right skew [according to research](https://pubmed.ncbi.nlm.nih.gov/11673780/#:~:text=Body%20weight%20is%20not%20normally,off%20of%20%2B0.5%20standard%20deviations.).
+2. The weight of the individuals appears to have a **slight right skew according to the QQ Plot** (the plot "climbs slowly" for smaller values of the x axis). This is **aligned with our expectations as body weight is found to have a right skew** [according to research](https://pubmed.ncbi.nlm.nih.gov/11673780/#:~:text=Body%20weight%20is%20not%20normally,off%20of%20%2B0.5%20standard%20deviations.).
 
-3. The BMI of individuals 
+3. The BMI of individuals appears to be **in between a uniform distribution and a normal distribution from the QQ Plot** (flat for small and big values on the theoretical normal quantiles, but not flat enough to be a true uniform distribution). This is **not collaborated by other research that has found that the distribution of BMI is right-skewed**, for instance by [Briese et. al (2011)](https://www.researchgate.net/figure/Distribution-of-BMI-in-the-study-population_fig2_41124376). Yet, **this is to be expected since the researchers artificially generated more high BMI data points to balance out the class imbalance.**
 
+### Boxplot of BMI
 
-Lastly, we plotted a boxplot to better understand the other statistics (e.g. median, outliers) of the variable `BMI`.
+Afterwards, we plotted a **boxplot (Fig. 3)** to better understand the other statistics (e.g. median, outliers) of the variable `BMI`.
 ```{r boxplot, fig.cap = "Fig. 3: Boxplot to visualize the BMI across all individuals"}
 # Boxplot to visualize the BMI across all individuals 
 ggplot(data, aes(x=BMI)) + 
@@ -138,6 +143,25 @@ fivenum(data$BMI)
 
 ```
 
+The Tukey Five-Number summary tells us the following:
+- Minimum BMI is 13
+
+- Lower hinge is 24
+
+- Median is 28.7
+
+- Upper hinge is 36.0
+
+- Maximum BMI is 50.8
+
+Since the median is at 28.7 > 25, more than half of the sample corresponds to overweight individuals (generated or real people). Since the lower hinge is at 24 (normal weight), we also know that less than 25% of the individuals in the dataset are underweight, and also less than 25% of the individuals in the dataset are of normal weight. 
+
+**Therefore, this dataset has much more data of overweight people than expected, which makes sense since the obesity level category divides "overweight" into five different categories (Overweight I & II, Obesity I, II, III). 
+**
+
+### Ridgeline plot of weight
+
+Lastly, we made a **ridgeline plot** of weight of individuals across Obesity Types **(Fig. 4)**.
 
 ```{r ridgeline, fig.cap = "Fig. 4: Ridgeline Plot of weight of individuals across Obesity Types"}
 ggplot(data, aes(x = Weight, y = NObeyesdad, fill = NObeyesdad)) +
@@ -153,7 +177,8 @@ ggplot(data, aes(x = Weight, y = NObeyesdad, fill = NObeyesdad)) +
 
 
 
-## Preliminary visualizations
+## Exploratory data analysis of variables potentially correlated with BMI
+### Scatterplot of each pair of numeric variables in the dataset
 ```{r scatterplot, fig.width = 20, fig.height = 20, fig.cap = "Fig. 5: Scatterplot of each pair of numeric variables in the dataset"}
 set.seed(123456)
 
@@ -172,6 +197,7 @@ ggpairs(as.data.frame(data_sampled), aes(alpha = 0.4, size = 0.02),
            upper = list(continuous = wrap("cor", size = 12))) + 
   theme(text = element_text(size = 35))
 ```
+### Heatmap of correlations between numerical variables
 
 ```{r heatmap, fig.cap = "Fig. 6: Heatmap of correlations between numerical variables"}
 categories <- c('Insufficient_Weight','Normal_Weight', 'Overweight_Level_I', 'Overweight_Level_II', 'Obesity_Type_I', 'Obesity_Type_II','Obesity_Type_III')
@@ -200,6 +226,8 @@ ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
 
 
 ```
+
+### Density plots for numerical variables
 
 ```{r discrete-histogram, fig.cap = "Fig. 7: Density plots for Frequency of consumption of vegetables (FCVC), Number of main meals (NCP), Physical activity frequency (FAF), Time using technology devices (TUE)"}
 
