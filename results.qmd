@@ -13,23 +13,133 @@ The number of graphs will vary by project; we suggest a target of 10. (A plot wi
 
 # Results
 
+## Summary of findings
+
+
+In the next few subsections, we dive into the details of how we drew these conclusions.
+
 ## Data pre-processing
 To conduct deeper analysis on our data, we added the following columns to our dataset:
-1. `BMI`: the Body Mass Index of each person, a continuous variable calculated using the [World Health Organization guideline](https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index): `$BMI = \frac{Weight}{Height^2}$`
+
+1. `BMI`: the Body Mass Index of each person, a continuous variable calculated using the [World Health Organization guideline](https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index): $BMI = \frac{Weight}{Height^2}$.
+
 2. `IsOverweight`: a binary categorical value whose value is 1 if the `BMI` of the person is more than 25, 0 otherwise.
 
 These columns serve as alternate metrics of the obesity of an individual, a **continuous variable** and a **binary categorical variable**, to complement `NObeyesdad`, the obesity category level which is a **ordinal categorical variable**.
 
-We also made modifications to the data types of certain columns, as follows:
+These new columns can be found and used directly in the dataset `materials/CleanObesityDataSet.csv`.
 
-## Verifications of the validity of the dataset
+In order to improve the visualization of certain plots, we also made local modifications to the data types of some columns, as follows:
+
+1. Rounded the variables: Frequency of consumption of vegetables (`FCVC`), Number of main meals (`NCP`), Physical activity frequency (`FAF`), Time using technology devices (`TUE`) 
+
+## Analysis of Height, Weight and BMI variables
+Since the dataset contains artificially generated data, we first needed to verify that the dataset matches our expectations, notably by visualizing the distribution of these three continuous variables.
+
+Importing the necessary libraries and dataset
+```{r setup, echo = T, results = 'hide', error=FALSE, warning=FALSE, message=FALSE}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(vcd)
+library(ggplot2)
+library(gridExtra)
+library(grid)
+library(GGally)
+
+data <- read_csv('materials/CleanObesityDataSet.csv',show_col_types = FALSE)
+```
+
+Preliminary verifications of the number of rows, columns and missing values of our dataset show that there does not seem to be any problems with the structure of our dataset.
+
+```{r summary}
+cat("Number of rows in dataset: ", nrow(data), "\nNumber of columns in dataset: ", ncol(data),"\nNumber of missing values in dataset: ", sum(is.na(data)))
+```
+
+Additionally, the data seems to align with our expectations, visualizing the `Height`, `Weight` and `BMI` variables shows that there are no biases with respect to the people surveyed.
+
+```{r histogram}
+# Histograms of Height, Weight and BMI
+plot1 <- ggplot(data = data, aes(x = Height)) + geom_histogram(binwidth = 0.02)
+plot2 <- ggplot(data = data, aes(x = Weight)) + geom_histogram(binwidth = 2)
+plot3 <- ggplot(data = data, aes(x = BMI)) + geom_histogram(binwidth = 1)
+grid.arrange(plot1, plot2, plot3, ncol = 3,
+     top = textGrob("Histograms of the continuous variables Height, Weight and BMI",gp=gpar(fontsize=16)))
+
+```
+
+```{r shapiro tests, fig.width = 10}
+shapiro.test(data$Height)
+shapiro.test(data$Weight)
+shapiro.test(data$BMI)
+```
+
+```{r qqplot, fig.width = 15}
+plot1 <- ggplot(data, aes(sample = Height)) + 
+  stat_qq() + 
+  stat_qq_line(col = "navy") +
+  xlab("Height")
+
+plot2 <- ggplot(data, aes(sample = Weight)) + 
+  stat_qq() + 
+  stat_qq_line(col = "navy") +
+  xlab("Weight")
+
+plot3 <- ggplot(data, aes(sample = BMI)) + 
+  stat_qq() + 
+  stat_qq_line(col = "navy") +
+  xlab("BMI")
+
+grid.arrange(plot1, plot2, plot3, ncol = 3)
+
+```
+
+
+Analysis: 
+
+On the histogram, it is not possible to tell for all three continuous variables whether they follow a normal 
+
+1. The height of the individuals appears to follow a normal distribution, which is aligned with our expectations as it is an [assumption that researchers typically make](https://www.researchgate.net/figure/An-example-of-a-normal-distribution-height-distributions_fig1_264533994). 
+
+2. The weight of the individuals does not appear to be normally distribution as it has a right skew. Body weight is found to have a right skew [according to research](https://pubmed.ncbi.nlm.nih.gov/11673780/#:~:text=Body%20weight%20is%20not%20normally,off%20of%20%2B0.5%20standard%20deviations.).
+
+3. The BMI of individuals 
+
+
+Lastly, we plotted a boxplot to better understand the other statistics (e.g. median, outliers) of the variable `BMI`.
+```{r boxplot}
+# Boxplot to visualize the BMI across all individuals 
+ggplot(data, aes(x=BMI)) + 
+  geom_boxplot(fill = "lightblue", color = "black") + 
+  coord_cartesian(ylim = c(-2, 2)) +  
+  labs(title = "Boxplot of BMI across all individuals")
+
+fivenum(data$BMI)
+
+```
+
 [](materials/3_histograms.png)
 
 [](materials/2_boxplot_bmi.png)
 
 
 
+## Preliminary visualizations
+```{r scatterplot}
+data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
 
+# Convert all columns to numeric
+data_num <- sapply(data_num, as.numeric)
+
+data <- data %>%
+ mutate_if(is.numeric, scale)
+
+library(GGally)
+p <- ggpairs(as.data.frame(data_num), aes(alpha = 0.2, size = 1))
+
+p
+```
 
 ## Understanding the correlation between biological factor and obesity 
 

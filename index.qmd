@@ -14,7 +14,11 @@ In order to tackle this problem, we seek to understand what health and physical 
 2. Increase general understanding of the problem of obesity such that the non-obese population is more empathetic towards obese individuals. 
 
 In this project, we use techniques learnt in the course "Exploratory Data Analysis and Visualization" by Professor Joyce Robbins at Columbia University to inspect our chosen dataset from many angles, describing and summarizing the dataset without making any precise assumptions about the data. Here is a quick overview of the other pages:
-- [2. Data](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/data.html): Presentation of our dataset and research methodology
-- [3. Results](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/results.html): The exploratory techniques used on the dataset and our findings
-- [4. Interactive graph](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/d3graph.html): Interactive parallel coordinates plot to visualize relationships between variables
-- [5. Conclusion](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/conclusion.html): Key findings of our exploration, limitations of our analyses and future directions.  
+
+2. [Data](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/data.html): Presentation of our dataset and research methodology
+
+3. [Results](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/results.html): The exploratory techniques used on the dataset and our findings
+
+4. [Interactive graph](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/d3graph.html): Interactive parallel coordinates plot to visualize relationships between variables
+
+5. [Conclusion](https://hide-a-pumpkin.github.io/Obesity-Data-Analysis/conclusion.html): Key findings of our exploration, limitations of our analyses and future directions.  

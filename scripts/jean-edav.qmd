@@ -147,25 +147,17 @@ library(dplyr)
 library(GGally)
 
 
-data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
+data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
 
 # Convert all columns to numeric
-data_pca <- sapply(data_pca, as.numeric)
+data_num <- sapply(data_num, as.numeric)
 
 data <- data %>%
  mutate_if(is.numeric, scale)
 
+library(GGally)
+p <- ggpairs(as.data.frame(data_num), aes(alpha = 0.2))
 
-# Create a scatterplot matrix
-# pairs(data_pca, pch = 19, cex = 0.6, main = "Scatterplot Matrix")
-
-# Open a PNG device
-png("scatterplot_numeric.png")
-
-# Create a scatterplot matrix
-pairs(data_pca, pch = 19, cex = 0.6, main = "Scatterplot Matrix")
-
-# Close the device and save the plot
-dev.off()
+p
 
 ```
