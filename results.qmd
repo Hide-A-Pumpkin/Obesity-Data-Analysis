@@ -51,6 +51,7 @@ library(reshape2)
 library(colorspace)
 library(plyr)
 library(ggalluvial) 
+library(ggridges)
 
 data <- read_csv('scripts/xinyi-zhao_files/CleanObesityDataSet.csv',show_col_types = FALSE)
 ```
@@ -122,6 +123,15 @@ ggplot(data, aes(x=BMI)) +
 
 fivenum(data$BMI)
 
+```
+
+
+```{r ridgeline}
+ggplot(data, aes(x = Weight, y = NObeyesdad, fill = NObeyesdad)) +
+  stat_density_ridges(alpha = 0.7) +
+  scale_fill_viridis_d() +
+  labs(title = "Ridgeline Plot of Obesity Types", x = "weight", y = "Obesity Type") +
+  theme_ridges()
 ```
 
 [](scripts/xinyi-zhao_files/3_histograms.png)
