@@ -3,6 +3,7 @@ library(readr)
 library(dplyr)
 library(tidyverse)
 library(stats)
+library(ggalluvial)
 
 data <- read_csv('CleanObesityDataSet.csv',show_col_types = FALSE)
 
@@ -54,18 +55,29 @@ dev.off()
 
 ```{r}
 # Create a mosaic plot for each variable in the table plotted against 'IsOverweight'
-data_mosaic$family_history_with_overweight <- fct_rev(data_mosaic$family_history_with_overweight)
+
+data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
+
+data_mosaic$family_history_with_overweight <- fct_relevel(data_mosaic$family_history_with_overweight, "yes", "no")
+
+data_mosaic$SMOKE <- fct_relevel(data_mosaic$SMOKE, "yes", "no")
+
+data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
+
+data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
+
 
 data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
-
-data_mosaic$IsOverweight <- fct_rev(data_mosaic$IsOverweight)
+data_mosaic$IsOverweight <- fct_relevel(data_mosaic$IsOverweight, "0", "1")
 
 for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
- png(paste0("mosaic_", var, "_IsOverweight.png"))
- contingency_table <- table(data_mosaic$IsOverweight, data_mosaic[[var]])
- mosaicplot(contingency_table, main = paste("Mosaic Plot for", var), xlab = "Is Overweight", ylab = var, col = c("pink", "brown"))
- dev.off()
+# png(paste0("mosaic_", var, "_IsOverweight.png"))
+ contingency_table <- table(data_mosaic[[var]],data_mosaic$IsOverweight)
+ mosaicplot(contingency_table, main = paste("Mosaic Plot for", var), ylab = "Is Overweight", xlab = var, col = c("pink", "brown"))
+# dev.off()
 }
+
+
 
 ```
 
@@ -141,23 +153,20 @@ dev.off()
 ```
 
 ```{r, fig.height = 10, fig.width = 10}
-# Load the required package
-library(ggplot2)
-library(dplyr)
 library(GGally)
+set.seed(123456)
 
+data <- data %>%
+ mutate_if(is.numeric, scale)
 
 data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
 
 # Convert all columns to numeric
 data_num <- sapply(data_num, as.numeric)
 
-data <- data %>%
- mutate_if(is.numeric, scale)
+# Sample 1000 points for clearer visualization
+data_sampled <- sample_n(as.data.frame(data_num), 100)
 
-library(GGally)
-p <- ggpairs(as.data.frame(data_num), aes(alpha = 0.2))
-
-p
+ggpairs(as.data.frame(data_sampled), aes(alpha = 0.2, size = 0.01))
 
 ```

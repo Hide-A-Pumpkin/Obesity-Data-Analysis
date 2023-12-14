@@ -90,86 +90,66 @@ data_alluvial <- data_alluvial %>%
    NObeyesdad == "Insufficient_Weight" ~ "Underweight"
  ))
 
-
-data_alluvial_1 <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "NCP", "CH2O"))
-
-colnames(data_alluvial_1)[colnames(data_alluvial_1) == "n"] <- "Freq"
-
-data_alluvial_1$Obesity_Category <- factor(data_alluvial_1$Obesity_Category, levels = c("Underweight", "Normal", "Overweight", "Obese"))
-
-data_alluvial_1
-
-png("5_alluvial_NCP_CH2O.png")
-ggplot(as.data.frame(data_alluvial_1), aes(y = Freq, axis1 = Obesity_Category, axis2 = NCP, axis3 = CH2O)) +
-  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
-  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
-  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
-  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
-#  layout(margin = list(b = 90) +
-  scale_fill_brewer(type = "qual", palette = "Set1")  + 
-  expand_limits(x = 0, y = 0) +
-  ggtitle("Dietary and exercise habits of the population") + 
-  theme_void() +
-  theme(plot.margin = margin(0,0,0,0, "cm"))
-dev.off()
-```
-```{r alluvium 2}
-data_alluvial_2 <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "FAF", "CALC", "TUE"))
+data_alluvial_2 <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "FAF", "CALC", "NCP", "CH2O", "TUE"))
 
 colnames(data_alluvial_2)[colnames(data_alluvial_2) == "n"] <- "Freq"
 
 data_alluvial_2$Obesity_Category <- factor(data_alluvial_2$Obesity_Category, levels = c("Underweight", "Normal", "Overweight", "Obese"))
 
-data_alluvial_2
-
-png("5_alluvial_Physical activity frequency_alcohol_time on tech device.png")
-ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = FAF, axis3 = CALC, axis4 = TUE)) +
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = TUE, axis3 = FAF)) +
   geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
   geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
   geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
   scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
-#  layout(margin = list(b = 90) +
   scale_fill_brewer(type = "qual", palette = "Set1")  + 
   expand_limits(x = 0, y = 0) +
-  ggtitle("Physical activity frequency vs alcohol vs time on tech device") + 
+  ggtitle("Dietary and exercise habits of the population") + 
   theme_void() +
   theme(plot.margin = margin(0,0,0,0, "cm"))
-#dev.off()
+```
+```{r alluvium 2}
+
+data_alluvial_2
+
+# CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = NCP, axis3 = CH2O)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Physical activity frequency vs time on tech device vs alcohol") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+```{r reject}
+
+#data_alluvial_1 <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "NCP", "CH2O"))
+
+#colnames(data_alluvial_1)[colnames(data_alluvial_1) == "n"] <- "Freq"
+
+#data_alluvial_1$Obesity_Category <- factor(data_alluvial_1$Obesity_Category, levels = c("Underweight", "Normal", "Overweight", "Obese"))
+
+#data_alluvial_1
 ```
 
 ```{r mosaic}
 # plot 1 mosaic 3 var
 library(colorspace)
 library(plyr)
-library("dplyr")
-#data_mosaic <- table(data[c("Gender", "family_history_with_overweight", "FAVC", "SCC", "IsOverweight")])
 
 data_mosaic <- data[c("FAVC", "SCC", "IsOverweight")] 
-
 data_mosaic <- dplyr::count_(data_mosaic,vars = c("FAVC", "SCC", "IsOverweight"))
 
 colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Freq"
 
-# colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Frequent consumption of high calories (FAVC)"
-
-data_mosaic
-
-subs_pal <- colorspace::qualitative_hcl(2)
-
 data_mosaic$IsOverweight <- fct_rev(as.character(data_mosaic$IsOverweight))
 
-png("1_mosaic_favc-scc-overweight.png")
-
-mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"), xlab ="Test")
+mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"))
 
 
-# mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","v","h"), highlighting_fill = c("#bdd7e7","#2171b5"), ylab = "Frequent consumption of high caloric food (FAVC)", main = "Frequent consumption of high calories (FAVC) \n vs Calories consumption monitoring (SCC) vs IsOverweight") 
-
-dev.off()
-
-
+data_mosaic
 ```
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+
