@@ -191,9 +191,8 @@ We wanted to first find out **whether there are any obvious correlations between
 
 set.seed(123456) # Seed so that the sampling is reproducible
 
-data_original <-data
-data <- data %>%
- mutate_if(is.numeric, scale) # Scale only numeric variables
+#data <- data %>%
+# mutate_if(is.numeric, scale) # Scale only numeric variables
 
 data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")] # Select the variable that we want to plot
 
@@ -316,7 +315,7 @@ We now seek to analyze the **categorical binary variables** in our dataset and t
 
 - Whether the person monitors caloric consumption
 
-We did this by plotting five mosaic plots of each variable against whether the person is overweight (BMI > 25), as follows in **Fig. 8a to 8e**. 
+We did this by **plotting five mosaic plots of each variable against whether the person is overweight (BMI > 25)**, as follows in **Fig. 8a to 8e**. 
 
 ```{r 5 alluvial diagrams, fig.cap = c("Fig. 8a: Mosaic Plot of Gender against IsOverweight","Fig. 8b: Mosaic Plot of Family History against IsOverweight","Fig. 8c: Mosaic Plot of Frequent consumption of high caloric food against IsOverweight","Fig. 8d: Mosaic Plot of weight of whether the person smokes against IsOverweight","Fig. 8e: Mosaic Plot of calories consumption monitoring against IsOverweight")}
 
@@ -333,8 +332,9 @@ data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
 
 data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
 
+#data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
 
-data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
+#data_mosaic
 
 # For loop to plot one mosaic plot for each variable
 for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
@@ -344,23 +344,43 @@ for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
 }
 ```
 
+Overall conclusion from this mosaic plot: There is **little correlation between whether a person is overweight and their gender, as well as overweight/whether they smoke**, whereas there is a **large correlation between overweight/having a family history with overweight, overweight/frequent consumption of high caloric foods, overweight/calories consumption monitoring**.
+
 ### Trivariate Mosaic Plot of existence of certain lifestyle habits against IsOverweight
 
-```{r mosaic, fig.cap = "Fig. 9: Trivariate mosaic plot visualizing frequent consumption of high caloric food, calories consumption monitoring and IsOverweight", warning=FALSE}
+Next, we want to further analyze the correlations between these binary categorical variables and IsOverweight by plotting a multi-variate mosaic plot. We do this for the three variables in the previous binary mosaic plots that have shown to be the most correlated with `IsOverweight`, namely `SCC`, frequent consumption of high caloric foods, `FAVC` frequent consumption of high caloric food, and `family_history_with_overweight`. This **multi-variate mosaic plot** is presented in **Fig. 9**.
+
+```{r mosaic, fig.cap = "Fig. 9: Multi-variate mosaic plot visualizing family_history_with_overweight, calories consumption monitoring and frequent consumption of high caloric food vs IsOverweight", warning=FALSE, fig.width = 10, fig.height = 7}
 # Trivariate mosaic plot visualizing frequent consumption of high caloric food, calories consumption monitoring and IsOverweight
 
-data_mosaic <- data[c("FAVC", "SCC", "IsOverweight")] 
-data_mosaic <- dplyr::count_(data_mosaic,vars = c("FAVC", "SCC", "IsOverweight"))
+data_mosaic <- data[c("FAVC", "SCC", "IsOverweight","family_history_with_overweight")] 
+data_mosaic <- dplyr::count_(data_mosaic,vars = c("family_history_with_overweight", "SCC", "FAVC", "IsOverweight"))
 
 colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Freq"
 
-data_mosaic$IsOverweight <- fct_rev(as.character(data_mosaic$IsOverweight))
 
-mosaic(FAVC ~ SCC + IsOverweight, data = data_mosaic, direction = c("v","h","v"), highlighting_fill = c("#bdd7e7","#2171b5"))
+data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
+
+data_mosaic$SCC <- fct_relevel(data_mosaic$SCC,"no", "yes")
+
+data_mosaic$family_history_with_overweight <- fct_relevel(data_mosaic$family_history_with_overweight, "yes", "no")
+
+#data_mosaic$IsOverweight <- fct_rev(data_mosaic$IsOverweight)
+
+#data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
+
+mosaic(IsOverweight ~ family_history_with_overweight + SCC + FAVC, data = data_mosaic, direction = c("v","v","v", "h"), highlighting_fill = c("#bdd7e7","#2171b5"))
 
 ```
 
+We can see that the individuals have a family history with overweight have a much higher correlation with being overweight than individuals who do not have a family history with overweight. The group that has all the unhealthy habits but has no family history with being overweight has a lower correlation with being overweight compared to all groups which have a family history of being overweight, even the group that has a family history with being overweight but no unhealthy habits. **This shows that, in the binary categorical variables, having a family history of being overweight has the highest correlation of someone actually being overweight.
+**
+
+
 ### Two multivariate alluvial diagrams
+
+Lastly, we analyze the categorical ordinal variables using **two multivariate alluvial diagrams (Fig. 10a to 10c)**. These variables are "neutral" lifestyle habits such as the time on electronics (a), alcohol consumption (a), number of meals (b), water consumption a day (b), which based on common knowledge do not have appear to have a correlation with somebody's BMI. We visualized a person's physical activity frequency in a third alluvial diagram (c) for better visibility.
+
 ```{r multivariate alluvial diagram}
 # Data preprocessing for the alluvial diagram
 
@@ -404,14 +424,13 @@ ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, a
   geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
   geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
   geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
-  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
   scale_fill_brewer(type = "qual", palette = "Set1")  + 
   expand_limits(x = 0, y = 0) +
   ggtitle("Obesity category vs Time on Electronics vs Alcohol consumption") + 
   theme_void() +
   theme(plot.margin = margin(0,0,0,0, "cm"))
 ```
-```{r Dietary habits alluvial, fig.cap = "Fig. 10b: Alluvial diagram of Obesity category vs Nb of meals vs Water consumption a day"}
+```{r 2 alluvial, fig.cap = "Fig. 10b: Alluvial diagram of Obesity category vs Nb of meals vs Water consumption a day"}
 # Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
 
 # Plotting the alluvial diagram
@@ -419,13 +438,30 @@ ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, a
   geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
   geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
   geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
-  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
   scale_fill_brewer(type = "qual", palette = "Set1")  + 
   expand_limits(x = 0, y = 0) +
   ggtitle("Obesity category vs Nb of meals vs Water consumption a day") + 
   theme_void() +
   theme(plot.margin = margin(0,0,0,0, "cm"))
 ```
+
+```{r 3 alluvial, fig.cap = "Fig. 10c: Alluvial diagram of Obesity category vs Physical activity frequency (FAF)"}
+# Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
+
+# Plotting the alluvial diagram
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = FAF)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Obesity category vs physical activity frequency") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+
+From these alluvial diagrams, we can see that **there does not appear to be a clear correlation between the obesity category a person is in with these neutral lifestyle habits**, which corresponds to our intuition. What is more surprising is that **we do not see a clear correlation either between a person's obesity level and their physical activity frequency**. This could be because physical activity are both important for healthy people to maintain a healthy weight, but is also something that overweight people actively try to do to lose weight.
+
 
 <!-- these are the code for discrete variables -->
 
