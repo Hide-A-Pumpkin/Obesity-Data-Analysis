@@ -1,1 +1,456 @@
+---
+execute:
+  echo: true
+  message: false
+  warning: false
+format:
+  html:
+    fig-width: 7
+    fig-height: 4
+    out-width: 60%
+    embed-resources: true
+output: bookdown::html_document2
+---
+<!-- 
+
+3 Results  results.qmd
+
+You have a lot of freedom to choose what to do, as long as you restrict yourselves to exploratory techniques (rather than modeling / prediction approaches). In addition, your analysis must be clearly documented and reproducible.
+
+Provide a short nontechnical summary of the most revealing findings of your analysis written for a nontechnical audience. Take extra care to clean up your graphs, ensuring that best practices for presentation are followed, as described in the  audience ready style section  below.
+
+Use subheadings (##) as appropriate. See  Todd Schneider’s blog posts  for examples of thoughtful, informative subheadings. An approach that works well is to create a subheading for each of your research questions.
+
+The number of graphs will vary by project; we suggest a target of 10. (A plot with multiple facets counts as 1 graph).  If you go over, make sure they are high quality and include commentary.  A project with 10 good graphs plus commentary will receive a better grade than a project with 10 good graphs and 10 mediocre ones.
+ -->
+
 # Results
+
+## Summary of findings
+
+
+In the next few subsections, we dive into the details of how we drew these conclusions.
+
+## Data pre-processing
+To conduct deeper analysis on our data, we added the following columns to our dataset:
+
+1. `BMI`: the Body Mass Index of each person, a continuous variable calculated using the [World Health Organization guideline](https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index): $BMI = \frac{Weight}{Height^2}$.
+
+2. `IsOverweight`: a binary categorical value whose value is 1 if the `BMI` of the person is more than 25, 0 otherwise.
+
+These columns serve as alternate metrics of the obesity of an individual, a **continuous variable** and a **binary categorical variable**, to complement `NObeyesdad`, the obesity category level which is a **ordinal categorical variable**.
+
+These new columns can be found and used directly in the dataset `scripts/xinyi-zhao_files/CleanObesityDataSet.csv`.
+
+In order to improve the visualization of certain plots, we also made **local modifications to the data types of some columns for only that given plot**. For instance, to plot the **alluvial diagrams** (figure 10), we **rounded the values** of the following: Frequency of consumption of vegetables (`FCVC`), Number of main meals (`NCP`), Physical activity frequency (`FAF`), Time using technology devices (`TUE`) (some of the values of these variables were floats, presumably because the researchers took an average of multiple time periods). This made sure that the variables are discrete (whole numbers).
+
+## Analysis of Height, Weight and BMI variables
+
+Since the dataset contains artificially generated data, we first needed to verify that the dataset matches our expectations, notably by visualizing the distribution of these three continuous variables.
+
+```{r setup, echo = T, results = 'hide', error=FALSE, warning=FALSE, message=FALSE}
+# Importing the necessary libraries and dataset
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(vcd)
+library(ggplot2)
+library(gridExtra)
+library(grid)
+library(GGally)
+library(reshape2)
+library(colorspace)
+library(plyr)
+library(ggalluvial) 
+library(ggridges)
+
+data <- read_csv('scripts/xinyi-zhao_files/CleanObesityDataSet.csv',show_col_types = FALSE)
+```
+
+### Verification of number of rows, columns, missing values
+A preliminary verifications of the number of rows, columns and missing values of our dataset show that **there does not seem to be any problems with the structure of our dataset**.
+
+```{r summary}
+# Print a summary of number of rows, columns, missing values
+cat("Number of rows in dataset: ", nrow(data), "\nNumber of columns in dataset: ", ncol(data),"\nNumber of missing values in dataset: ", sum(is.na(data)))
+```
+
+### Histogram
+Additionally, the data seems to align with our expectations, visualizing the `Height`, `Weight` and `BMI` variables with a **histogram (Fig. 1)** shows that **at first glance there is no anomalous data that stands out with respect to the people surveyed**.
+
+```{r histogram, fig.cap = "Fig. 1: Histograms of Height, Weight and BMI"}
+# Histograms of Height, Weight and BMI
+
+plot1 <- ggplot(data = data, aes(x = Height)) + geom_histogram(binwidth = 0.02)
+plot2 <- ggplot(data = data, aes(x = Weight)) + geom_histogram(binwidth = 2)
+plot3 <- ggplot(data = data, aes(x = BMI)) + geom_histogram(binwidth = 1)
+grid.arrange(plot1, plot2, plot3, ncol = 3,
+     top = textGrob("Histograms of the continuous variables Height, Weight and BMI",gp=gpar(fontsize=16)))
+
+```
+
+### Normality tests (Shapiro-Wilk test and QQ-plots)
+We investigated whether three variables plotted in Fig. 1 follow a normal distribution by running the **Shapiro–Wilk test (below)** and plotting the **QQ-plots** of all three variables **(Fig. 2)**. 
+
+```{r shapiro tests, fig.width = 10}
+# Shapiro–Wilk test on height, weight, BMI
+shapiro.test(data$Height)
+shapiro.test(data$Weight)
+shapiro.test(data$BMI)
+```
+
+```{r qqplot, fig.width = 15, fig.cap = "Fig. 2: QQ-Plot of Height, Weight and BMI"}
+# QQ-Plot of Height, Weight and BMI in this order, plotted in a row
+plot1 <- ggplot(data, aes(sample = Height)) + 
+  stat_qq() + 
+  stat_qq_line(col = "navy") +
+  xlab("Height")
+
+plot2 <- ggplot(data, aes(sample = Weight)) + 
+  stat_qq() + 
+  stat_qq_line(col = "navy") +
+  xlab("Weight")
+
+plot3 <- ggplot(data, aes(sample = BMI)) + 
+  stat_qq() + 
+  stat_qq_line(col = "navy") +
+  xlab("BMI")
+
+grid.arrange(plot1, plot2, plot3, ncol = 3)
+
+```
+
+
+**Analysis of normality:**
+
+On the histogram, it seems like `Weight` does not follow a normal distribution as there are multiple local peaks at around 75kg, 90kg and 100kg), and neither does `BMI` since there is nobody whose BMI is less than 18 or higher than 50, hence the BMI distribution does not have a tail. 
+
+1. The **height** of the individuals does not appear to follow a normal distribution, as it appears to be **multimodal** (1.75m and 1.8m) and the **Shapiro-Wilk normality test gives a p-value of 2e-8 << 0.05**. This is **not quite aligned with our expectations** as height has been found by researchers to in general [follow a normal distribution](https://www.researchgate.net/figure/An-example-of-a-normal-distribution-height-distributions_fig1_264533994). 
+
+2. The weight of the individuals appears to have a **slight right skew according to the QQ Plot** (the plot "climbs slowly" for smaller values of the x axis). This is **aligned with our expectations as body weight is found to have a right skew** [according to research](https://pubmed.ncbi.nlm.nih.gov/11673780/#:~:text=Body%20weight%20is%20not%20normally,off%20of%20%2B0.5%20standard%20deviations.).
+
+3. The BMI of individuals appears to be **in between a uniform distribution and a normal distribution from the QQ Plot** (flat for small and big values on the theoretical normal quantiles, but not flat enough to be a true uniform distribution). This is **not collaborated by other research that has found that the distribution of BMI is right-skewed**, for instance by [Briese et. al (2011)](https://www.researchgate.net/figure/Distribution-of-BMI-in-the-study-population_fig2_41124376). Yet, **this is to be expected since the researchers artificially generated more high BMI data points to balance out the class imbalance.**
+
+### Boxplot of BMI
+
+Afterwards, we plotted a **boxplot (Fig. 3)** to better understand the other statistics (e.g. median, outliers) of the variable `BMI`.
+```{r boxplot, fig.cap = "Fig. 3: Boxplot to visualize the BMI across all individuals"}
+# Boxplot to visualize the BMI across all individuals 
+ggplot(data, aes(x=BMI)) + 
+  geom_boxplot(fill = "lightblue", color = "black") + 
+  coord_cartesian(ylim = c(-2, 2)) +  
+  labs(title = "Boxplot of BMI across all individuals")
+
+fivenum(data$BMI)
+
+```
+
+The Tukey Five-Number summary tells us the following:
+- Minimum BMI is 13
+
+- Lower hinge is 24
+
+- Median is 28.7
+
+- Upper hinge is 36.0
+
+- Maximum BMI is 50.8
+
+Since the median is at 28.7 > 25, more than half of the sample corresponds to overweight individuals (generated or real people). Since the lower hinge is at 24 (normal weight), we also know that less than 25% of the individuals in the dataset are underweight, and also less than 25% of the individuals in the dataset are of normal weight. 
+
+**Therefore, this dataset has much more data of overweight people than expected, which makes sense since the obesity level category divides "overweight" into five different categories (Overweight I & II, Obesity I, II, III). 
+**
+
+### Ridgeline plot of weight
+
+Lastly, we made a **ridgeline plot** of weight of individuals across Obesity Types **(Fig. 4)**.
+
+```{r ridgeline, fig.cap = "Fig. 4: Ridgeline Plot of weight of individuals across Obesity Types"}
+# Ridgeline Plot of weight of individuals across Obesity Types
+ggplot(data, aes(x = Weight, y = NObeyesdad, fill = NObeyesdad)) +
+  stat_density_ridges(alpha = 0.7) +
+  scale_fill_viridis_d() +
+  labs(title = "Ridgeline Plot of Obesity Types", x = "weight", y = "Obesity Type") +
+  theme_ridges()
+```
+
+[](scripts/xinyi-zhao_files/3_histograms.png)
+
+[](scripts/xinyi-zhao_files/2_boxplot_bmi.png)
+
+
+
+## Exploratory data analysis of variables potentially correlated with BMI
+### Scatterplot of each pair of numeric variables in the dataset
+
+We wanted to first find out **whether there are any obvious correlations between any pair of numeric variables in the dataset**. This will help us to figure out if there are any variables to focus our subsequent analyses on. **Fig. 5** presents a **scatterplot** of each pair of numeric variables in the dataset.
+```{r scatterplot, fig.width = 20, fig.height = 20, fig.cap = "Fig. 5: Scatterplot of each pair of numeric variables in the dataset"}
+# Scatterplot of each pair of numeric variables in the dataset
+
+set.seed(123456) # Seed so that the sampling is reproducible
+
+#data <- data %>%
+# mutate_if(is.numeric, scale) # Scale only numeric variables
+
+data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")] # Select the variable that we want to plot
+
+# Convert all columns to numeric
+data_num <- sapply(data_num, as.numeric)
+
+# Sample 300 points for clearer visualization as all 2000 plots gives a cluttered scatterplot
+data_sampled <- sample_n(as.data.frame(data_num), 300)
+
+ggpairs(as.data.frame(data_sampled), aes(alpha = 0.4, size = 0.02), 
+           upper = list(continuous = wrap("cor", size = 12))) + 
+  theme(text = element_text(size = 35)) # Decreased the size and alpha to have more readable scatter plots
+```
+
+Based on this scatterplot, we can gain the following insights:
+
+1. **Sanity check**: there is a strong correlation between weight and BMI (r = 0.941) and height and weight (r = 0.493).
+
+2. **Most variable pairs have an extremely low correlation** (less than 0.2). There are only four pairs that have a correlation of greater than 0.2: BMI/Age, NCP/Height, CH2O/Height, FAF/Height. Yet none of these variables are correlated with weight or BMI. 
+
+
+This shows that **each of the variables are interesting on their own since they have little correlation between each other, and that it would not be useful to remove any of the variables as each of them might bring us some unique insight to understand obesity**. 
+
+### Heatmap of correlations between numerical variables
+
+```{r heatmap, fig.cap = "Fig. 6: Heatmap of correlations between numerical variables"}
+
+# Heatmap of correlations between numerical variables
+categories <- c('Insufficient_Weight','Normal_Weight', 'Overweight_Level_I', 'Overweight_Level_II', 'Obesity_Type_I', 'Obesity_Type_II','Obesity_Type_III')
+
+# Create a mapping from category to integer
+category_mapping <- setNames(1:length(categories), categories)
+
+data$NObesity_numeric <- as.integer(factor(data$NObeyesdad, levels = categories))
+
+data_pca <- data[c("FCVC","NCP","FAF","TUE","NObesity_numeric")]
+
+
+cor_matrix <- cor(data_pca)
+
+# Reshape the data for heatmap
+melted_cor <- melt(cor_matrix)
+
+# Creating heatmap
+ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
+  geom_tile() +
+  geom_text(aes(label = ifelse(value > 0.1&value<1, round(value, 2), '')), color= 'darkblue',vjust = 1) +
+  scale_fill_gradient2(midpoint = 0) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Heatmap of Correlations")
+
+
+```
+
+### Density plots for numerical variables
+
+```{r discrete-histogram, fig.cap = "Fig. 7: Density plots for Frequency of consumption of vegetables (FCVC), Number of main meals (NCP), Physical activity frequency (FAF), Time using technology devices (TUE)"}
+
+
+# Creating individual density plots with smooth lines
+plot_fcvc <- ggplot(data, aes(x = FCVC)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("FCVC Density Plot") +
+  xlab("FCVC") +
+  ylab("Density")
+
+plot_ncp <- ggplot(data, aes(x = NCP)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("NCP Density Plot") +
+  xlab("NCP") +
+  ylab("Density")
+
+plot_faf <- ggplot(data, aes(x = FAF)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +
+  ggtitle("FAF Density Plot") +
+  xlab("FAF") +
+  ylab("Density")
+
+plot_tue <- ggplot(data, aes(x = TUE)) + 
+  stat_density(aes(y = ..density..), geom = "area", fill="blue", alpha=0.5) +ggtitle("TUE Density Plot") +
+  xlab("TUE") +
+  ylab("Density")
+
+# Arrange the plots in a 2x2 grid
+grid.arrange(plot_fcvc, plot_ncp, plot_faf, plot_tue, nrow = 2)
+
+
+```
+
+
+## Correlation between biological factors/the existence of certain lifestyle habits and obesity
+
+### Bivariate Mosaic Plots of existence of certain lifestyle habits against IsOverweight
+We now seek to analyze the **categorical binary variables** in our dataset and their links with obesity, namely 
+
+- Gender
+
+- Family History of Overweight
+
+- Frequent counsumption of high caloric food
+
+- Whether the person smokes
+
+- Whether the person monitors caloric consumption
+
+We did this by **plotting five mosaic plots of each variable against whether the person is overweight (BMI > 25)**, as follows in **Fig. 8a to 8e**. 
+
+```{r 5 alluvial diagrams, fig.cap = c("Fig. 8a: Mosaic Plot of Gender against IsOverweight","Fig. 8b: Mosaic Plot of Family History against IsOverweight","Fig. 8c: Mosaic Plot of Frequent consumption of high caloric food against IsOverweight","Fig. 8d: Mosaic Plot of weight of whether the person smokes against IsOverweight","Fig. 8e: Mosaic Plot of calories consumption monitoring against IsOverweight")}
+
+# Create a mosaic plot for each variable in the table plotted against 'IsOverweight'
+
+data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
+
+# Changing the factor levels for the mosaic plot
+data_mosaic$family_history_with_overweight <- fct_relevel(data_mosaic$family_history_with_overweight, "yes", "no")
+
+data_mosaic$SMOKE <- fct_relevel(data_mosaic$SMOKE, "yes", "no")
+
+data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
+
+data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
+
+#data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
+
+#data_mosaic
+
+# For loop to plot one mosaic plot for each variable
+for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
+ contingency_table <- table(data_mosaic[[var]],data_mosaic$IsOverweight)
+ mosaicplot(contingency_table, main = paste("Mosaic Plot for", var), ylab = "Is Overweight", xlab = var, col = c("pink", "brown"))
+
+}
+```
+
+Overall conclusion from this mosaic plot: There is **little correlation between whether a person is overweight and their gender, as well as overweight/whether they smoke**, whereas there is a **large correlation between overweight/having a family history with overweight, overweight/frequent consumption of high caloric foods, overweight/calories consumption monitoring**.
+
+### Trivariate Mosaic Plot of existence of certain lifestyle habits against IsOverweight
+
+Next, we want to further analyze the correlations between these binary categorical variables and IsOverweight by plotting a multi-variate mosaic plot. We do this for the three variables in the previous binary mosaic plots that have shown to be the most correlated with `IsOverweight`, namely `SCC`, frequent consumption of high caloric foods, `FAVC` frequent consumption of high caloric food, and `family_history_with_overweight`. This **multi-variate mosaic plot** is presented in **Fig. 9**.
+
+```{r mosaic, fig.cap = "Fig. 9: Multi-variate mosaic plot visualizing family_history_with_overweight, calories consumption monitoring and frequent consumption of high caloric food vs IsOverweight", warning=FALSE, fig.width = 10, fig.height = 7}
+# Trivariate mosaic plot visualizing frequent consumption of high caloric food, calories consumption monitoring and IsOverweight
+
+data_mosaic <- data[c("FAVC", "SCC", "IsOverweight","family_history_with_overweight")] 
+data_mosaic <- dplyr::count_(data_mosaic,vars = c("family_history_with_overweight", "SCC", "FAVC", "IsOverweight"))
+
+colnames(data_mosaic)[colnames(data_mosaic) == "n"] <- "Freq"
+
+
+data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
+
+data_mosaic$SCC <- fct_relevel(data_mosaic$SCC,"no", "yes")
+
+data_mosaic$family_history_with_overweight <- fct_relevel(data_mosaic$family_history_with_overweight, "yes", "no")
+
+#data_mosaic$IsOverweight <- fct_rev(data_mosaic$IsOverweight)
+
+#data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
+
+mosaic(IsOverweight ~ family_history_with_overweight + SCC + FAVC, data = data_mosaic, direction = c("v","v","v", "h"), highlighting_fill = c("#bdd7e7","#2171b5"))
+
+```
+
+We can see that the individuals have a family history with overweight have a much higher correlation with being overweight than individuals who do not have a family history with overweight. The group that has all the unhealthy habits but has no family history with being overweight has a lower correlation with being overweight compared to all groups which have a family history of being overweight, even the group that has a family history with being overweight but no unhealthy habits. **This shows that, in the binary categorical variables, having a family history of being overweight has the highest correlation of someone actually being overweight.
+**
+
+
+### Two multivariate alluvial diagrams
+
+Lastly, we analyze the categorical ordinal variables using **two multivariate alluvial diagrams (Fig. 10a to 10c)**. These variables are "neutral" lifestyle habits such as the time on electronics (a), alcohol consumption (a), number of meals (b), water consumption a day (b), which based on common knowledge do not have appear to have a correlation with somebody's BMI. We visualized a person's physical activity frequency in a third alluvial diagram (c) for better visibility.
+
+```{r multivariate alluvial diagram}
+# Data preprocessing for the alluvial diagram
+
+data_alluvial <- data[c("Age", "NObeyesdad", "NCP", "CH2O", "FAF", "CALC", "TUE")] # selecting relevant variables
+
+# Rounding the numeric values to the nearest integer
+data_alluvial$CH2O <- as.numeric(data_alluvial$CH2O)
+data_alluvial$CH2O <- round(data_alluvial$CH2O)
+data_alluvial$NCP <- as.numeric(data_alluvial$NCP)
+data_alluvial$NCP <- round(data_alluvial$NCP)
+data_alluvial$FAF <- as.numeric(data_alluvial$FAF)
+data_alluvial$FAF <- round(data_alluvial$FAF)
+data_alluvial$TUE <- as.numeric(data_alluvial$TUE)
+data_alluvial$TUE <- round(data_alluvial$TUE)
+
+# Grouping the Overweight and Obese values of Obesity Category together to make the diagram more readable
+data_alluvial <- data_alluvial %>%
+ mutate(Obesity_Category = case_when(
+   NObeyesdad %in% c("Overweight_Level_I", "Overweight_Level_II") ~ "Overweight",
+   NObeyesdad %in% c("Obesity_Type_I", "Obesity_Type_II") ~ "Obese",
+   NObeyesdad == "Normal_Weight" ~ "Normal",
+   NObeyesdad == "Insufficient_Weight" ~ "Underweight"
+ ))
+```
+
+```{r Lifestyle habits alluvial, fig.cap = "Fig. 10a: Alluvial diagram of Obesity category vs Time on Electronics vs Alcohol consumption"}
+# Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
+
+
+# Reformatting the data to plot alluvial diagram
+data_alluvial_2 <- dplyr::count_(data_alluvial,vars = c("Obesity_Category", "FAF", "CALC", "NCP", "CH2O", "TUE"))
+
+# Renaming the Freq column
+colnames(data_alluvial_2)[colnames(data_alluvial_2) == "n"] <- "Freq"
+
+# Changing factor levels for Obesity Category
+data_alluvial_2$Obesity_Category <- factor(data_alluvial_2$Obesity_Category, levels = c("Underweight", "Normal", "Overweight", "Obese"))
+
+# Plotting the alluvial diagram
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = TUE, axis3 = FAF)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Obesity category vs Time on Electronics vs Alcohol consumption") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+```{r 2 alluvial, fig.cap = "Fig. 10b: Alluvial diagram of Obesity category vs Nb of meals vs Water consumption a day"}
+# Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
+
+# Plotting the alluvial diagram
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = NCP, axis3 = CH2O)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Obesity category vs Nb of meals vs Water consumption a day") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+
+```{r 3 alluvial, fig.cap = "Fig. 10c: Alluvial diagram of Obesity category vs Physical activity frequency (FAF)"}
+# Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
+
+# Plotting the alluvial diagram
+ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, axis2 = FAF)) +
+  geom_alluvium(aes(fill = Obesity_Category), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey80", color = "grey") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_fill_brewer(type = "qual", palette = "Set1")  + 
+  expand_limits(x = 0, y = 0) +
+  ggtitle("Obesity category vs physical activity frequency") + 
+  theme_void() +
+  theme(plot.margin = margin(0,0,0,0, "cm"))
+```
+
+From these alluvial diagrams, we can see that **there does not appear to be a clear correlation between the obesity category a person is in with these neutral lifestyle habits**, which corresponds to our intuition. What is more surprising is that **we do not see a clear correlation either between a person's obesity level and their physical activity frequency**. This could be because physical activity are both important for healthy people to maintain a healthy weight, but is also something that overweight people actively try to do to lose weight.
+
+
+<!-- these are the code for discrete variables -->
+
+<style>
+    body {
+        text-align: justify
+    }
+</style>
+

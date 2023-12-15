@@ -1,1 +1,35 @@
+<!-- 
+5 Conclusion  conclusion.qmd
+
+Discuss: main takeaways of your exploration, limitations, future directions, lessons learned.
+
+(suggested: 1/2 page)
+-->
 # Conclusion
+## Main takeaways of exploration
+- Genetic factors may or may not influence a person's BMI. Whether a person has a family history of being overweight is the most correlated binary categorical variable with whether the person is actually overweight. However,** a person's gender has little correlation with them being overweight**.
+
+- Non-dietary neutral lifestyle habits such as smoking, time on electronics, alcohol consumption, water consumption appear to have little correlation to the obesity category level of the person. This corresponds to our common knowledge that a person's weight mainly depends on their dietary habits.
+
+- A person's physical activity level also has little correlation with their weight. This could be because physical activity are both important for healthy people to maintain a healthy weight, but is also something that overweight people actively try to do to lose weight.
+
+- Dietary lifestyle factors have a strong correlation with whether a person is overweight, such as calorie consumption monitoring (negative correlation) and frequent consumption of high caloric foods (positive correlation).
+
+- Netherless, wheher a person has a family history of being overweight has a significantly greater correlation with overweight as compared to their actual lifestyle factors. **This seems to go against the common belief that people are overweight merely due to poor habits and lifestyle decisions; one does not have any control over their family history, and yet this is the variable that is the most greatly correlated with being overweight.**
+
+## Limitations
+- Researchers did not indicate which of the data was artifically generated and which were survey data, hence we aren't able to confirm that the survey was not obviously biased by verifying that distribution of height, weights and BMI of the survey data correspond to our expectations.
+
+- In the case of this exploratory data analysis, there was too much data for overweight and obese individuals (50%) vs normal weight (25%) and underweight (25%), which made it difficult to compare between the categories notably for the alluvial diagrams.
+
+## Future directions
+
+
+## Lessons learned
+
+
+<style>
+    body {
+        text-align: justify
+    }
+</style>

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -62,6 +96,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -142,8 +178,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a>
+  <ul class="collapse">
+  <li><a href="#overview-of-attributes" id="toc-overview-of-attributes" class="nav-link" data-scroll-target="#overview-of-attributes"><span class="header-section-number">2.1.1</span> Overview of attributes</a></li>
+  <li><a href="#dealing-with-class-imbalance" id="toc-dealing-with-class-imbalance" class="nav-link" data-scroll-target="#dealing-with-class-imbalance"><span class="header-section-number">2.1.2</span> Dealing with class imbalance</a></li>
+  <li><a href="#dealing-with-duplicate-rows" id="toc-dealing-with-duplicate-rows" class="nav-link" data-scroll-target="#dealing-with-duplicate-rows"><span class="header-section-number">2.1.3</span> Dealing with duplicate rows</a></li>
+  <li><a href="#need-for-new-columns" id="toc-need-for-new-columns" class="nav-link" data-scroll-target="#need-for-new-columns"><span class="header-section-number">2.1.4</span> Need for new columns</a></li>
+  </ul></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a>
+  <ul class="collapse">
+  <li><a href="#no-missing-values-in-the-dataset" id="toc-no-missing-values-in-the-dataset" class="nav-link" data-scroll-target="#no-missing-values-in-the-dataset"><span class="header-section-number">2.3.1</span> No missing values in the dataset</a></li>
+  <li><a href="#potential-methods-to-handle-missing-values" id="toc-potential-methods-to-handle-missing-values" class="nav-link" data-scroll-target="#potential-methods-to-handle-missing-values"><span class="header-section-number">2.3.2</span> Potential methods to handle missing values</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Hide-A-Pumpkin/Obesity-Data-Analysis/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Hide-A-Pumpkin/Obesity-Data-Analysis/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -167,13 +214,297 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<!-- 
+2 Data data.qmd
+
+  2.1 Technical description
+
+Identify one or more data sources (see II. D. above) that you propose to draw on for the project. For each, describe how the data are collected and by whom. Describe the format of the data, the frequency of updates, dimensions, and any other relevant information. Note any issues / problems with the data, either known or that you discover. Explain how you plan to import the data. Carefully document your sources with links to the precise data sources that you used. If that is not possible (for example if your data is not available online, then explain that clearly.)
+
+(suggested: 1 page)
+
+  2.2 Research plan
+
+Explain in detail how your data will enable you to answer your research questions from the introduction. 
+
+(suggested: 1 page)
+
+ 2.3 Missing value analysis
+
+Describe any patterns you discover in missing values. If no values are missing, graphs should still be included showing that.
+
+(suggested: 2 graphs plus commentary)
+ -->
 <section id="description" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
+<section id="overview-of-attributes" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="overview-of-attributes"><span class="header-section-number">2.1.1</span> Overview of attributes</h3>
+<p>We are using one data source for this project, presented in the research paper <a href="https://doi.org/10.1016/j.dib.2019.104344">Palechor et al.&nbsp;2019</a>, that monitors the physical health of individuals of ages 14 to 61 from the countries of Mexico, Peru and Colombia, based on their eating habits, physical condition and obesity levels. The dataset contains 17 attributes and 2111 records, and it is the biggest (in terms of both the number of rows and columns) dataset that we could find on obesity and physical health. The 17 attributes are as follows:</p>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 67%">
+<col style="width: 13%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Variable</th>
+<th>Type</th>
+<th>Subtype</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Gender</td>
+<td>Categorical</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Age</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Height</td>
+<td>Numerical</td>
+<td>Continuous</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Weight</td>
+<td>Numerical</td>
+<td>Continuous</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Family history with overweight (family_history_with_overweight)</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Frequent consumption of high caloric food (FAVC)</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Frequency of consumption of vegetables (FCVC)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Number of main meals (NCP)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Consumption of food between meals (CAEC)</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>SMOKE</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Consumption of water daily (CH2O)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Calories consumption monitoring (SCC)</td>
+<td>Categorical</td>
+<td>Binary</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Physical activity frequency (FAF)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Time using technology devices (TUE)</td>
+<td>Numerical</td>
+<td>Discrete</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Consumption of alcohol (CALC)</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Transportation used (MTRANS)</td>
+<td>Categorial</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Obesity category level (NObeyesdad)</td>
+<td>Categorical</td>
+<td>Ordinal</td>
+</tr>
+</tbody>
+</table>
+
+<!--
+1. Gender
+2. Age
+3. Height
+4. Weight
+5. Family history with overweight (family_history_with_overweight)
+6. Frequent consumption of high caloric food (FAVC)
+7. Frequency of consumption of vegetables (FCVC)
+8. Number of main meals (NCP)
+9. Consumption of food between meals (CAEC)
+10. SMOKE
+11. Consumption of water daily (CH2O)
+12. Calories consumption monitoring (SCC)
+13. Physical activity frequency (FAF)
+14. Time using technology devices (TUE)
+15. Consumption of alcohol (CALC)
+16. Transportation used (MTRANS)
+17. Obesity category level (NObeyesdad)
+-->
 </section>
-<section id="missing-value-analysis" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</h2>
+<section id="dealing-with-class-imbalance" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="dealing-with-class-imbalance"><span class="header-section-number">2.1.2</span> Dealing with class imbalance</h3>
+<p>485 rows (or 23%) of this data was collected using an online survey that was made available online for a period of 30 days (exact dates not specified), and the researchers generated the remaining 77% synthetically in order to balance out the categories of obesity levels. It is understandable that the researchers had to generate synthetic data as the categories naturally will suffer from a huge imbalance favoring people of normal weight. Obesity levels are calculated based on the person’s Body Mass Index (BMI), given by the following formula <span class="math inline">\(\frac{weight}{height*height}\)</span>. The categories of the obesity level are fixed by the World Health Organization, as follows:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Obesity level category</th>
+<th style="text-align: center;">BMI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Underweight</td>
+<td style="text-align: center;">Less than 18.5</td>
+</tr>
+<tr class="even">
+<td>Normal</td>
+<td style="text-align: center;">18.5 to 24.9</td>
+</tr>
+<tr class="odd">
+<td>Overweight I</td>
+<td style="text-align: center;">25.0 to 27.5</td>
+</tr>
+<tr class="even">
+<td>Overweight II</td>
+<td style="text-align: center;">27.5 to 29.9</td>
+</tr>
+<tr class="odd">
+<td>Obesity I</td>
+<td style="text-align: center;">30.0 to 34.9</td>
+</tr>
+<tr class="even">
+<td>Obesity II</td>
+<td style="text-align: center;">35.0 to 39.9</td>
+</tr>
+<tr class="odd">
+<td>Obesity III</td>
+<td style="text-align: center;">Higher than 40</td>
+</tr>
+</tbody>
+</table>
+<p>A person’s BMI is normally distributed, which explains why there are many more instances of people in a healthy health range as compared to other obesity level categories. By synthesizing more data for minority categories, the researchers pre-empt the fact that class imbalances will cause learning problems in the data mining methods and also difficulties when doing exploratory data analysis on this dataset. The researchers used an advanced technique to generate this data, the Synthetic Minority Oversampling TEchnique (SMOTE) technique developed by <a href="https://doi.org/10.1613/jair.953">Chawla et. al 2002</a> has shown to achieve superior results on classification tasks as compared to the typical method of simply oversampling minorities as it generates new synthetic minority data using the k-nearest neighbors machine learning algorithm. The SMOTE algorithm that was described in the paper can also be found in the Annex, Chapter 6 of this report.</p>
+<p><img src="materials/obesity-balanced.png" class="img-fluid" alt="Balanced"> <img src="materials/obesity-imbalance.png" class="img-fluid" alt="Unbalanced"></p>
+<p>These are the reasons why our team chose this obesity dataset in particular: it not only provides a large range of metrics associated with a person’s health that are generally correlated with obesity for us to analyze, but also addresses class imbalances in a reliable way.</p>
+<p>We plan to import the data directly into RStudio using the readfile function.</p>
+</section>
+<section id="dealing-with-duplicate-rows" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="dealing-with-duplicate-rows"><span class="header-section-number">2.1.3</span> Dealing with duplicate rows</h3>
+<p>The dataset contains a few duplicate rows, which could be attributed to the SMOTE algorithm. We decided to keep most of these duplicates as they are present in a very small number (2) except for one which had 15 duplicates</p>
+</section>
+<section id="need-for-new-columns" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="need-for-new-columns"><span class="header-section-number">2.1.4</span> Need for new columns</h3>
+<p>We included a new 18th attribute, BMI, so as to be able to do a regression analysis as the BMI (numerical data) provides more information than the obesity category level (categorical data).</p>
+</section>
+</section>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research plan</h2>
+<p>We intend to explore the health factors that are the most correlated with a person’s BMI or obesity level and visualize them. In the 17 attributes of our dataset, there are 5 categorical binary variables, 4 multicategorical variables and 8 continuous variables. We intend on using the techniques seen in class, such as scatter plots and boxplots, to explore this dataset.</p>
+<p>From these correlations, we will be able to draw some conclusions about the people who are the most at risk of becoming obese.</p>
+</section>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
+<section id="no-missing-values-in-the-dataset" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="no-missing-values-in-the-dataset"><span class="header-section-number">2.3.1</span> No missing values in the dataset</h3>
+<p>The data has been preprocessed by Palechor et al.&nbsp;prior to applying the SMOTE filter, as missing/anomalous data will propagate errors in the synthetic data. The researchers mentioned identifying atypical and missing data in <a href="https://doi.org/10.1016/j.dib.2019.104344">their paper</a>, but they unfortunately did not specify exactly how much data was missing or anomalous, neither did they mention how did they remedy the problem (e.g.&nbsp;using correlations between the different columns of the datasets). It is also unfortunate that the researchers did not clearly indicate which rows of the dataset were synthetically generated, and which rows were collected from the online survey, neither did they make the original raw dataset open source. Nevertheless, we appreciate the robustness and completeness of this dataset.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"scripts/xinyi-zhao_files/CleanObesityDataSet.csv"</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...1`</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>missing_values <span class="ot">&lt;-</span> <span class="fu">is.na</span>(data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape data for heatmap</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(missing_values, <span class="at">varnames =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Observation"</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the heatmap</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(long_data, <span class="fu">aes</span>(<span class="at">x =</span> Variable, <span class="at">y =</span> Observation, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"lightgreen"</span>), <span class="at">name =</span> <span class="st">"Missing"</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Professor Robbins' redav package to visualize missing data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(redav)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(data, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="1440"></p>
+</div>
+</div>
+<style>
+    body {
+        text-align: justify
+    }
+</style>
+</section>
+<section id="potential-methods-to-handle-missing-values" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="potential-methods-to-handle-missing-values"><span class="header-section-number">2.3.2</span> Potential methods to handle missing values</h3>
+<p>If our dataset were to have missing values, we would have dealt with it using one of the following methods:</p>
+<ol type="1">
+<li><p>Use <code>plot_missing()</code> from <code>redav</code> to plot the number of missing values in each column and see the missing patterns along with their counts.</p></li>
+<li><p>If there are missing patterns with correlations between the missing columns, we can see if it is possible to use the value of any of the other columns as a good predictor of the value of the column(s) with missing values, for example by doing a linear regression.</p></li>
+<li><p>If the proportion of NA values is low, we can also simply try removing NA values from only these columns and keep all the other data.</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
