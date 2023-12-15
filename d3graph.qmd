@@ -78,9 +78,25 @@ This allows users to customize the graph based on the variables they are most in
 
 ## Findings:
 
+If we choose all these variables, here is an example of interactive exploration result:
+
+![An example of interactive exploration result](scripts/parallel-coordinate.png)
+
+We had the following findings after various interactions in this graph:
+
+1. Younger people are more tend to have a normal weight or underweight, while obesity people ages have a wide age range.
+
+2. There's a clear trend of increasing weight with the progression from insufficient weight to obesity. The lines representing obesity (orange) tend to be on the higher end of the weight scale.
+
+3. The lines for overweight and obesity (yellow and orange) show high values for FCVC, suggesting that individuals in these categories tend to consume vegetables more frequently.
+
+4. Most of the number of main meals(NCP) values across all categories are around the value of 3, which suggests that independent of weight category, the majority of individuals consume around three main meals a day.
+
+5. There seems to be a clustering around lower values for the obesity category, indicating less frequent physical activity.
+
+6. As expected, the BMI increases from insufficient weight to obesity. The orange lines, indicating obesity, are consistently at the higher end of the BMI scale.
 
 
-<This section can be filled in with specific insights or patterns observed in the data as per your analysis.>
 <style>
     body {
         text-align: justify

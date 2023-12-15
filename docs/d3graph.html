@@ -214,7 +214,22 @@ Your D3/javascript code should be added to a .js file in the scripts/ folder of 
 </section>
 <section id="findings" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="findings"><span class="header-section-number">4.3</span> Findings:</h2>
-&lt;This section can be filled in with specific insights or patterns observed in the data as per your analysis.&gt;
+<p>If we choose all these variables the graph would be like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scripts/parallel-coordinate.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">An example of interactive exploration result</figcaption>
+</figure>
+</div>
+<p>After various interactions we had the following findings:</p>
+<ol type="1">
+<li><p>Younger people are more tend to have a normal weight or underweight, while obesity people ages have a wide age range.</p></li>
+<li><p>There’s a clear trend of increasing weight with the progression from insufficient weight to obesity. The lines representing obesity (orange) tend to be on the higher end of the weight scale.</p></li>
+<li><p>The lines for overweight and obesity (yellow and orange) show high values for FCVC, suggesting that individuals in these categories tend to consume vegetables more frequently.</p></li>
+<li><p>Most of the number of main meals(NCP) values across all categories are around the value of 3, which suggests that independent of weight category, the majority of individuals consume around three main meals a day.</p></li>
+<li><p>There seems to be a clustering around lower values for the obesity category, indicating less frequent physical activity.</p></li>
+<li><p>As expected, the BMI increases from insufficient weight to obesity. The orange lines, indicating obesity, are consistently at the higher end of the BMI scale.</p></li>
+</ol>
 <style>
     body {
         text-align: justify

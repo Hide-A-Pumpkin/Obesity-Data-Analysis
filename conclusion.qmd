@@ -7,7 +7,7 @@ Discuss: main takeaways of your exploration, limitations, future directions, les
 -->
 # Conclusion
 ## Main takeaways of exploration
-- Genetic factors may or may not influence a person's BMI. Whether a person has a family history of being overweight is the most correlated binary categorical variable with whether the person is actually overweight. However,** a person's gender has little correlation with them being overweight**.
+- Genetic factors may or may not influence a person's BMI. Whether a person has a family history of being overweight is the most correlated binary categorical variable with whether the person is actually overweight. However, **a person's gender has little correlation with them being overweight**.
 
 - Non-dietary neutral lifestyle habits such as smoking, time on electronics, alcohol consumption, water consumption appear to have little correlation to the obesity category level of the person. This corresponds to our common knowledge that a person's weight mainly depends on their dietary habits.
 
@@ -17,6 +17,10 @@ Discuss: main takeaways of your exploration, limitations, future directions, les
 
 - Netherless, wheher a person has a family history of being overweight has a significantly greater correlation with overweight as compared to their actual lifestyle factors. **This seems to go against the common belief that people are overweight merely due to poor habits and lifestyle decisions; one does not have any control over their family history, and yet this is the variable that is the most greatly correlated with being overweight.**
 
+- Individuals in the overweight and obesity categories also show high frequency of vegetable consumption, suggesting that eating vegatable may not help keep an individual healthy with normal weight.
+
+
+
 ## Limitations
 - Researchers did not indicate which of the data was artifically generated and which were survey data, hence we aren't able to confirm that the survey was not obviously biased by verifying that distribution of height, weights and BMI of the survey data correspond to our expectations.
 
@@ -24,9 +28,19 @@ Discuss: main takeaways of your exploration, limitations, future directions, les
 
 ## Future directions
 
+We suggest researchers prioritizing the following directions in their future research:
+
+
+- In-Depth Dietary Analysis: There seems to be a paradox of high vegetable consumption among obese individuals; looking into meal composition, portion sizes, and the overall caloric balance of diets can help understand the context of these dietary patterns.
+
+- Diverse Population Studies: Expanding the research to include a more diverse population sample to validate the findings and assess the generalizability of the results.
+
+- Controlled Intervention Trials: Though we find little influence of obesity from physical activity frequency and technical device use, it's not definite. Researchers could expand research on implementing and analyzing the outcomes of lifestyle intervention programs focusing on diet and physical activity.
 
 ## Lessons learned
 
+We should distinguish between artificial and survey data to ensure the validity of the study's conclusions.
+Also, ensuring a balanced representation of different categories in the data is crucial for making accurate comparisons and avoiding bias in the findings.
 
 <style>
     body {
