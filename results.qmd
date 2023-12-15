@@ -362,7 +362,7 @@ We can see that the individuals have a family history with overweight have a muc
 
 ### Two multivariate alluvial diagrams
 
-Lastly, we analyze the categorical ordinal variables using **two multivariate alluvial diagrams (Fig. 10a and 10b)**. These variables are "neutral" lifestyle habits such as the time on electronics, alcohol consumption, number of meals, water consumption a day, which based on common knowledge do not have appear to have a correlation with somebody's BMI.
+Lastly, we analyze the categorical ordinal variables using **two multivariate alluvial diagrams (Fig. 10a to 10c)**. These variables are "neutral" lifestyle habits such as the time on electronics (a), alcohol consumption (a), number of meals (b), water consumption a day (b), which based on common knowledge do not have appear to have a correlation with somebody's BMI. We visualized a person's physical activity frequency in a third alluvial diagram (c) for better visibility.
 
 ```{r multivariate alluvial diagram}
 # Data preprocessing for the alluvial diagram
@@ -413,7 +413,7 @@ ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, a
   theme_void() +
   theme(plot.margin = margin(0,0,0,0, "cm"))
 ```
-```{r Dietary habits alluvial, fig.cap = "Fig. 10b: Alluvial diagram of Obesity category vs Nb of meals vs Water consumption a day"}
+```{r 2 alluvial, fig.cap = "Fig. 10b: Alluvial diagram of Obesity category vs Nb of meals vs Water consumption a day"}
 # Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
 
 # Plotting the alluvial diagram
@@ -428,7 +428,7 @@ ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, a
   theme(plot.margin = margin(0,0,0,0, "cm"))
 ```
 
-```{r Dietary habits alluvial, fig.cap = "Fig. 10c: Alluvial diagram of Obesity category vs Physical activity frequency (FAF)"}
+```{r 3 alluvial, fig.cap = "Fig. 10c: Alluvial diagram of Obesity category vs Physical activity frequency (FAF)"}
 # Acronyms: CALC (consumption of alcohol), TUE (time on electronics), FAF (physical activity), CH2O (daily water), NCP (number of main meals)
 
 # Plotting the alluvial diagram
@@ -443,7 +443,7 @@ ggplot(as.data.frame(data_alluvial_2), aes(y = Freq, axis1 = Obesity_Category, a
   theme(plot.margin = margin(0,0,0,0, "cm"))
 ```
 
-From these alluvial diagrams, we can see that **there does not appear to be a clear correlation between the obesity category a person is in with these neutral lifestyle habits, which corresponds to our intuition**.
+From these alluvial diagrams, we can see that **there does not appear to be a clear correlation between the obesity category a person is in with these neutral lifestyle habits**, which corresponds to our intuition. What is more surprising is that **we do not see a clear correlation either between a person's obesity level and their physical activity frequency**. This could be because physical activity are both important for healthy people to maintain a healthy weight, but is also something that overweight people actively try to do to lose weight.
 
 
 <!-- these are the code for discrete variables -->

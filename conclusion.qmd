@@ -11,6 +11,8 @@ Discuss: main takeaways of your exploration, limitations, future directions, les
 
 - Non-dietary neutral lifestyle habits such as smoking, time on electronics, alcohol consumption, water consumption appear to have little correlation to the obesity category level of the person. This corresponds to our common knowledge that a person's weight mainly depends on their dietary habits.
 
+- A person's physical activity level also has little correlation with their weight. This could be because physical activity are both important for healthy people to maintain a healthy weight, but is also something that overweight people actively try to do to lose weight.
+
 - Dietary lifestyle factors have a strong correlation with whether a person is overweight, such as calorie consumption monitoring (negative correlation) and frequent consumption of high caloric foods (positive correlation).
 
 - Netherless, wheher a person has a family history of being overweight has a significantly greater correlation with overweight as compared to their actual lifestyle factors. **This seems to go against the common belief that people are overweight merely due to poor habits and lifestyle decisions; one does not have any control over their family history, and yet this is the variable that is the most greatly correlated with being overweight.**
