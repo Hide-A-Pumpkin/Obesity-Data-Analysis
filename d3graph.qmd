@@ -1,13 +1,91 @@
+<!-- 
+4 Interactive (or animated) component in D3  d3graph.qmd
+
+Select one (or more) of your key findings to present in an interactive or animated format using D3. Be thoughtful about how you use interactivity and/or animation: using these features to add value in a way that would not be possible with a static graph. 
+
+Design with the goal of users walking away with a new understanding of the data and a clear understanding of the purpose of the visualization. If the tool is interactive, provide clear instructions on how the user should engage. Thoughtfulness and originality is more important than technical prowess; in all aspects of the project, think quality, not quantity. 
+
+Interactive graphs must follow all of the best practices as with static graphs in terms of perception, labeling, accuracy, etc.
+
+Your D3/javascript code should be added to a .js file in the scripts/ folder of your repo. This videoLinks to an external site. explains how to set this up properly. The same material is also available in this chapterLinks to an external site..
+-->
+
 # Interactive graph
 
 <style>
-  * {
+  /* * {
     font-family: sans-serif;
-  }
-</style> 
+  } */
+</style>
+
 
 <div id="plot">
+  <form id="selectionForm">
+          <input type="checkbox" id="age" name="variables" value="Age">
+          <label for="age">Age</label>
+          <input type="checkbox" id="height" name="variables" value="Height">
+          <label for="height">Height</label>
+          <input type="checkbox" id="weight" name="variables" value="Weight">
+          <label for="weight">Weight</label>
+          <input type="checkbox" id="fcvc" name="variables" value="FCVC">
+          <label for="fcvc">FCVC</label>
+          <input type="checkbox" id="ncp" name="variables" value="NCP">
+          <label for="ncp">NCP</label>
+          <input type="checkbox" id="faf" name="variables" value="FAF">
+          <label for="faf">FAF</label>
+          <input type="checkbox" id="tue" name="variables" value="TUE">
+          <label for="tue">TUE</label>
+          <input type="checkbox" id="bmi" name="variables" value="BMI">
+          <label for="bmi">BMI</label>
+      <button type="button" onclick="updateVisualization()">Update</button>
+  </form>
+<div id='my_dataviz'></div>
 </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Create a div where the graph will take place -->
+
+
+## Introduction to the d3 interactive visualization:
+
+Here is the parallel coordinate plot we created using d3.
+The color of each line in the graph represents a category of obesity. 
+This categorization makes it easier to visually distinguish different types of obesity data.
+A legend on the right side of the graph will explain the color coding, clarifying which color corresponds to which type of obesity.
+
+
+Users can manually select which columns they want to visualize using a selection form with checkboxes.
+The form includes options for various variables like Age, Height, Weight, FCVC, NCP, FAF, TUE, BMI and NObeyesdad.
+After making their selections, users can click an 'Update' button to refresh the visualization with their chosen columns.
+
+This allows users to customize the graph based on the variables they are most interested in.
+
+## Interactive Features:
+
+- Dragging Axis: Users can drag the axes to reorder them. This feature is useful for exploring the relationships between different variables more effectively.
+
+- Brush Selection Ranges: This allows users to select specific ranges on each axis. Only data points that fall within all selected ranges across the axes will be displayed.
+
+- Hovering and Highlighting: When a user hovers over a particular category of data, that category will be highlighted. This makes it easier to focus on and analyze specific subsets of the data.
+
+## Findings:
+
+
+
+<This section can be filled in with specific insights or patterns observed in the data as per your analysis.>
+<style>
+    body {
+        text-align: justify
+    }
+    .selection-panel {
+    margin-bottom: 20px;
+    }
+</style>

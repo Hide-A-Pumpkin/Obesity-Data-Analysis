@@ -1,0 +1,172 @@
+```{r,fig.height=6, fig.width=10}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(ggalluvial)
+
+data <- read_csv('CleanObesityDataSet.csv',show_col_types = FALSE)
+
+data_pca <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "CALC", "TUE")]
+
+
+
+data_pca
+```
+
+```{r}
+# Install and load the 'vcd' package
+library(vcd)
+
+# Assuming 'data' is your dataset
+data_mosaic <- data[c("Gender", "family_history_with_overweight", "FAVC", "SCC", "IsOverweight")]
+
+# Create a multivariate mosaic plot
+mosaic(data_mosaic, shade = TRUE, legend = TRUE,
+       labeling_args = list(gp_labels = gpar(fontsize = 8)),
+       labeling = TRUE, gp = gpar(fontsize = 12),
+       gp_text = gpar(fontsize = 10), direction = c("v", "h", "v", "v", "v"))
+
+# If you want to save the plot to a file, you can use the following line
+# savePlot("multivariate_mosaic_plot.png", type = "png")
+
+
+```
+
+```{r}
+data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
+
+library(forcats)
+
+data_mosaic$family_history_with_overweight <- fct_rev(data_mosaic$family_history_with_overweight)
+
+
+# Create a contingency table
+contingency_table <- table(data_mosaic$Gender, data_mosaic$IsOverweight)
+
+# Create a mosaic plot
+png("mosaic_FamHistory_IsOverweight.png")
+
+mosaicplot(contingency_table, main = "Mosaic Plot", xlab = "Family History with Overweight", ylab = "Is Overweight", col = c("pink", "brown"))
+
+dev.off()
+
+```
+
+```{r}
+# Create a mosaic plot for each variable in the table plotted against 'IsOverweight'
+
+data_mosaic <- data[c("Gender", "family_history_with_overweight","FAVC","SMOKE","SCC","IsOverweight")]
+
+data_mosaic$family_history_with_overweight <- fct_relevel(data_mosaic$family_history_with_overweight, "yes", "no")
+
+data_mosaic$SMOKE <- fct_relevel(data_mosaic$SMOKE, "yes", "no")
+
+data_mosaic$FAVC <- fct_relevel(data_mosaic$FAVC, "yes", "no")
+
+data_mosaic$SCC <- fct_relevel(data_mosaic$SCC, "yes", "no")
+
+
+data_mosaic$IsOverweight <- as.character(data_mosaic$IsOverweight)
+data_mosaic$IsOverweight <- fct_relevel(data_mosaic$IsOverweight, "0", "1")
+
+for(var in names(data_mosaic)[names(data_mosaic) != "IsOverweight"]) {
+# png(paste0("mosaic_", var, "_IsOverweight.png"))
+ contingency_table <- table(data_mosaic[[var]],data_mosaic$IsOverweight)
+ mosaicplot(contingency_table, main = paste("Mosaic Plot for", var), ylab = "Is Overweight", xlab = var, col = c("pink", "brown"))
+# dev.off()
+}
+
+
+
+```
+
+```{r}
+values <- c(-11,-8,3,5,6,8,9,12,13,15,28,32,35)
+boxplot(values, main = "Boxplot of Given Values", xlab = "Values", ylab = "Frequency")
+five_number_summary <- fivenum(values)
+print(five_number_summary)
+
+numbers <- c(99, 90, 86, 88, 95, 87, 85, 89)
+sorted_numbers <- sort(numbers)
+print(sorted_numbers)
+
+
+#calculate five number summary of points column
+fivenum(c(85, 85, 87, 88, 89, 90, 98, 99,100))
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("Weight", "BMI")]
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("Weight", "BMI")]
+
+png("biplot_BMI_Weight.png")
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+
+dev.off()
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("Height", "BMI")]
+
+png("biplot_BMI_Height.png")
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+
+dev.off()
+```
+
+```{r}
+library(redav)
+library(calibrate)
+
+data_pca <- data[c("NCP", "BMI")]
+
+png("biplot_BMI_NCP.png")
+
+draw_biplot(data_pca, mult = 3) + 
+  ggplot2::ggtitle("Obesity", 
+          sub = "points: cd, vectors: indicators") 
+
+dev.off()
+```
+
+```{r, fig.height = 10, fig.width = 10}
+library(GGally)
+set.seed(123456)
+
+data <- data %>%
+ mutate_if(is.numeric, scale)
+
+data_num <- data[c("Age", "Height", "Weight", "NCP", "CH2O", "FAF", "TUE","BMI")]
+
+# Convert all columns to numeric
+data_num <- sapply(data_num, as.numeric)
+
+# Sample 1000 points for clearer visualization
+data_sampled <- sample_n(as.data.frame(data_num), 100)
+
+ggpairs(as.data.frame(data_sampled), aes(alpha = 0.2, size = 0.01))
+
+```
